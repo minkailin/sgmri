@@ -1,0 +1,81 @@
+real*8 function alfven(znorm)
+  !SQUARE of alfven speed, normalized
+  use global
+  implicit none
+  real*8 :: znorm 
+  real*8, external :: density
+  
+  alfven = 1d0/(beta*density(znorm))
+  return
+end function alfven
+
+
+
+
+
+fQ*Tpp(i,:) - (dsbar/sbar)*fQ*Tp(i,:) &
+          + eta(i)*(       c0*ii*sig*Tpp(i,:) &
+                     + 2d0*c1*ii*sig*Tp(i,:)  &
+                     +     c2*ii*sig*T(i,:) ) &
+          + (2d0*deta(i) - eta(i)*dsbar/sbar)*(   c0*ii*sig*Tp(i,:)  &
+                                                + c1*ii*sig*T(i,:) ) &
+          +(d2eta(i) - ii*sbar - deta(i)*dsbar/sbar)*( c0*ii*sig*T(i,:) )
+i
+
+
+
+!     L12(i,:) =  eta(i)*(    -c0*2d0*Tpp(i,:) &
+!                        -2d0*c1*2d0*Tp(i,:) &
+!                            -c2*2d0*T(i,:) ) &
+!               + (2d0*deta(i) - eta(i)*dsbar/sbar)*( - c0*2d0*Tp(i,:)  &
+!                                                     - c1*2d0*T(i,:) ) &
+!               + (d2eta(i) - ii*sbar - deta(i)*dsbar/sbar)*(-c0*2d0*T(i,:) ) 
+
+
+     L13(i,:) = eta(i)*(       c0*ii*fkx*Tpp(i,:) &
+!                         + 2d0*c1*ii*fkx*Tp(i,:) &
+!                         +     c2*ii*fkx*T(i,:) ) &
+!          + (2d0*deta(i) - eta(i)*dsbar/sbar)*(   c0*ii*fkx*Tp(i,:)  &
+!                                                + c1*ii*fkx*T(i,:) ) &
+!          +(d2eta(i) - ii*sbar - deta(i)*dsbar/sbar)*( c0*ii*fkx*T(i,:) )
+
+
+
+!     L15(i,:) = -ii*kx*eta(i)*Tp(i,:) + ii*kx*( eta(i)*dsbar/sbar - deta(i) )*T(i,:) &
+!               + eta(i)*ii*kx*Tpp(i,:) &
+!               + (2d0*deta(i) - eta(i)*dsbar/sbar)*ii*kx*Tp(i,:) &
+!               + (d2eta(i) - ii*sbar - deta(i)*dsbar/sbar)*ii*kx*T(i,:) 
+
+!     L21(i,:) =  eta(i)*(    c0*kappa2*Tpp(i,:)/2d0 &
+!                          +  c1*kappa2*Tp(i,:) &
+!                          +  c2*kappa2*T(i,:)/2d0 ) &
+!                 +(2d0*deta(i) - eta(i)*dsbar/sbar)*( c0*kappa2*Tp(i,:)/2d0 &  
+!                                                     +c1*kappa2*T(i,:)/2d0 )&
+!                 +(d2eta(i) - ii*sbar - deta(i)*dsbar/sbar)*( c0*kappa2*T(i,:)/2d0) &
+!                 +( dsbar*shear*eta(i)/(ii*sbar**2d0) )*( c0*ii*sig*Tp(i,:) &
+!                                                         +c1*ii*sig*T(i,:) )&
+!                 +shear*( dsbar*deta(i)/(ii*sbar**2d0) - 1d0)*( c0*ii*sig*T(i,:) ) &
+!                 +( dsbar*shear*fQ/(ii*sbar**2d0) )*Tp(i,:)
+      L21(i,:) = sig*vasq*( -ii*sig*c0*(shear + kappa2/2d0)*T(i,:) )/shear
+
+!     L22(i,:) =  fQ*Tpp(i,:) - (fQ*dsbar/sbar)*Tp(i,:) &
+!                +  eta(i)*(       c0*ii*sig*Tpp(i,:)   &
+!                           +  2d0*c1*ii*sig*Tp(i,:)    &
+!                           +      c2*ii*sig*T(i,:) )   &
+!                 +(2d0*deta(i) - eta(i)*dsbar/sbar)*(  c0*ii*sig*Tp(i,:) &  
+!                                                     + c1*ii*sig*T(i,:) )&
+!                 +(d2eta(i) - ii*sbar -   deta(i)*dsbar/sbar)*(c0*ii*sig*T(i,:) ) &
+!                 +( dsbar*shear*eta(i)/(ii*sbar**2d0) )*( -c0*2d0*Tp(i,:) &
+!                                                          -c1*2d0*T(i,:) ) &
+!                 +shear*( dsbar*deta(i)/(ii*sbar**2d0) - 1d0)*( -c0*2d0*T(i,:) )
+      L22(i,:) = sig*vasq*( fQ*Tpp(i,:) +c0*(sig*sig + 2d0*shear)*T(i,:) )/shear
+
+!     L25(i,:) = ( dsbar*shear*eta(i)/(ii*sbar**2d0) )*ii*kx*Tp(i,:) &
+!               +shear*( dsbar*deta(i)/(ii*sbar**2d0) - 1d0)*ii*kx*T(i,:) &
+!               -(dsbar*shear/sbar**2d0)*kx*eta(i)*T(i,:)             
+      L25(i,:) = -shear*ii*kx*T(i,:)  
+
+!     L23(i,:) = ( dsbar*shear*eta(i)/(ii*sbar**2d0) )*( c0*ii*fkx*Tp(i,:) &
+!                                                       +c1*ii*fkx*T(i,:) )&
+!               +shear*( dsbar*deta(i)/(ii*sbar**2d0) - 1d0)*(c0*ii*fkx*T(i,:) )
+!      L23(i,:) = sig*vasq*( -shear*c0*ii*fkx*T(i,:) )/shear

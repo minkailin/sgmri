@@ -1,0 +1,24 @@
+\begin{thebibliography}{6}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Abramowitz} \& {Stegun}(1965)}]{stegun65}
+{Abramowitz}, M., \& {Stegun}, I.~A. 1965, {Handbook of mathematical functions
+  with formulas, graphs, and mathematical tables}, ed. {Abramowitz, M.~\&
+  Stegun, I.~A.}
+
+\bibitem[{{Fleming} \& {Stone}(2003)}]{fleming03}
+{Fleming}, T., \& {Stone}, J.~M. 2003, \apj, 585, 908
+
+\bibitem[{{Goldreich} \& {Lynden-Bell}(1965{\natexlab{a}})}]{goldreich65a}
+{Goldreich}, P., \& {Lynden-Bell}, D. 1965{\natexlab{a}}, \mnras, 130, 97
+
+\bibitem[{{Goldreich} \& {Lynden-Bell}(1965{\natexlab{b}})}]{goldreich65b}
+---. 1965{\natexlab{b}}, \mnras, 130, 125
+
+\bibitem[{{Lin}(2012)}]{lin12}
+{Lin}, M.-K. 2012, \apj, 754, 21
+
+\bibitem[{{Mamatsashvili} \& {Rice}(2010)}]{mamat10}
+{Mamatsashvili}, G.~R., \& {Rice}, W.~K.~M. 2010, \mnras, 406, 2050
+
+\end{thebibliography}

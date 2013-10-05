@@ -1,0 +1,118 @@
+\section{Linear problem}\label{linear}
+We consider axisymmetric Eulerian perturbations to the above
+equilibrium in the form $\real[\dd\rho(z)\exp{\imgi(k_xx + \sigma
+    t)}]$ and similarly for other fluid variables. Here, $k_x$ is a constant radial wavenumber and 
+$\sigma=-(\omega +\imgi\gamma)$ is a complex 
+frequency, where $-\omega$ is the real mode frequency and $\gamma$ is
+the growth rate. Hereafter, we surpress the exponential factor, as
+well as the real part notation.  We further write 
+\begin{align}
+  &z=\hat{z}H,\quad k_x =  k_x/H,\quad \sigma = \hat{\sigma}\Omega, \quad \delta\bm{v} = \csmid
+  \delta\hat{\bm{v}}, \\ 
+  &\delta\bm{B} = B\delta\hat{\bm{B}},\quad
+  \delta\rho = \rho\hat{W}/\hat{c}_s^2,\quad \delta\Phi =
+  \csmid^2\delta\hat{\Phi}, 
+\end{align}
+where we have introduced the non-dimensional enthalpy perturbation
+$\hat{W}$ and the sound-speed $\hat{c}_s=\csmid^{-1}\sqrt{dP/d\rho}$ can be 
+obtained from the equation of state. The background frequencies are
+written $S=\hat{S}\Omega$ and $\Omega_z=\hat{\Omega}_z\Omega$ and the 
+resistivity as $\eta = \hat{\eta}H^2\Omega$. 
+
+We will now drop the $\hat{\phantom{a}}$ notation. Henceforth it is
+understood that all variables have been appropriately normalized. The
+linearized continuity equation is 
+\begin{align}
+  \frac{\imgi\sigma}{fc_s^2}W + \imgi k_x \dd v_x
+  +\left(\ln\rho\right)^\prime\dd v_z + \dd v_z^\prime = 0,\label{lin_cont}
+\end{align}
+where $^\prime$ denotes $d/dz$. The linearized equations of motion are
+\begin{align}
+  &\imgi\sigma \dvx - 2\dvy = f\left[v_A^2\dbx^\prime - \imgi k_x
+    \left(\w + v_A^2\dbz
+    \right)\right],\\
+  &\imgi\sigma\dvy + \frac{\kappa^2}{2}\dvx = fv_A^2\dby^\prime,\\
+  & \imgi\sigma\dvz = -f\w^\prime,
+\end{align}
+where the Alfven speed $v_A =
+\left(\beta\rho\right)^{-1/2}$, the effective enthalpy perturbation
+$\w = W + \dphi$ and the epicycle frequency $\kappa=\sqrt{2(2-S)}$. 
+The linearized induction equation is
+\begin{align}
+&  \imgi\bar{\sigma}\dbx = f\dvx^\prime +
+  \eta\dbx^{\prime\prime}+\eta^\prime\dbx^\prime - \imgi k_x
+  \eta^\prime \dbz,\label{induct_x}\\
+&\imgi\bar{\sigma}\dby = f\dvy^\prime - S\dbx +
+  \eta\dby^{\prime\prime}+\eta^\prime\dby^\prime,\label{induct_y}\\
+& \imgi\bar{\sigma}\dbz = -\imgi f k_x \dvx + \eta\dbz^{\prime\prime}, \label{induct_vert}
+\end{align}
+where $\imgi\bar{\sigma} = \imgi\sigma + \eta k_x^2$, and the
+divergence-free condition is $\imgi k_x\dbx + \dbz^\prime=0$. Finally,
+the linearized Poisson equation is
+\begin{align}
+  \dphi^{\prime\prime} - k_x^2\dphi = \frac{\rho}{c_s^2f^2Q}W.  \label{lin_poisson}
+\end{align}
+
+We now eliminate $\dd\bm{B}$ and $\dvz$ between the linearized
+equations to obtain a system of ordinary differential equations for
+$\bm{U}=\left(\dvx,\dvy,W,\dphi\right)$. We detail this technical
+procedure in Appendix \ref{reduction}. The schematic problem is
+\begin{align}
+  L_{11}\dvx + L_{12}\dvy + L_{13}W + L_{14}\dphi &= 0, \label{lin1}\\
+  L_{21}\dvx + L_{22}\dvy + L_{23}W + L_{24}\dphi &= 0, \label{lin2}\\
+  L_{31}\dvx \quad\quad\quad\,\,\,\,\,\,\, + L_{33}W + L_{34}\dphi &=0,\label{lin3}\\
+  \phantom{L_{31}\dvx + L_{22}\dvy +} L_{43}W + L_{44}\dphi
+  &=0\label{lin4}, 
+\end{align}
+where the differential operators $L_{1j}$, $L_{2j}$ and $L_{3j}$ can
+be read off Eq. \ref{final_vx}, Eq. \ref{final_vy} and 
+Eq. \ref{final_w} respectively, and $L_{4j}$ from
+Eq. \ref{lin_poisson}. 
+
+Note that $L_{31}\propto k_x$, so that if $k_x=0$ 
+then Eq. \ref{lin1}---\ref{lin2} are decoupled from 
+Eq. \ref{lin3}---\ref{lin4}. 
+
+\subsection{Boundary conditions}
+We assume $\bm{U}$ is an even function of $z$, so that $d\bm{U}/dz=0$
+at $z=0$. This implies that $\dbx=\dby=0$ at the midplane, consistent
+with a highly resistive dead zone. At the upper disk boundary
+$z=\zmax$ we assume 
+$\dvz=\dbx=\dby=0$, and 
+\begin{align}
+  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0
+\end{align}
+for the potential perturbation \citep[see][]{goldreich65a}.  
+
+\subsection{Numerical procedure}
+We use a pseudo-spectral approach to solve the set of linearized
+equations. Let
+\begin{align}\label{cheby_expand}
+  \bm{U}(z) 
+  = \sum_{k=1}^{N_z} \bm{U}_k\psi_k(z/\zmax), 
+\end{align}
+where $  \psi_k  = T_{2(k-1)},  $ and  $T_l$ is a Chebyshev polynomial of the first
+kind of order $l$ \citep{stegun65}. %The number of basis functions is
+%$N_z$ and $l_\mathrm{max}=2(N_Z-1)$ is the highest polynomial order. 
+Note that we only use even Chebyshev polynomials which automatically satisifies the symmetry 
+condition at $z=0$. Henceforth we only consider $z\geq 0$. 
+The pseudo-spectral coefficients $\bm{U}_n$  are obtained by demanding
+the set of linear equations to be satisfied at $N_z$ collocation
+points along the vertical direction. We choose these points as the
+extrema of $T_{2(N_z-1)}$ plus end points. 
+
+This procedure discretizes the linear equations to a matrix equation,
+\begin{align}\label{matrix_eqn}
+\bm{M}\bm{w} = 0, 
+\end{align}
+where $\bm{M}$ is a $4N_z\times 4 N_z$ matrix representing the $L_{ij}$ 
+and upper disk boundary conditions, 
+and $\bm{w}$ is a vector storing the pseudo-spectral coefficients. 
+Starting with an initial guess for $\sigma$, non-trivial solutions to
+Eq. \ref{matrix_eqn} are obtained by varying $\sigma$ using Newton-Raphson iteration 
+such that $\mathrm{det}\bm{M}=0$ \citep[details can be found in][]{lin12}.
+
+\subsection{Diagnostics}
+
+
+ 

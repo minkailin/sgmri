@@ -1,0 +1,32 @@
+&params bigQ   =  10., 
+        beta   =  100.,
+        kx     =  0.05,  
+        var    = 'grav',
+        shear  = 1.5,  
+        kmin   = 0.05,
+        kmax   = 1.05,
+        qmin   = 0.2,
+        qmax   = 10.2,
+        bmin   = 40.,
+        bmax   = 40., 
+        eos    = 'iso' / 
+&resis  Rm     = 100,             !this is actually elsasser no. at z=0. real rm is this no. times beta 
+        amp    = 1.0,               !conductivity boost from midplane to surface 
+        zstar  = 0.2,             !n/a
+        dzstar = 0.1 /            !n/a
+&grid   zmax   = 2.0,  
+        nz     = 128,
+        nk     = 51 /
+&eigen  method     ='svd', 
+        min_growth = 0.0,
+        max_growth = 1.0,
+        ntrials    = 100,
+        prin       = .false. ,
+        refine     = .true. /
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       var = 'grav' -> vary Q
+!       var = 'beta' -> vary beta 
+!       var = 'wave' -> vary kx 
+!       nk is no. of samples. 
+!       nk=1 -> fixed parameters 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

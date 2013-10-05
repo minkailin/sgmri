@@ -1,0 +1,87 @@
+%\documentclass[12pt]{aastex}
+\documentclass[iop]{emulateapj}
+%\documentclass{article}
+\usepackage{draftwatermark}
+\usepackage{paralist}
+\shorttitle{MRI in massive disks}
+\shortauthors{M-K. Lin}
+
+\usepackage{amsmath}
+%\usepackage{url}
+\usepackage{bm}
+%\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\newcommand{\p}{\partial}
+\newcommand{\lmax}{l_\mathrm{max}}
+\newcommand{\sbar}{\bar{\sigma}} 
+\newcommand{\imgi}{\mathrm{i}} 
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\C}{\mathcal{C}^\lambda}
+\newcommand{\wop}[1]{\mathcal{V}^{(#1)}}
+\newcommand{\avg}[1]{\langle{#1}\rangle}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\he}{\mathcal{H}}
+\newcommand{\amp}{\mathcal{A}}
+\newcommand{\dd}{\delta}
+\newcommand{\real}{\operatorname{Re}}
+\newcommand{\imag}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\zmax}{Z_s}
+\newcommand{\wbar}{\tilde{W}}
+\newcommand{\qbar}{\tilde{Q}}
+\newcommand{\dbigH}{\frac{H^\prime}{H}}
+\newcommand{\Rp}{\frac{\rho_0^\prime}{\rho_0}}
+\newcommand{\Fp}{\frac{g^\prime}{g}}
+\newcommand{\Rpp}{\frac{\rho_0^{\prime\prime}}{\rho_0}}
+\newcommand{\Fpp}{\frac{g^{\prime\prime}}{g}}
+\newcommand{\ils}{L_s^{-1}}
+\newcommand{\ilp}{L_p^{-1}}
+\newcommand{\ihp}{H_p^{-1}}
+\newcommand{\ihs}{H_s^{-1}}
+\newcommand{\ciso}{c_\mathrm{iso}}
+\newcommand{\csmid}{c_{s0}} 
+\newcommand{\hiso}{h_\mathrm{iso}}
+\newcommand{\Hiso}{H_\mathrm{iso}}
+\newcommand{\zeus}{\texttt{ZEUS-MP }}
+\newcommand{\rsph}{r_\mathrm{sph}}
+\defcitealias{lin12}{L12} 
+
+\begin{document}
+
+ \title{Resistive magneto-rotational instability in massive
+  protoplanetary disks}
+
+
+\author{Min-Kai Lin}
+\affil{Canadian Institute for Theoretical Astrophysics,
+  60 St. George Street, Toronto, ON, M5S 3H8, Canada}
+\email{mklin924@cita.utoronto.ca}
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+
+
+\input{setup}
+\input{linear}
+%\input{results}
+%\input{iso}
+%\input{summary}
+
+%% \acknowledgments
+%% {\bf
+%% I thank the referee, P. Barge, for suggesting the idea of a tilted vorticity column. }
+%% I also thank S.-J. Paardekooper for comments on the first version of this paper. 
+
+
+\appendix
+\input{appendix}
+
+\bibliographystyle{apj}
+\bibliography{ref}
+
+
+\end{document}
+

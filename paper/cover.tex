@@ -1,0 +1,52 @@
+% Cover letter using letter.sty
+\documentclass{letter} % Uses 10pt
+%Use \documentstyle[newcent]{letter} for New Century Schoolbook postscript font
+% the following commands control the margins:
+\topmargin=-1in    % Make letterhead start about 1 inch from top of page 
+\textheight=4in  % text height can be bigger for a longer letter
+\oddsidemargin=0pt % leftmargin is 1 inch
+\textwidth=6.5in   % textwidth of 6.5in leaves 1 inch for right margin
+
+\begin{document}
+
+\signature{Min-Kai Lin}           % name for signature 
+\longindentation=0pt                       % needed to get closing flush left
+\let\raggedleft\raggedright                % needed to get date flush left
+ 
+ 
+\begin{letter}{The Editor, The Astrophysical Journal}
+
+
+\begin{flushleft}
+{\large\bf Min-Kai Lin}
+\end{flushleft}
+\medskip\hrule height 1pt
+\begin{flushright}
+\hfill Canadian Institute for Theoretical Astrophysics, \\
+\hfill 60 St. George Street, Toronto, ON \\
+\hfill M5S 3H8, Canada\\
+\hfill +1 647 896 4314
+\end{flushright} 
+\vfill % forces letterhead to top of page
+
+ 
+\opening{Dear Editor,} 
+ 
+I am writing to submit the second revised manuscript for `Non-barotropic linear Rossby wave instability
+in three-dimensional disks'. I include a list of revisions made in light of the reviewer's comments. 
+
+\closing{Yours sincerely,} 
+ 
+ 
+%\encl{}  				% Enclosures
+
+\end{letter}
+ 
+
+\end{document}
+
+
+
+
+
+

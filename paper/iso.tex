@@ -1,0 +1,330 @@
+\section{Isothermal limit}\label{isothermal}
+We now examine the limit $\Gamma\to 1$, where the unperturbed disk becomes isothermal
+, but perturbations are evolved with an adiabatic index
+$\gamma=1.4$. We consider a nearly-isothermal polytropic background
+and strictly isothermal backgrounds. These cases are treated
+separately because the equilibrium structures have different
+functional forms. A comparison between them provide another
+check on our numerical results. 
+
+\subsection{Large polytropic index}
+We first consider setting $n=10$ to produce an almost radially
+isothermal equilibrium with $p\propto \rho^{1.1}$. This allows us to use the
+numerical code as set up for polytropic equilibria without
+modification. We also adopt $A=2.5$ and $h=0.25$ for reasons given
+in \S\ref{varpolyn}. The relatively large aspect-ratio does not
+violate the thin-disk approximation as large $n$ implies the 
+density decays rapidly away from the midplane. Also because of this,
+we set the upper disk boundary at $Z_s=0.6$ to avoid very low 
+densities. %All other parameters are the same as before. 
+
+%3d-ness of core is 0.55
+%3d-ness averaged over 0.9, 1.1 is 0.37
+%%  Despite the larger
+%% value of $\gamma/\Gamma$ than case 8 (see Table \ref{linsims}), the flow
+%% three-dimensinality is the same.   
+
+For this setup we obtained $\omega/m\Omega_0=0.9883$,
+$\nu/\Omega_0=0.1375$ and $\avg{\theta_m}=0.35$. The top panel of
+Fig. \ref{polyn10} shows the meridional flow at the vortex core. The
+vortical motion is distinct and more apparent than case 3a, despite
+the smaller value of $\gamma/\Gamma$ in the present case. 
+However, apart from this difference, the solution is qualitatively
+similar to case 3a.   
+
+\begin{figure}[!t]
+  \centering
+  %% \includegraphics[scale=.425,clip=true,trim=0cm 1.cm 0cm
+  %%   0cm]{figures/n10.0_gmma1.4_wq_3d_real_zslices.ps}
+  \includegraphics[scale=.425,clip=true,trim=0cm 1.83cm 0cm
+    0.25cm]{figures/n10.0_gmma1.4_vel3d_rz_dvz_nofill.ps}
+   \includegraphics[scale=.425,clip=true,trim=0cm 0cm 0cm
+    0.25cm]{figures/iso_vel3d_rz_dvz_nofill.ps}
+  \caption{Perturbed meridional flow at $\phi=\phi_0$ for a $n=10$
+    polytropic disk equilibrium (top) and a strictly isothermal
+    equilibrium (bottom). 
+    \label{polyn10}}
+\end{figure}
+
+
+
+\subsection{Strictly isothermal equilibrium}
+%Because we have formulated the linear problem in terms of entropy and
+%pressure length-scales, in order to calculate the RWI for strictly
+%isothermal disks, we can just replace 
+Modifications to our standard setup are required to treat  
+disk equilibria with $p=\ciso^2\rho$ ($\Gamma\equiv 1$), where 
+the constant sound speed $\ciso=\Hiso\Omega_k$, $\Hiso=\hiso
+r_0(r/r_0)^{3/2}$ is the isothermal scale-height, and $\hiso$ is the
+characteristic aspect-ratio at $r_0$. 
+%We set $\ciso=\Hiso
+%\Omega_k$, where $\Hiso\propto r^{3/2}$ is the isothermal scale-height
+%and we define $\hiso=\Hiso/r_0$. 
+The dimensionless vertical 
+co-ordinate is now $Z=z/\Hiso$. The isothermal atmosphere is
+exponential, $g(Z)=\exp{(-Z^2/2)}$, so there is no surface. In
+practice we choose a finite vertical domain, i.e. $Z=Z_s$ represents a
+constant number of isothermal scale-heights above the midplane. 
+
+In the linear code we simply replace expressions for the entropy
+and pressure length-scales by those corresponding to the isothermal
+disk: the function $H\to\Hiso$ and $g(Z)$ becomes the Gaussian above. 
+%% We set parameter values to mimic the large-$n$ polytrope in the 
+%% previous section:  $Z_s=3$ and $\hiso=0.05$,
+%% so that for both setups the pressure is reduced by roughly the 
+%% same factor in going from the midplane to the upper boundary, and the
+%% midplane temperature is roughly equal at $r_0$. 
+{\bf
+We choose $Z_s=3$ and $\hiso=0.05$, so the isothermal disk has roughly
+the same temperature as that in the midplane of the large-$n$ 
+polytrope considered above (at $r_0$).} In going from the
+midplane to the upper boundary, the density is also reduced by
+approximately the same factor for both cases.  
+
+
+We obtain $\omega/m\Omega_0=0.9860$, $\nu/\Omega_0=0.1008$ and
+$\avg{\theta_m}=0.39$. The perturbations plotted in
+Fig. \ref{isothermal_case} are similar to case 3a, so we expect these
+are features of the RWI in nonhomentropic flow, rather than
+associated with the chosen parameter values. The perturbed meridional
+flow shown in Fig. \ref{polyn10} (bottom panel) is in qualitative
+agreement with the large-$n$ polytrope. 
+The result is, however, quite different to
+isothermal linear perturbations, for which \cite{meheut12} found the 
+vertical velocity appears to have a node at $r_0$ ({\bf see their Fig. 3d where the vertical velocity changes sign across co-rotation radius}
+, i.e. the fluid column is hydrostatic there). 
+Note that both $\gamma/\Gamma$
+and the growth rate are slightly smaller than the nonhomentropic case 3a,
+but here the vortical motion is more prominent. 
+%contribution from higher m?
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/iso_wq_3d_real_zslices.ps}
+  \caption{Pressure (top, $W$), density (middle, $Q$) and entropy
+    (bottom, $S$) for a globally isothermal background. 
+    \label{isothermal_case}}
+\end{figure}
+
+  Fig. \ref{polyn10_vz} shows the vertical 
+  velocity at the vortex core as a function of height. The strictly
+  isothermal background {\bf (thick solid)} has a slightly larger $\dd v_z$ than the
+  large-$n$ polytrope {\bf (thick dashed)}. This is consistent 
+  with previous findings that vertical motions oppose the RWI
+  \citep{lin12c}, as the former case has a smaller growth rate than
+  the latter. The {\bf thick lines are} qualitatively similar to case
+  3a in Fig. \ref{compare_dvz}, but these are not directly comparable 
+  because the present case differs in both the background structure and adiabatic index  to 
+  those in Fig. \ref{compare_dvz}. 
+  
+  \begin{figure}[!t]
+    \centering
+    \includegraphics[scale=.425,clip=true,trim=0cm 0cm 0cm
+      0.25cm]{figures/temp_dvz3}
+    \caption{
+      {\bf
+        Vertical velocity as a function of $z$ at the vortex core
+        $(r_0,\phi_0)$, for the $n=10$ 
+        polytropic disk equilibrium (dashed) and a strictly isothermal
+        equilibrium (solid) shown in 
+        Fig. \ref{polyn10}, with free upper boundaries (thick lines). Corresponding thin 
+        lines impose zero vertical velocity at $z=Z_s$ (growth rates increased by less than $0.5\%$ from the free boundary condition).
+        Notice that changing upper disk boundary conditions only 
+        affected the solution near $z=Z_s$ (cf. Fig. \ref{compare_dvz}). 
+        This is consistent \cite{lin12c}, who found the
+        influence of upper disk boundary condition to diminish with
+        increasing polytropic index $n$. 
+      }
+      \label{polyn10_vz}}
+\end{figure}
+  
+  Finally, we illustrate again a correlation 
+  between meridional vortical flow and a tilted column of negative
+  vertical vorticity perturbation in Fig. \ref{iso_vort3d_pz}. The figure is
+  {\bf qualitatively} similar to that for polytropic backgrounds (case 3a in
+  Fig. \ref{nonhomentropic_case_vort3d_pz}).{\bf  We find an average tilt
+    of $1-~\avg{\cos{\theta}}_Z=0.0084
+    \ll1$, so the vorticity column is nearly vertical.} 
+  
+  %% but the tilt magnitude
+  %%   is larger for the isothermal background. 
+  %Note that we chose
+  %$r=1.03r_0$ as the radial slice, so that $\delta\omega_z <0$ along
+  %the vertical line $(\phi_0,z)$. 
+  %%  A plot for $r=1.02r_0$ also display
+  %% the tilt, but in that case $\delta\omega_z$ was found to be positive
+  %% at   
+  
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0cm 0cm
+    0.25cm]{figures/iso_vort3d_pz2.ps}
+  \caption{
+      Vertical vorticity perturbation, $\delta\omega_z$, in the
+      $(\phi,z)$ plane at $r=1.03r_0$ for the strictly isothermal
+      background. Regions of $\delta\omega\leq0$ are delineated by
+      while lines. The center of meridional vortical motion identified
+      in Fig. \ref{polyn10} occurs at height $z\sim
+      H_\mathrm{iso}$. {\bf The azimuthal range
+        $\phi-\phi_0\in[-0.5,0.5]\pi/m$ corresponds to anti-cyclonic
+        motion about the vortex core.
+        [ A plot for $r=1.02r_0$ also display
+      tilted lines of constant $\delta\omega_z$, but in that case $\delta\omega_z > 0$
+      at $(\phi_0, H_\mathrm{iso})$.]
+      } 
+    \label{iso_vort3d_pz}}
+\end{figure}
+
+\subsection{A nonlinear simulation}
+%boundary conditions
+%compare Q at different heights
+%compare W in rz plane - vortical motion
+We have also performed global 3D hydrodynamic simulations
+using the \zeus  finite-difference code \citep{hays06}. As the focus
+of this work is the linear problem, though, we defer a full discussion
+of these nonlinear simulations to a follow-up paper. Our priority here
+is to verify the  vortical motion in the meridional plane, which
+appears characteristic in  the linear RWI solution for  nonhomentropic
+flow.   
+
+\subsubsection{Setup}
+We use spherical polar co-ordinates $(\rsph,\theta,\phi)$ to describe
+the disk, taken to be initially strictly isothermal as described above.  The
+computational domain is $\rsph\in[0.2,2.0]r_0$,
+$\theta\in[\theta_\mathrm{min},\pi/2]$, $\phi\in[0,2\pi]$ and is
+divided into $(512,48,512)$ zones, with
+$\tan{(\pi/2-\theta_\mathrm{min})}=3\hiso$ and $r_0=10$. 
+The grid is logarithmically spaced in radius and uniformly spaced in 
+the angular co-ordinates. Boundary conditions 
+are outflow in $\rsph$, reflection in $\theta$ and periodic in $\phi$.  
+Additional damping to meridional velocities near radial boundaries are
+employed to reduce reflections \citep{valborro07}.  
+
+%The disk is initially strictly isothermal as described in the previous section, and the vertical domain is such that 
+%$\tan{(\pi/2-\theta_\mathrm{min})}=3\hiso$. 
+
+After some experimentation, we found it was most convenient to start with a smooth disk.
+In this case, a surface density $\Sigma\propto r^{-3/2}$, and tapered toward 
+the inner boundary \citep[as used in][]{lin12b}. We introduce 
+the density bump at $r=r_0$ via source terms in the mass, momentum and thermal energy equations, over a time-scale of $10P_0$, 
+where $P_0 \equiv 2\pi/\Omega_k(r_0) $. %% is the Keplerian orbital period at $r_0$
+This reduces numerical transients associated with initialization with {\bf a localized bump which has} large radial gradients. 
+%At $t=10P_0$ we add small-amplitude random
+%radial velocity perturbations. 
+
+We choose the bump amplitude $A=1.25$ 
+and isothermal aspect-ratio $\hiso=0.1$, as employed by \cite{meheut12} so that we can check our results against theirs.  
+We measure perturbations with respect to azimuthally averaged hydrodynamic quantities at $t=10P_0$. 
+
+
+\subsubsection{Results and comparison to linear flow}
+%complex freq. averaged over r_sph\in[0.8,1.2]r_0 is
+%<growth rate>/omega0=      0.18870212
+%<pattern speed>/m.omega0=      0.98988571
+%
+%complex freq. averaged over r_sph\in[0.9,1.1]r_0
+%<growth rate>/omega0=      0.19579173
+%<pattern speed>/m.omega0=      0.98709079
+%theta (3dness) is 0.34
+We focus on the earliest stage of the instability, when perturbation
+amplitudes are small so comparison with linear calculations can be
+made. Fig. \ref{hydro_polar_dens} shows the snapshot to be
+examined, {\bf taken at $t=23P_0$}. A $m=4$ mode has developed {\bf
+  from numerical noise.} Notice the double-peak in
+density perturbation, which is also present in
+Fig. \ref{isothermal_case}. Using the method described in Appendix
+\ref{instant_growth}, we estimated the $m=4$ mode growth rate and
+frequency to be $\nu/\Omega_0\simeq 0.189$ and
+$\omega/m\Omega_0\simeq 0.990$, in agreement with \cite{meheut12}.
+%consistent with linear calculations of %\cite{meheut12}.  
+Although they assumed barotropic perturbations, 
+whereas we simulate adiabatic evolution, our linear calculations
+indicate growth rates are largely unaffected by entropy gradients (Table \ref{linsims}). 
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=0.62,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/polar_dens015}
+  \caption{Nonlinear hydrodynamic simulation of the RWI in a
+    nonhomentropic 3D disk, initially isothermal but
+    evolved adiabatically. The axes are in units of $r_0$. The relative density perturbation 
+    near the midplane, scaled by 100, is shown. This quantity is
+    proportional to the $Q$ used in linear calculations. The snapshot
+    corresponds {\bf to the linear phase of the instability}. The drawn line   
+    defines the vortex azimuth $\phi_0$ in Fig. \ref{lin_nonlin}---\ref{lin_nonlin_rz}.
+    \label{hydro_polar_dens}}
+\end{figure}
+
+%use linear results for `big disk', theta_m is 0.39 
+We have also computed this mode using the linear code as modified for
+strictly isothermal equilibria, with a solid upper boundary. We obtain
+growth rate and mode frequency $\nu/\Omega_0 = 0.1937$ and $\omega/m\Omega_0 = 
+0.9896$, respectively. This is close to the nonlinear simulation. \cite{meheut12} suggested
+smaller growth rate in the latter may be due to numerical viscosity. 
+Fig. \ref{lin_nonlin} compares the density
+perturbation $Q$ computed from the hydrodynamic simulation and linear code. They are broadly
+consistent. The linear code also produces a bias toward the
+over-density ahead of the vortex core at the midplane. Away from the
+midplane, the center of the anti-cyclonic motion has shifted
+downstream. 
+This shows that, even within the linear regime, the vortex has
+non-negligible vertical structure in the density perturbation (by comparing the two heights in Fig. \ref{lin_nonlin}). 
+% for initially isothermal dis
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 3.05cm 0cm
+    1.3cm]{figures/streamxy_Q015_z0.0.ps}\includegraphics[scale=.425,clip=true,trim=2.2cm 
+    3.05cm 0cm 1.3cm]{figures/iso_vel3d_rp_Q_HR_z0.0.ps}\\
+  \includegraphics[scale=.425,clip=true,trim=0cm .0cm 0cm
+    1.3cm]{figures/streamxy_Q015_z2.0.ps}\includegraphics[scale=.425,clip=true,trim=2.2cm 
+    .0cm 0cm 1.3cm]{figures/iso_vel3d_rp_Q_HR_z2.0.ps}
+  \caption{Normalized density perturbation, $Q$, associated with the
+    RWI computed from a nonlinear hydrodynamic simulation (left) and
+    the linear code (right), at the midplane (top) and at $2$
+    scale-heights away from the midplane (bottom). The perturbed
+    velocity field is also shown. The azimuthal wavenumber is $m=4$.  
+  \label{lin_nonlin}}
+\end{figure}
+
+We compare meridional flows in Fig. \ref{lin_nonlin_rz}. The perturbed flow
+is mostly horizontal in both cases.   
+The nonlinear simulation also produce vortical motion in the same sense as
+the linear calculation. For the \texttt{ZEUS} calculation, 
+  we find the maximum magnitude of 
+  vertical Mach number is $\sim 1\%$ with a density-weighted average
+  value of $0.15\%$ in the shell $r_\mathrm{sph}\in[0.9,1.1]r_0$. 
+The asymmetry of the pressure perturbation
+about $r_0$ is captured by the linear code as well. Disagreement toward
+the upper boundary is not unexpected, since the linear code assumes
+the upper boundary is at a constant number of scale-heights above the
+midplane, whereas the spherical grid imposes constant opening angle. 
+However, both plots indicate $W$ increases away from the midplane in
+the region exterior to $r_0$.  
+
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.48cm 0cm
+    0.4cm]{figures/hydro_vel3d_rz_W.ps}
+  \includegraphics[scale=.425,clip=true,trim=0.0cm 
+    .48cm 0.cm 0.4cm]{figures/iso_vel3d_rz_W_HR.ps}
+  \caption{The perturbed velocity field projected onto the meridional
+    plane at the vortex azimuth $\phi_0$, associated with the RWI
+    calculated from a nonlinear hydrodynamic simulation (top) and the
+    linear code (bottom). The average three-dimensionality, as
+      measured by the ratio of vertical to meridional flow speeds,
+      $\avg{\theta_m}$, is $0.39$ and $0.34$ in the linear and 
+      nonlinear calculation, respectively. 
+    A map of the normalized pressure
+    perturbation is also shown. 
+  \label{lin_nonlin_rz}}
+\end{figure}
+
+
+
+
+
+

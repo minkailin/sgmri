@@ -1,0 +1,25 @@
+\section{Analytic equilibrium for the polytropic disk}\label{appen1}
+For a polytropic disk with $P = K\rho^2$ the equilibrium equation to
+be solved is
+\begin{align}
+  0=\csmid^2\frac{d^2}{dz^2}\left(\frac{\rho}{\rho_0}\right) +
+  \Omega_z^2 + \frac{\Omega^2}{Q}\left(\frac{\rho}{\rho_0}\right), 
+\end{align}
+which is obtained by combining Eq. \ref{eqm_eqns1} and
+\ref{eqm_eqns2} with the above equation of state. The solution is
+\begin{align}  
+  \hat{\rho} = (1 + \hat{\Omega}_z^2Q)\cos{\left(a z\right)} - Q
+  \hat{\Omega}_z^2, 
+\end{align}
+where $\hat{\rho}\equiv\rho/\rho_0$, $\hat{\Omega}_z=\Omega_z/\Omega$,
+and 
+\begin{align}
+  a^2 \equiv \frac{\Omega^2}{Q\csmid^2}. 
+\end{align}
+The polytropic disk thickness is
+\begin{align}
+  H =
+  \frac{\csmid}{\Omega}\sqrt{Q}\arccos\left(\frac{\hat{\Omega}_z^2Q}{1+\hat{\Omega}_z^2Q}\right).  
+\end{align}
+
+\section{Reduction to linear hydrodynamics}

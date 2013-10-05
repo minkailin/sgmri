@@ -1,0 +1,668 @@
+\section{Linear simulations}\label{simulations}
+We adopt units such that $G=M_*=1$. Our main calculations are
+summarized in Table \ref{linsims}. For these runs the computational
+domain is $R\in[0.4,1.6]r_0$, $Z\in[0,Z_s]=[0,0.9]$, and 
+$\alpha=0.5$ for the power-law part of the surface density 
+profile. The bump radius, amplitude and width are set to $r_0=1$,
+$A=1.4$ and $\Delta r=0.05r_0$, respectively. 
+We consider modes with $m=3$ unless otherwise stated. 
+Slightly different setups are employed in \S\ref{isothermal} to
+explore the isothermal limit.   
+
+The new parameter for nonhomentropic disks, 
+compared to homentropic flow in \citetalias{lin12}, is the adiabatic index
+$\gamma$. We therefore focus on examining the effect of entropy
+gradients due to $\gamma\ne\Gamma$. Cases 0---4 have fixed polytropic index
+$n=1.5$, and therefore identical background density and velocity profiles,
+but variable adiabatic index $\gamma \geq 5/3$. 
+Cases 5---8 have fixed adiabatic index $\gamma=1.4$, but variable polytropic 
+index $n\geq 2.5$. 
+
+%It should be noted that 
+%§with other parameters fixed, increasing $n$ decreases the bump in disk thickness. 
+
+An example of nonhomentropic equilibrium, with $n=1.5$ ($\Gamma=5/3$)
+and $\gamma=2.5$, is shown in Fig. \ref{fiducial_basic} (case 3).
+The generalized vortensity and $\kappa^2+N^2$ are plotted. 
+As expected for a density bump, the generalized vortensity has a local
+minimum at $r=r_0$. It corresponds to $\mathrm{min}(\kappa^2/\Omega_k^2)=0.43$. 
+The increase in $\kappa^2+N^2$ with respect to
+height is due to $N_z^2$ (since $N_r\sim h N_z$ near the upper
+boundary). Note that $N_z^2\gtrsim\Omega^2$ for
+$|z|\gtrsim0.7H$ in this case.  
+
+%generalized vortensity and ksq + nsq
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 1.84cm 0cm
+    0cm]{figures/n1d5_gmma2d5_eta.ps}
+  \includegraphics[scale=.425,clip=true,trim=0cm 0cm 0cm
+    0.25cm]{figures/n1d5_gmma2d5_KsqNsq}
+  \caption{Equilibrium profile for a nonhomentropic disk with $n=1.5$ 
+    and $\gamma=2.5$ (case 3). The generalized vortensity (top) 
+    and $\kappa^2+N^2$ at three heights (bottom) are shown. 
+    \label{fiducial_basic}}
+\end{figure}
+
+%numerical parameters. we're not going to do detailed parameter study
+%(done in L12)
+
+The discretized problem is solved with standard matrix routines 
+provided in the \texttt{LAPACK} package. The default resolution is
+$(N_R,N_Z)=(512,12)$, corresponding to $\lmax=22$. 
+%we have tested for convergence? wait for HR case
+
+
+\begin{deluxetable}{llllccc}
+  \tablecaption{Summary of main linear simulations\label{linsims}}
+  \tablehead{\colhead{Case} &\colhead{$\Gamma$} & \colhead{$\gamma$}
+    &\colhead{BC\tablenotemark{$\dagger$}}&\colhead{$\omega/m\Omega_0$} & \colhead{$10^2\nu/\Omega_0$} &
+    \colhead{$\avg{\theta_m}$}  } 
+  \startdata
+  \multicolumn{7}{c}{$h=0.14$} \\
+  \hline
+  0 & 1.67 & 1.67 &$\Delta p=0$  &0.9941 & 10.74 & 0.33 \\ %theta at core [0.98,1.02] is 0.53
+  1 & 1.67 & 1.8  &$\Delta p=0$  &0.9937 & 10.80 & 0.36 \\ %                             0.65
+  2 & 1.67 & 2.0  &$\Delta p=0$  &0.9931 & 10.86 & 0.39 \\ %                             0.65 
+  3a & 1.67 & 2.5 &$\Delta p=0$  &0.9919 & 10.99 & 0.44 \\ %                             0.58
+  3b & 1.67 & 2.5 &$\dd v_\perp=0$  &0.9911 & 11.34 & 0.41 \\%                           0.52
+  4 & 1.67 & 3.0  &$\Delta p=0$  & 0.9910      &  11.07     &  0.47    \\%               0.55
+  \hline
+  \multicolumn{7}{c}{$h=0.2$} \\
+  \hline
+  5 & 1.4 & 1.4  &$\Delta p=0$  & 0.9923 & 16.66 & 0.24 \\ %n=2.5, theta at core is 0.46
+  6 & 1.33& 1.4  &$\Delta p=0$  & 0.9917 & 13.81 & 0.31  \\ %n=3.0,                 0.63
+  7 & 1.29& 1.4  &$\Delta p=0$  & 0.9912 & 11.38 & 0.34  \\ %n=3.5,                 0.61  
+  8 & 1.25& 1.4  &$\Delta p=0$  & 0.9909 & 9.246 & 0.36    %n=4.0,                 0.56 
+  \enddata
+   \tablenotetext{$\dagger$}{Boundary condition at $Z=Z_s$.}
+
+%theta averaged between 0.9, 1.1 is
+%case 0: 0.20
+%case 1: 0.24
+%case 2: 0.29
+%case3a: 0.34
+%case3b: 0.34
+%case4 : 0.37
+%
+%
+%case5: 0.18 
+%case6: 0.26
+%case7: 0.31
+%case8: 0.34
+\end{deluxetable}
+
+%code test/gamma=Gamma case
+\subsection{Homentropic reference case}
+For comparison purposes, we reproduce the fiducial homentropic
+calculation in \citetalias{lin12} by setting $\gamma=5/3$ (case
+0). Then $W=Q$ since $\ils=\ihs\equiv0$ (Eq. \ref{lin_energy}). This also
+serves as a test for our numerical method. The eigenfrequency and
+perturbations shown in Table \ref{linsims} and
+Fig. \ref{homentropic_case} agrees well with \citetalias{lin12}. In
+co-rotation region $R\in[0.8,1.2]r_0$, $W$ is nearly independent
+of height and the vortex core has upwards motion.     
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 1.cm 0cm
+    0cm]{figures/n1.5_gmma1.67_wq_3d_real_zslices.ps}
+  \includegraphics[scale=.425,clip=true,trim=0cm 0cm 0cm
+    0.25cm]{figures/n1.5_gmma1.67_vel3d_rz_dvz_nofill.ps}
+  \caption{Real perturbations for the homentropic case 0
+    ($\Gamma=\gamma=1.67$).  %in 
+%    \citetalias{lin12} ($\Gamma=\gamma=5/3$). 
+    The pressure perturbation $W$ at three heights (top) and
+    meridional velocity perturbation (bottom) near the vortex core are
+    shown.  
+    \label{homentropic_case}}
+\end{figure}
+
+
+%a non-homentropic case in detail
+\subsection{Nonhomentropic example}
+We now examine case 3a with $\gamma=2.5,\,\Gamma=1.67$. The
+eigenfrequecy $\sigma$ is close to case 0, but the growth rate
+is slightly larger in the nonhomentropic disk.    
+
+Fig. \ref{nonhomentropic_case} shows the pressure, density and
+entropy perturbations at several heights. Near $r_0$,  pressure
+and density perturbations increase with height, unlike the homentropic case
+where $W$ has weak $z$-dependence. Nonhomentropic disks  
+generally have $W\ne Q$, as shown in
+Fig. \ref{nonhomentropic_case}. The difference between $W$ and $Q$
+at the midplane is due to background radial entropy gradients $\ils$ 
+since $\ihs(r,0)=0$.  
+
+At co-rotation, {\bf the density perturbation} $Q$ increases with height faster than the pressure
+perturbation $W$, which  results in a negative entropy perturbation. This
+is consistent with the requirement $S=(1-\gamma/\Gamma)W$ at the upper
+disk boundary. It is clear that $S$ has a stronger vertical dependence
+than either $W$ or $Q$. 
+
+We might have expected the above result on physical grounds. The homentropic case indicate
+upward motion at the vortex core. If a positive (stable) vertical 
+entropy gradient is introduced, then a fluid element displaced upwards should increase its density compared to the 
+surrounding background, i.e. $Q>0$, and this should become more positive with height because 
+vertical velocities increase in magnitude with height. The pressure perturbation is not expected 
+to change as rapidly, because the fluid element can establish pressure 
+equilibrium with its surroundings. 
+
+%, but $|S|$ is somewhat small compared to $W,\,Q$  at the vortex core.   
+%1D plots
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_wq_3d_real_zslices.ps}
+  \caption{Pressure (top, $W$), density (middle, $Q$) and entropy
+    (bottom, $S$) perturbations for the nonhomentropic case 3a 
+    ($\Gamma=1.67,\,\gamma=2.5$).  
+    \label{nonhomentropic_case}}
+\end{figure}
+
+\subsubsection{Entropy perturbation} 
+We plot the entropy perturbation $S$ at $z=0$ and $z=0.8H$ in   
+Fig. \ref{2dflow}. The figures are overlaid by the perturbed
+horizontal flow, which are similar at both heights. The anti-cyclonic
+flow pattern is commonly found in previous studies
+\citep[e.g.][]{li00,li01}. Entropy gradients of this magnitude do not
+affect this characteristic feature of the RWI.    
+
+Therefore, we could have inferred some of the features in
+Fig. \ref{2dflow} without solving the fluid equations {, by invoking entropy advection.} 
+Consider the linearized energy equation near co-rotation where $\sbar \simeq
+-\imgi\nu$ (which is close to $r_0$), 
+%We can infer some of the features in Fig. \ref{2dflow} 
+%% Near the co-rotation radius where $\sbar=-\imgi\nu$ (which is close
+%% to the bump radius), the energy equation is approximately  
+\begin{align}\label{entropy_gen}
+  \dd s \sim -\nu^{-1}\dd\bm{v}\cdot\nabla s, 
+\end{align}
+and $\nu>0$ for a growing mode. Eq. \ref{entropy_gen} is only valid
+within a small distance $\epsilon \ll \nu/|m\Omega_0^\prime|$ from
+$r_0$. In this example, $\nu/|m\Omega_0^\prime|\simeq 0.02r_0$.  
+
+%% The midplane entropy increases globally in the radial direction with a
+%% dip at $r_0$,
+{\bf The midplane entropy has a dip at the bump radius but it increases globally in the
+radial direction, so $\p_rs>0$ at $r_0$.}     
+This naturally implies that inward (outward) radial flow  for
+$\phi<\phi_0$ ($\phi>\phi_0$), i.e. anti-cyclonic motion, brings about
+a local entropy increase (decrease) near $r_0$ at $z=0$. 
+We recognize the qualitative similarity between the midplane flow pattern
+in Fig. \ref{2dflow} and horseshoe turns induced by an embedded
+planet. Entropy advection then leads to large radial entropy gradients
+\citep{paardekooper10}, which can be seen in
+Fig. \ref{nonhomentropic_case} on either side of $r_0$ at the
+midplane. This gradient is, of course, growing exponentially in time, so it 
+may be important even within the linear regime.  
+%the linear baroclinic source for omega_z does not involve 
+%radial derivative of ds (because it is multiplied by azi deriv of eqm pressure which is zero)
+%but radial derivative of S will be involved in the nonlinear terms i.e.
+% (phi deriv of dp) times (r deriv of s), and r deriv of s is large
+%so even though we are working in the linear regime, this higher order nonlinear term (ignored in linear theory)  may 
+%actually be significant because of the large r-deriv of s 
+
+%the linear baroclinic source for omega_z involve
+% (r deriv of p) times (azi deriv of ds)    and
+% (r deriv of p) times (azi deriv of Q)     
+%first term  might be large (Q ~ maximized at vortex core)
+%ds changes sign across phi_0. so azi deriv of ds significant -> POSITIVE omega_z source (because r deriv of p usually negative). 
+
+
+%That is, material of higher (lower) entropy moves to a region
+%of lower (higher) background entropy.
+%% Therefore, we could have used Eq. \ref{entropy_gen} to infer the local
+%% entropy perturbation without solving the linear problem. Consider
+%% first the midplane where only radial motions contribute to $\dd
+%% s$. 
+%% The perturbation is localized about an entropy dip at
+%Away from the midplane we can assume vertical 
+In the vertical dimension, if we assume the flow at
+$(r_0,\phi_0)$ is unchanged from the homentropic case (i.e. upward),
+then since the background entropy increases with height, the local
+Eulerian entropy perturbation at the vortex core must become negative
+away from the midplane, as observed.       
+
+%vertical direction
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.0cm 0cm
+    0cm]{figures/n1.5_gmma2.5_vel3d_rp_S_Z0.0.ps}\includegraphics[scale=.425,clip=true,trim=2.2cm 
+    0.0cm 0cm 0.0cm]{figures/n1.5_gmma2.5_vel3d_rp_S_Z0.8.ps}
+  \caption{Entropy perturbation in midplane (left) and near the upper
+    disk boundary (right) for the nonhomentropic case
+    3a. Arrows show the perturbed velocity field projected onto this plane. 
+  \label{2dflow}}
+\end{figure}
+
+Related to the entropy perturbation is the quantity $\bar{S}\equiv
+Q-\gamma W/\Gamma$. Its 
+distribution shown in Fig. \ref{Sbar} agrees with expectations made in
+\S\ref{baroclinic_effects}, namely it is mostly negative, with a local
+minimum at the vortex core. 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_vel3d_rz_Sbar_HR.ps}
+  \caption{Map of the quantity $\bar{S}\equiv Q-\gamma W/\Gamma$ for
+    case 3a (the real perturbation at $\phi=\phi_0$ is shown). $\bar{S}$
+    appears in the baroclinic term in
+    Eq. \ref{baroclinic}, as well as the expression for vertical velocity
+    in Eq. \ref{core_dvz}.  The local minimum near $(r_0,0)$
+    can be expected without solving the linear problem (see
+    \S\ref{baroclinic_effects}). 
+    \label{Sbar}}
+\end{figure}
+
+\subsubsection{{\bf Vertical vorticity perturbation} }
+{\bf
+Fig. \ref{nonhomentropic_case_vortz_rp}---\ref{nonhomentropic_case_vortz}
+shows the perturbation 
+to vertical vorticity,
+$\delta\omega_z\equiv\hat{\bm{z}}\cdot\nabla\times\delta\bm{v}$, in
+the horizontal and meridional planes, respectively. These plots 
+agree with the identification of the linear RWI with a pair of edge-waves
+propagating in the $\pm\phi$ directions along radial potential
+vorticity gradients on either side of the bump radius $r_0$
+\citep{umurhan10}. 
+
+The background vorticity $\omega_z$ has a dip at
+$r_0$. Then the positive/negative regions of $\delta\omega_z$ in
+Fig. \ref{nonhomentropic_case_vortz_rp} is broadly consistent with the
+advection of $\omega_z$ by the perturbed horizontal flow, in a similar
+manner as the advection of entropy described in the previous section.   
+
+Although the perturbed flow in the nonhomentropic case 
+consists of vorticity columns (Fig. \ref{nonhomentropic_case_vortz}), 
+$\mathrm{max}(|\delta\omega_z|)$ in fact increases slightly away from the midplane.     
+This contrasts to \citeauthor{umurhan10}'s analytical model of the RWI in polytropic disks, 
+where horizontal velocities, and hence $\delta\omega_z$, have no vertical dependence.     
+}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.0cm 0cm
+    0cm]{figures/n1.5_gmma2.5_m3_vort3d_rp.ps}\includegraphics[scale=.425,clip=true,trim=2.2cm 
+    0.0cm 0cm 0.0cm]{figures/n1.5_gmma2.5_m3_vort3d_rp_top.ps}
+  \caption{
+    {\bf
+      Perturbation to the vertical component of vorticity in the
+      nonhomentropic case 3a at two heights in the horizontal
+      plane. The vertical dependence is weak, but there is a slight
+      increase in the maximum
+      perturbation amplitude away from the midplane. 
+      This figure is qualitatively similar to the top panel of Fig. 3 in
+      \cite{meheut12b}. 
+    }
+    \label{nonhomentropic_case_vortz_rp}}
+\end{figure}
+
+
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_m3_vort3d_rz.ps}
+  \caption{
+      Perturbation to the vertical component of vorticity in the
+      nonhomentropic case 3a, {\bf in the meridional plane at $\phi=\phi_0$}. 
+      Regions of $\delta\omega_z\leq0$ are
+      delineated by white lines.
+    \label{nonhomentropic_case_vortz}}
+\end{figure}
+
+
+\subsubsection{{\bf Meridional vortical flow and tilted vorticity columns}}
+Fig. \ref{nonhomentropic_case_dvz} shows the perturbed velocity field
+in the $(r,z)$ plane, with a map of the baroclinic source term defined
+in \S\ref{baroclinic_effects}. The flow pattern is similar to the
+homentropic case in that it is still converging toward $r_0$, and
+vertical motion is predominantly upwards there. However, there is a
+notable difference from the homentropic case --- vortical 
+motion (of positive azimuthal vorticity) centered about 
+$(r,z)=(1.02r_0,0.5H)$. It coincides with a region where the
+azimuthal baroclinic source term is positive. Note that the sign of
+the baroclinic source {\bf away from the midplane --- being positive
+  (negative) for $r>r_0$ ($r<r_0$) ---} is roughly consistent with
+expectations made in 
+\S\ref{baroclinic_effects}. 
+
+%vortical motion sourced by baroclinity 
+
+%velocity in rz plane
+\begin{figure}[!t]
+  \centering
+%  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+%    0cm]{figures/n1.5_gmma2.5_vel3d_rz_dvz_nofill.ps}
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_azivort_source.ps}
+  \caption{Meridional flow in the nonhomentropic case 3a. The azimuth
+    taken for this slice is $\phi=\phi_0$. The contours
+    show the baroclinic source term for azimuthal vortensity 
+    (Eq. \ref{baroclinic} multiplied by $\rho$). The arrows show
+    the perturbed velocity field projected onto this plane. 
+    \label{nonhomentropic_case_dvz}}
+\end{figure}
+
+%% \subsubsubsection{Tilted voricity}
+
+  Vortical motion in the meridional plane also correlates to 
+  misalignment between a column of negative vertical vorticity perturbation and  
+  the vertical direction. {\bf This is demonstrated in 
+    Fig. \ref{nonhomentropic_case_vort3d_pz} where 
+    contours of $\delta\omega_z$ are shown to be 
+    tilted in the $(\phi,z)$ plane. 
+    We can quantify this tilt by
+    calculating $1-\avg{\cos{\theta}}_Z$, where
+    \begin{align*} 
+      \cos{\theta} \equiv
+      \left.|\p_\phi\delta\omega_z|\right/\left[(\p_Z\delta\omega_z)^2 + (\p_\phi\delta\omega_z)^2\right]^{1/2}
+    \end{align*}
+    and $\avg{\cdot}_Z$ denotes averaging over the vertical direction 
+    at fixed $\phi=\phi_0$ shown in
+    Fig. \ref{nonhomentropic_case_vort3d_pz}. 
+
+    For the nonhomentropic case 3a, we find
+    $1-~\avg{\cos{\theta}}_Z=0.011$. This value should be compared with the 
+    homentropic case 0 where $1-~\avg{\cos{\theta}}_Z=~3.4\times10^{-5}$
+    and the tilt is hardly noticeable.   
+ 
+    We rationalize the small tilt observed in Fig. \ref{nonhomentropic_case_vort3d_pz} 
+    by interpreting the nonhomentropic solution as a small deviation 
+    from the homentropic case, for which the tilt is negligible and 
+    lines of constant $\delta\omega_z <0 $ are parallel to the vertical axis. 
+    %    This implies that \emph{local} anti-cylonic motion, associated with $\delta\omega_z<0$, is horizontal. 
+    Now consider baroclinity as a perturbation to this configuration.  
+    
+    The discussion in \S\ref{baroclinic_effects}, together with Fig. \ref{nonhomentropic_case_dvz}, 
+    suggests that baroclinity gives rise to positive 
+    azimuthal vorticity (as evident from the meridional flow pattern).
+    We can produce azimuthal vorticity by tilting a 
+    vertical column negative of $\dd\omega_z$ in the azimuthal direction indicated in 
+    Fig. \ref{nonhomentropic_case_vort3d_pz}. By such a tilt, what was purely 
+    horizontal \emph{local} anti-cyclonic motion, associated with $\dd\omega_z<0$ being a vertical column, now has a non-zero projection
+    onto the meridional plane. This results in the meridional vortical motion demanded by the baroclinity in
+    nonhomentropic flow. In other words, baroclinity has converted some of the horizontal motion of the 
+    homentropic flow into vertical motion. 
+
+%      If we consider baroclinity as a small 
+%      perturbation to the homentropic solution, then a way to achieve
+%      (positive) azimuthal vorticity, as
+%      demanded by baroclinity, is a small tilt
+%      shown in Fig. \ref{nonhomentropic_case_vort3d_pz}. 
+}      
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_m3_vort3d_pz2.ps}
+  \caption{
+    Perturbation to vertical vorticity in the $(\phi,z)$ plane
+    at $r=1.02r_0$. Regions of $\delta\omega_z\leq0$ are delineated by
+    white lines. The center of the meridional vortical motion
+    identified in Fig. \ref{nonhomentropic_case_dvz} occurs at
+    $(\phi,z)=(\phi_0,0.5H)$. {\bf The azimuthal range $\phi-\phi_0\in[-0.5,0.5]\pi/m$
+     corresponds to anti-cyclonic motion about the vortex core.}
+    \label{nonhomentropic_case_vort3d_pz}}
+\end{figure}
+
+\subsubsection{$m=5$}
+%HR similar result, slender disk similar result 
+The meridional flow varies with $m$. Fig. \ref{nonhomentropic_m5} shows
+the $m=5$ solution for the 
+setup of case 3a. We focus on the region $R\in[0.9,1.1]r_0$ because
+higher-$m$ modes are not as well-localized as low-$m$
+\citep{lin11a}. %unless strongly unstable %solution %may be influenced by simple bc  
+It displays stronger vortical motion than
+the fiducial run with $m=3$, even though the growth rates are similar
+($\nu/m\Omega_0=0.1051$ for $m=5$). The pressure and density
+perturbations have noticeable vertical structure, with $W$ typically
+increasing away from the midplane. This qualitatively differs from
+homentropic cases. 
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 2cm 0cm
+    0.2cm]{figures/n1.5_gmma2.5_m5_vel3d_rz_W_HR.ps}
+  \includegraphics[scale=.425,clip=true,trim=0.0cm
+    .48cm 0.cm 0.2cm]{figures/n1.5_gmma2.5_m5_vel3d_rz_Q_HR.ps}
+  \caption{Pressure ($W$, top) and density ($Q$, bottom) perturbation
+    for the $m=5$ mode in the nonhomentropic case 3a. The meridional
+    flow is also shown. 
+  \label{nonhomentropic_m5}}
+\end{figure}
+
+\subsection{Solid upper boundary}
+In the above example, it is perhaps not surprising that entropy
+perturbations became more negative away from the midplane, because the free
+boundary condition demands $|Q|>|W|$ at $Z=Z_s$.  
+
+We have re-calculated this mode with a solid upper disk boundary
+(case 3b). Numerically, this condition forces $W\simeq Q$ at 
+$Z=Z_s$. Fig. \ref{novperp} shows the ratio of pressure to 
+density perturbation. The entropy perturbation at
+intermediate heights is still typically negative, suggesting this to
+be an intrinsic feature of the instability in these disk models. The
+flow pattern is very similar to case 3a.  
+
+\begin{figure}[!ht]
+  \centering
+%  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+  %    0cm]{figures/n1.5_gmma2.5_noverp_vel3d_rz_dvz_nofill.ps}
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/n1.5_gmma2.5_noverp_wq_3d_real_rato.ps}
+  \caption{Ratio of pressure to density perturbations at $\phi_0$, for
+    the nonhomentropic disk with solid upper disk boundaries
+    (case 3b). A ratio above unity implies positive entropy 
+    perturbation. 
+    \label{novperp}}
+\end{figure}
+
+
+%survey across different gammas
+\subsection{Effect of $\gamma$ on vertical flow}
+When $\gamma\neq\Gamma$, the presence of buoyancy forces is expected
+to modify the vertical flow associated with the RWI. In
+Fig. \ref{compare_dvz} we compare the vertical velocity at the
+vortex core for a range of $\gamma$. 
+%Although we are
+%effectively comparing gas of different thermodynamic properties, this
+%set of runs is useful because the disks have indentical background
+%density, pressure and velocity profiles.  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+    0cm]{figures/compare_dvz2}
+  \caption{Normalized vertical velocities at the vortex core
+    $(r_0,\phi_0)$ as function of $z$, for several values of $\gamma$
+    with fixed $\Gamma=1.67$. The dash-dot line employed a solid upper
+    disk boundary, other cases use the free boundary condition. 
+    \label{compare_dvz}}
+\end{figure}
+
+As we increase $\gamma$, the magnitude of vertical flow
+increases, with an increasingly complicated $z$-dependence. In the 
+homentropic case ($\gamma=1.67=\Gamma$), $\delta v_z $ is essentially linear in
+$z$, consistent with the analytical models of \cite{umurhan10}.  
+{\bf For $\gamma=2.5>\Gamma$, near the midplane $\delta v_z$ is still linear in
+$z$, but away from $z=0$ the increase in $\dd v_z$ starts to level
+off at $z=0.3H$ due to the development of meridional vortical motion. The leveling off 
+occurs for both types of upper disk boundary conditions. 
+%for both types of upper disk boundary;conditions; associated with the development of
+%meridional vortical motion away from the midplane.
+This results in a `step' in the case of a
+solid upper boundary (centered about $z=0.5H$), but for the free upper boundary 
+$\dd v_z$ increases again at large $z$. Since the RWI
+is a global instability in the vertical direction, vertical
+boundary conditions can affect the flow throughout the fluid 
+column, though the extent of which depends on the equation of state
+\citep[][see also \S\ref{isothermal}]{lin12c}. 
+%% On the other hand, one physical origin for the
+%% `leveling off' of $\delta v_z$ is the increasingly stable vertical
+%% stratification away from the midplane.
+}    
+
+{\bf Let us examine the different contributions to vertical motion at
+  co-rotation.} At $(r_0,\phi_0)$, the vertical velocity is roughly 
+\begin{align}\label{core_dvz}
+  %  \dd v_z = \frac{\imgi}{\sbar H}\left[\frac{\p W}{\p Z} -
+  %    \frac{2nZ}{(1-Z^2)}\left(W - \frac{\Gamma}{\gamma}Q\right)\right].  
+  \dd v_z \sim -\frac{1}{\nu H}\left[\smash{\underbrace{\frac{\p W}{\p
+          Z}}_\dagger} \!\!\!\phantom{\frac{1}{1}} +\phantom{\frac{1}{1}}\!\!\!
+    \smash{\underbrace{\frac{2nZ\Gamma}{\gamma(1-Z^2)}\left(Q
+      -\frac{\gamma}{\Gamma}W\right)}_\ddagger}\right].  \\ \notag
+\end{align}
+
+This equation is obtained from Eq. \ref{vz} by evaluating it 
+at co-rotation radius (where
+$\sbar\simeq -\ii\nu$), and inserting expressions for the
+pressure length-scale for polytropic backgrounds. 
+The first term ($\dagger$) represent pressure forces and is present
+for all values of $\gamma$. For homentropic flow, ($\dagger$) is
+the only source of vertical motion, and in this case $W$ decreases
+with height. The second term ($\ddagger$) is only present if $\gamma\neq\Gamma$. 
+Recall the quantity $Q-\gamma W/\Gamma=\bar{S}$ defined in
+\S\ref{baroclinic_effects}, where it appeared as a baroclinic source term and 
+we argued $\bar{S}\leq0$ at the vortex core (see also Fig. \ref{Sbar}). Then at the vortex core,
+($\ddagger$) contributes positively to $\dd v_z$ along the vertical
+direction, but vanishes at endpoints.     
+
+In the nonhomentropic example (case 3a, $\gamma=2.5$) the
+function $W$ increases with height at the vortex core (Fig. \ref{nonhomentropic_case}),
+implying ($\dagger$) contributes negatively to $\dd v_z$. {\bf 
+  The contribution from ($\ddagger$) and $(\dagger)$ have opposite
+  signs, but} the fact
+that we observe positive vertical velocity shows that ($\ddagger$) is 
+typically larger in magnitude than ($\dagger$). {\bf That is,
+  baroclinity typically outweigh vertical pressure gradients.}
+  
+\subsubsection{The role of $N_z^2\neq 0$}\label{nz_nonzero}
+Notice even when $\gamma$ is only slightly larger than $\Gamma$,
+the vortex core vertical velocity is quite different from the homentropic case 
+(i.e. case 1 with $\gamma/\Gamma=1.08$ in Fig. \ref{compare_dvz}). To see the role of entropy gradients, 
+or equivalently the effect of non-zero buoyancy frequency, we follow \cite{kato01} and 
+make the following approximations. For generality, below 
+we shall not specialize to a polytropic background. 
+
+Consider a height at which $\ihs\gg\ils$, which is generally
+true away from the midplane of a thin disk. Furthermore, suppose radial 
+velocities are not much larger than vertical velocities in the region of interest (co-rotation). 
+Then we can neglect the $\dd v_r$ term in the linearized energy equation, and eliminate $Q$ between 
+Eq. \ref{vz} and Eq. \ref{lin_energy} to obtain,
+\begin{align}\label{vz_approx} 
+%\dd v_z \simeq \frac{\imgi}{\sbar}\left[\frac{\p W}{\p z} + \left(\frac{\p\ln{\rho}}{\p z} - \frac{1}{H_p}\right)\right]
+%+\frac{N_z^2}{\sbar^2}\dd v_z,
+\dd v_z \simeq -\frac{1}{\nu}\left[\frac{\p W}{\p z} + \left(\frac{\p\ln{\rho}}{\p z} - \frac{1}{H_p}\right)W\right]
+-\frac{N_z^2}{\nu^2}\dd v_z,
+\end{align}
+which is \citeauthor{kato01}'s Eq. 21 evaluated at co-rotation. 
+Because $\nu\ll\Omega_0$ for the modes considered and $N_z\sim \Omega$ away from the midplane, 
+for nonhomentropic flow we have $N_z^2/\nu^2\gg1$ and should expect the balance
+\begin{align}\label{kato_vz}
+\dd v_z \sim  -\frac{\nu}{N_z^2}\frac{\p W}{\p z} 
+ \underbrace{- \frac{\nu}{N_z^2}\left( \frac{\p\ln{\rho}}{\p z} 
+- \frac{1}{H_p} \right)W}_{- \nu\rho\left(\frac{\p p}{\p z} \right)^{-1}W}, \quad N_z^2\neq0%\\
+%&=  -\frac{\nu}{N_z^2}\frac{\p W}{\p z} - \nu\rho\left(\frac{\p p}{\p z} \right)^{-1}W \notag
+\end{align}
+near co-rotation radius.
+The second term on the RHS is just buoyancy (and does not
+explicitly depend on $\gamma$). This expression should be compared with
+that for strictly homentropic flow, 
+
+%% Comparing the coefficient of $\p_zW$ in this expression to that in
+%% the strictly homentropic case, where 
+\begin{align*}
+  \dd v_z \sim -\frac{1}{\nu}\frac{\p W}{\p z}, \quad N_z^2\equiv 0. 
+\end{align*}
+
+We see that for $N_z\equiv0$, pressure gradients are entirely
+responsible for vertical flow, whereas for $N_z\neq0$, $\dd v_z$ is result of
+a combination of pressure and buoyancy forces. The importance of
+pressure gradients also differ, because the coefficients of $\p_zW$ are different
+in each case (by a factor $\nu^2/N_z^2$). 
+Furthermore, the ratio of the first to second term in
+Eq. \ref{kato_vz} is approximately 
+\begin{align}
+  \frac{(\nu/N_z^2)\p W/\p z}{\nu\rho(\p p/\p z)^{-1}W}\sim
+  \frac{\Omega^2}{N_z^2}\frac{\p\ln{W}}{\p\ln{z}}.
+\end{align}
+Since $N_z$ increases with height, far away from the midplane we
+expect buoyancy forces to dominate in the nonhomentropic case. 
+
+We
+conclude that the origin of vertical motion {\bf at co-rotation} is qualitatively different
+between homentropic and nonhomentropic flow (especially away 
+from the midplane), as suggested by numerical results in the
+previous section. 
+
+
+\subsection{Fixed $\gamma$, variable $\Gamma$}\label{varpolyn}
+We now fix the adiabatic index to $\gamma=1.4$, as is typical for 
+accretion disk models. Then we require $n>2.5$ for axisymmetric stability. 
+With other parameters fixed, increasing $n$ would decrease the bump in 
+disk thickness and reduce growth rates \citepalias{lin12}. 
+To avoid potential numerical issues associated with small $|\sbar|$ at
+co-rotation, we adopt $h=0.2$ for cases 5---8, so that growth rates
+remain $O(0.1\Omega_0)$. 
+ 
+
+Table \ref{linsims} shows that by setting $\gamma\neq\Gamma=1.33$ (case 6), 
+thereby introducing entropy gradients, $\avg{\theta_m}$ has increased 
+from the homentropic case 5. This is consistent with the trend in 
+cases 0---4.    
+
+\citetalias{lin12} found that when $n$ is increased but other
+parameters fixed,  the flow at the vortex core became less
+three-dimensional. For cases 5---8, we find the average value of  
+$\theta_m$, when taken over $R\in[0.98,1.02]r_0$, is 
+$0.46,\, 0.63,\, 0.61$ and $0.56$ for $n=2.5,\,3.0,\,3.5$ and $4.0$,
+respectively. The flow at $(r_0,\phi_0)$ in fact becomes more
+three-dimensional when it is nonhomentropic although $n$ has
+increased (case 5 $\to$ case 6). 
+
+The small decrease in the above values of three-dimensionality at
+$(r_0,\phi_0)$ from $n=3.0$ to $n=4.0$ is likely related to increased 
+radial flow across $r_0$ associated with vortical motion in the 
+$(r,z)$ plane. Cases 6---8 display similar dependence of $\dd v_z$ on
+$z$ as the nonhomentropic example (case 3a, see Fig. \ref{compare_dvz}).     
+
+%It appears that the competing effect of
+%reducing in $|\dd v_z|$ due to increased $n$ and increasing $|\dd
+%v_z|$ due to increased $|\gamma-\Gamma|$ (and growth rate), 
+%core vz
+%3d-ness still goes up with
+
+%% \begin{figure}[!ht]
+%%   \centering
+%%   \includegraphics[scale=.425,clip=true,trim=0cm 0.cm 0cm
+%%     0cm]{figures/compare_dvz_varpolyn}
+%%   \caption{Normalized vertical velocities at the vortex core
+%%     $(r_0,\phi_0)$ as function of $z$, for cases with fixed adiabatic
+%%     index but variable polytropic index. 
+%%     \label{compare_dvz_varpolyn}}
+%% \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

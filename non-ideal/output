@@ -1,0 +1,8 @@
+--------------- welcome ---------------
+ varying horizontal wave number
+self-gravity Q = 0.18
+plasma beta    =  100.
+horizontal k   = 0.1 to  1.1
+e.o.s.         = iso
+method         = svd
+---------------wave=  0.05----------------
