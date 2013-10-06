@@ -76,13 +76,22 @@ We solve for $\hat{\rho}\equiv\rho/\rho_0$ subject to $\hat{\rho}=1$
 and $d\hat{\rho}/dz=0$  at $z=0$. This is done numerically for
 isothermal disks and analytically for the polytropic disk (see
 Appendix \ref{appen1}). Examples of density profiles are shown in
-Fig. \ref{eqm_den}. 
-
+Fig. \ref{eqm_den}. The isothermal disk shows that self-gravity
+compresses the disk and reduces the true pressure scale-height. The
+polytropic disk shows little difference between different strengths of
+self-gravity because the vertical co-ordiante is already normalized by
+the disk thickness. 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_iso_density}
   \includegraphics[width=\linewidth]{figures/compare_poly_density}
-  \caption{caption\label{eqm_den}}
+  \caption{Equilibrium density field from solving Eq. \ref{eqm_eqns1}
+    --- \ref{eqm_eqns2} subject to an isothermal (top) and polytropic
+    (bottom) equation of state. Note that the vertical co-ordinate is
+    normalized differently for convenience. In the isothermal disk,
+    $H$ is the characteristic scale-height in the
+    non-self-gravitating limit; in the polytropic disk $H$ is the
+    disk thickness. \label{eqm_den}}
 \end{figure}
 
 \subsection{Resistivity profile}
@@ -102,7 +111,7 @@ and $\Sigma_0\equiv\Sigma_{\pm}(0)$, so that $g_\pm(0)=0$ and $\eta_0
   \cosh{\left(\frac{\Sigma_0}{\Sigma_*}\right)} =
   \left[\frac{\eta_0}{\eta(\infty)}\right]^2,
 \end{align}
-and we define $\eta_0/\eta(\infty)\equiv A_\eta$ as the conductivity
+and we define $\eta_0/\eta(\infty)\equiv A$ as the conductivity
 boost factor from the midplane to the disk surface. We remark that
 once the equilibrium $\rho$ and $d\rho/dz$ are obtained from
 Eq. \ref{eqm_eqns1} --- \ref{eqm_eqns2}, the integration for
