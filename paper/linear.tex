@@ -7,7 +7,8 @@ frequency, where $-\omega$ is the real mode frequency and $\gamma$ is
 the growth rate. Hereafter, we surpress the exponential factor, as
 well as the real part notation.  We further write 
 \begin{align}
-  &z=\hat{z}H,\quad k_x =  k_x/H,\quad \sigma = \hat{\sigma}\Omega, \quad \delta\bm{v} = \csmid
+  &z=\hat{z}H,\quad k_x =  k_x/H,\quad \sigma = \hat{\sigma}\Omega,
+  \quad \delta\bm{v} = \csmid 
   \delta\hat{\bm{v}}, \\ 
   &\delta\bm{B} = B\delta\hat{\bm{B}},\quad
   \delta\rho = \rho\hat{W}/\hat{c}_s^2,\quad \delta\Phi =
@@ -55,8 +56,8 @@ the linearized Poisson equation is
 
 We now eliminate $\dd\bm{B}$ and $\dvz$ between the linearized
 equations to obtain a system of ordinary differential equations for
-$\bm{U}=\left(\dvx,\dvy,W,\dphi\right)$. We detail this technical
-procedure in Appendix \ref{reduction}. The schematic problem is
+$\bm{U}=\left(\dvx,\dvy,W,\dphi\right)$. We detail the steps 
+in Appendix \ref{reduction}. The problem is schematically 
 \begin{align}
   L_{11}\dvx + L_{12}\dvy + L_{13}W + L_{14}\dphi &= 0, \label{lin1}\\
   L_{21}\dvx + L_{22}\dvy + L_{23}W + L_{24}\dphi &= 0, \label{lin2}\\
@@ -69,9 +70,14 @@ be read off Eq. \ref{final_vx}, Eq. \ref{final_vy} and
 Eq. \ref{final_w} respectively, and $L_{4j}$ from
 Eq. \ref{lin_poisson}. 
 
-Note that $L_{31}\propto k_x$, so that if $k_x=0$ 
-then Eq. \ref{lin1}---\ref{lin2} are decoupled from 
-Eq. \ref{lin3}---\ref{lin4}. 
+Note that $L_{31}\propto k_x$, so for $k_x=0$ 
+Eq. \ref{lin1}---\ref{lin2} are decoupled from 
+Eq. \ref{lin3}---\ref{lin4}. In this case, a solution is $\dphi=W=0$,
+with $\dvx$ and $\dvy$ determined by Eq. \ref{lin1}---\ref{lin2},
+which is the incompressible MRI problem. This means that the density
+and potential perturbations can only influence the MRI for
+$k_x\neq0$. However, SG will still have an effect through the
+background equilibrium for $k_x=0$. 
 
 \subsection{Boundary conditions}
 We assume $\bm{U}$ is an even function of $z$, so that $d\bm{U}/dz=0$
@@ -94,8 +100,8 @@ equations. Let
 where $  \psi_k  = T_{2(k-1)},  $ and  $T_l$ is a Chebyshev polynomial of the first
 kind of order $l$ \citep{stegun65}. %The number of basis functions is
 %$N_z$ and $l_\mathrm{max}=2(N_Z-1)$ is the highest polynomial order. 
-Note that we only use even Chebyshev polynomials which automatically satisifies the symmetry 
-condition at $z=0$. Henceforth we only consider $z\geq 0$. 
+Note that we only use even Chebyshev polynomials so the symmetry 
+condition at $z=0$ is satisfied. Henceforth we only consider $z\geq 0$. 
 The pseudo-spectral coefficients $\bm{U}_n$  are obtained by demanding
 the set of linear equations to be satisfied at $N_z$ collocation
 points along the vertical direction. We choose these points as the
@@ -113,6 +119,14 @@ Eq. \ref{matrix_eqn} are obtained by varying $\sigma$ using Newton-Raphson itera
 such that $\mathrm{det}\bm{M}=0$ \citep[details can be found in][]{lin12}.
 
 \subsection{Diagnostics}
-
-
+We visualize results in terms of energy densities. We define
+\begin{align}
+  &E_1 \equiv \frac{|\delta \bm{B}|^2}{2\beta},\\
+  &E_2 = \frac{\rho}{c_s^2}|\real\left(W\dphi^*\right)|,\\
+  &E_3 = \frac{1}{2}\rho|\delta\bm{v}|^2,\\
+  &E_4 = \frac{\rho|W|^2}{2c_s^2},
+\end{align}
+as the perturbed magnetic, gravitational, kinetic and thermal
+energies, respectively, which are functions of $z$. We
+then normalize each by $\mathrm{max}(E_1)$. 
  

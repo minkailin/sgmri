@@ -32,8 +32,8 @@ Let us first define operators
 \end{align}
 and 
 \begin{align}
-  \hat{D}_0 = \eta D_0, \quad \hat{D}_1 = \eta^\prime D_0 + \eta
-  D_1,\quad \hat{D}_2 = \eta^{\prime\prime} D_0 + 2\eta^\prime D_1 +
+  \overline{D}_0 = \eta D_0, \quad \overline{D}_1 = \eta^\prime D_0 + \eta
+  D_1,\quad \overline{D}_2 = \eta^{\prime\prime} D_0 + 2\eta^\prime D_1 +
   \eta D_2. 
 \end{align}
 Denoting the $n^\mathrm{th}$ vertical derivative as $^{(n)}$, the
@@ -53,7 +53,7 @@ We insert the expression for $\dbx^\prime$ from Eq. \ref{bx_eq} and the
 expressoin for $\dbz^{\prime\prime}$ from the $z$ component of the
 linearized induction equation (Eq. \ref{induct_vert}) to obtain
 \begin{align}\label{bz_eq}
-  -\sigma\dbz^{(n)} = f k_x \dvx^{(n)} + \frac{k_x\beta\rho}{f}\hat{D}_n\left(\imgi\sigma\dvx - 2\dvy +
+  -\sigma\dbz^{(n)} = f k_x \dvx^{(n)} + \frac{k_x\beta\rho}{f}\overline{D}_n\left(\imgi\sigma\dvx - 2\dvy +
   \imgi f k_x\w \right). 
 \end{align}
 
@@ -63,7 +63,7 @@ $\dbx^\prime$ (Eq. \ref{bx_eq}) and $\dbz^\prime$  (Eq. \ref{bz_eq})
 into the right-hand-side of the $x$-induction equation (Eq. \ref{induct_x} ) gives   
 \begin{align}
   \imgi\sigma \frac{f}{\beta\rho}\dbx =
-  \frac{f^2}{\beta\rho}\dvx^\prime + \hat{D}_1\left(\imgi\sigma\dvx -
+  \frac{f^2}{\beta\rho}\dvx^\prime + \overline{D}_1\left(\imgi\sigma\dvx -
   2\dvy + \imgi f k_x\w\right). \label{bx_expression}
 \end{align}
 ($\bar{\sigma}\neq0$ has been assumed to obtain this.) 
@@ -72,7 +72,7 @@ $z$ and eliminate the resulting $\dbx^\prime$ using
 Eq. \ref{bx_eq}, to obtain
 \begin{align}
   0 = \frac{f^2}{\beta\rho}\dvx^{\prime\prime} -
-  \frac{f^2}{\beta\rho}k_x^2\dvx + \left(\hat{D}_2 - k_x^2 \hat{D}_0
+  \frac{f^2}{\beta\rho}k_x^2\dvx + \left(\overline{D}_2 - k_x^2 \overline{D}_0
     - \imgi\sigma D_0\right)\left( \imgi\sigma\dvx -
   2\dvy + \imgi f k_x\w\right). \label{final_vx} 
 \end{align}
@@ -90,9 +90,9 @@ We can now insert expressions for the magnetic field derivatives using
 Eq. \ref{by_eq} and \ref{bz_eq} to obtain an expression for $\dby$, 
 \begin{align}
   \imgi\bar{\sigma}\dby = f \dvy^\prime + \frac{\imgi S}{\sigma}\left[
-    f\dvx^\prime + \frac{\beta\rho}{f}\hat{D}_1\left(\imgi\sigma\dvx -
+    f\dvx^\prime + \frac{\beta\rho}{f}\overline{D}_1\left(\imgi\sigma\dvx -
   2\dvy + \imgi f k_x\w \right)\right] +
-  \frac{\beta\rho}{f}\hat{D}_1\left(\imgi\sigma\dvy +
+  \frac{\beta\rho}{f}\overline{D}_1\left(\imgi\sigma\dvy +
   \frac{\kappa^2}{2}\dvx\right). \label{by_expression}
 \end{align}
 We differentiate this expression with respect to $z$, then eliminate 
@@ -106,8 +106,8 @@ Eq. \ref{by_eq}, respectively. We obtain
     S}{\sigma}\frac{f^2}{\beta\rho}\left(\dvx^{\prime\prime} -
     \frac{\sbar^\prime}{\sbar}\dvx^\prime\right) -
     \frac{\imgi\sbar\kappa^2}{2}D_0\dvx \notag\\
-    & + \left(\hat{D}_2 -
-    \frac{\sbar^\prime}{\sbar}\hat{D}_1\right)\left[\imgi\left(\sigma
+    & + \left(\overline{D}_2 -
+    \frac{\sbar^\prime}{\sbar}\overline{D}_1\right)\left[\imgi\left(\sigma
       - \frac{2S}{\sigma}\right)\dvy + \left(\frac{\kappa^2}{2} -
       S\right)\dvx - \frac{Sfk_x}{\sigma}\w\right]. \label{final_vy}
 \end{align}
