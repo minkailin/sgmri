@@ -182,22 +182,31 @@ program sgmri
   
   !solve the eigenvalue problem for each k (= bigQ, beta or kx)
   open(99, file='basic.dat')
+  open(100, file='params.dat')
+  
   if(nk .eq. 1) then
+
      call get_basic 
+     
+     write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
+     
      do j=1, nz 
         write(99, fmt='(7(e22.15,x))') zaxis(j), dnorm(j), valf(j),&
              & csq(j), eta(j), drho(j), deta(j)
      enddo
+     
+     
   endif
-
+  
   open(20, file='eigenvalues.dat')  
   do i=1, nk 
      kcount = i      
      if(nk .gt. 1) then
+        
         if(var.eq.'grav') then
            bigQ = kaxis(i)
            write(6,fmt='(A,A,A,f5.2,A)') '---------------', var, '=',bigQ,'---------------'
-           call get_basic 
+           call get_basic
         endif
         if(var.eq.'beta') then
            beta = 10d0**kaxis(i)
@@ -214,10 +223,14 @@ program sgmri
            write(6,fmt='(A,A,a,f5.2,A)') '---------------', var, '=', Rm,'----------------'
            call get_basic
         endif 
+
+        write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
         do j=1, nz 
            write(99, fmt='(7(e22.15,x))') zaxis(j), dnorm(j), valf(j)&
                 &, csq(j), eta(j), drho(j), deta(j)
         enddo
+
+        
      endif
     
      write(str_mode, fmt='(I2)') i 
@@ -238,4 +251,5 @@ program sgmri
   enddo
   close(20)!eigenvalue.dat
   close(99)!basic.dat 
+  close(100)!params.dat
 end program sgmri
