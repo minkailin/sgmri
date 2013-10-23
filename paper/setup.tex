@@ -94,7 +94,7 @@ the disk thickness.
     disk thickness. \label{eqm_den}}
 \end{figure}
 
-\subsection{Resistivity profile}
+\subsection{Resistivity profile}\label{resis_profile}
 Following \cite{fleming03}, we adopt the resistivity profile
 \begin{align}
   \eta(z) =
@@ -117,6 +117,22 @@ once the equilibrium $\rho$ and $d\rho/dz$ are obtained from
 Eq. \ref{eqm_eqns1} --- \ref{eqm_eqns2}, the integration for
 Eq. \ref{sigma_pm} can be done implicitly by using the Poisson
 equation. 
+
+Example resistivity profiles are shown in Fig. \ref{eqm_resis} for the isothermal disk. 
+The midplane Elsasser number is $\Lambda(0)=0.1$ and the conductivity is boosted by a factor $A=10$ 
+from the midplane to the upper disk boundary. The figure compares a strongly self-gravitating case
+($Q=0.2$) and the non-self-gravitating limit ($Q=10$). 
+
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/elsasser_iso}
+  \caption{Elsasser number as prescribed in \S\ref{resis_profile} for
+    isothermal disks with $Q=0.2$ (solid) 
+    and $Q=10$ (dotted). The vertical line
+    indicates $\Lambda=1$ in each case. \label{eqm_resis}}
+\end{figure}
+
+
 
 
 \subsection{System parameters}
