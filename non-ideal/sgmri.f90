@@ -99,18 +99,6 @@ program sgmri
   omegak  = sqrt(bigG*mstar/r0**3d0)/omega 
   kappa   = sqrt(2.0*(2.0 - shear))
   omegaz2 = omegak**2d0 
-  if(eos .eq. 'pol') then
-     fQ      = sqrt(bigQ)*acos(omegaz2*bigQ/(1d0 + omegaz2*bigQ)) !H*Omega/cs0 
-     fQ      = 1d0/fQ 
-  else if((eos.eq.'iso').or.(eos.eq.'uns')) then
-     fQ = 1d0
-  endif
- 
-  !output fiducial parameters
-  open(10, file='params.dat')
-  write(10, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
-  close(10)
-
  
   big_nz = nvar*nz 
 
