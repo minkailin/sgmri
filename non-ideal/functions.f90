@@ -69,6 +69,13 @@ subroutine get_basic
   real*8, external :: density, dlogrho, resistivity, dresistivity, &
        d2resistivity 
   
+  if(eos .eq. 'pol') then
+     fQ      = sqrt(bigQ)*acos(omegaz2*bigQ/(1d0 + omegaz2*bigQ)) !H*Omega/cs0 
+     fQ      = 1d0/fQ 
+  else if((eos.eq.'iso').or.(eos.eq.'uns')) then
+     fQ = 1d0
+  endif
+  
   if(eos .eq. 'iso') then !isothermal 
      call setup_isosg
   else if(eos .eq. 'pol') then !n=1 polytrope 
@@ -80,7 +87,7 @@ subroutine get_basic
      d2rho = d2rho/dnorm 
      valf  = 1d0/(beta*dnorm) 
      csq   = dnorm  
-
+     
   else if(eos .eq. 'uns') then !unstratified 
      dnorm = 1d0
      drho  = 0d0 
@@ -91,7 +98,7 @@ subroutine get_basic
   if(beta .lt. 0d0) then !unmagnetized
      valf = 0d0 
   endif
-
+  
    call fill_resistivity 
 
 end subroutine get_basic
