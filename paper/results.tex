@@ -3,7 +3,7 @@
 \subsection{MRI in self-gravitating polytropic disks with uniform
   resistivity}  
 We first calculate the MRI as a function of $Q$ in a polytropic disk
-with uniform resistivity ($A=1$). Here, we consider $Q\in[0.2,4]$,
+with uniform resistivity ($A=1$). We consider $Q\in[0.2,4]$,
 corresponding to stronly self-gravitating to non-self-gravitating
 disks, for mid-plane Elsasser numbers $\Lambda_0\in[0.3,10]$. We fix $k_x=0.1$ and 
 $\beta=100$. 
@@ -14,19 +14,37 @@ negligible because $k_x\ll1$, i.e. the linear response is
 non-self-gravitating. 
 %even though the linear response is expected to be incompressible
 %because $k_x\ll 1$, i.e. non-self-gravitating. 
-\cite{sano99} found that the MRI wavelength, normalized by $H$, can be estimated as
+\cite{sano99} found that the MRI wavelength, normalized by $2H$, can be estimated as
 \begin{align}
   \lambda=\mathrm{max}\left(\lambda_\mathrm{ideal},\lambda_\mathrm{resis}\right), 
 \end{align}
 where
 \begin{align}
-  \lambda_\mathrm{ideal} = f v_A = \frac{f}{\sqrt{\beta\rho}} 
+  \lambda_\mathrm{ideal} = \pi f v_A = \frac{\pi f}{\sqrt{\beta\rho}} 
 \end{align}
 is the ideal MRI wavelength, and 
 \begin{align}
-  \lambda_\mathrm{resis} =\frac{\eta}{f v_A}=\frac{f}{\Lambda_0}\sqrt{\frac{\rho}{\beta}}
+  \lambda_\mathrm{resis} =\frac{\pi\eta}{f v_A}=\frac{\pi f}{\Lambda_0}\sqrt{\frac{\rho}{\beta}}
 \end{align}
-is the MRI wavelength in the limit of high resistivity. 
+%factor pi comes form converting vertical wavenumber to
+%wavelength. linear theory works with wavenumber, physical
+%interpretation in terms of wavelengths
+is the MRI wavelength in the limit of high resistivity. MRI requires
+$\lambda\lesssim 1$, so that the unstable wavelength fits within the
+disk column. As shown in Appendix \ref{appen1} $f$ increases with the
+strength of self-gravity. This is expected to increase $\lambda$ and
+weaken the MRI.  
+
+
+We show in Fig. the growth rates as a function of $Q$ and
+$\Lambda_0$. In the limit of ideal MHD, $\Lambda_0>1$, there is
+negligible dependence on $Q$ because $f$ is of order unity for the
+range of $Q$ considered so $\lambda_\mathrm{ideal}$ remain less than
+  unity. However, in the resistive limit, the dependence of
+  $\lambda_\mathrm{resis}$ on $f$ (and hence $Q$) is amplified by
+  $\Lambda_0 < 1$.   
+
+
 
 \subsection{Resistive MRI in massive polytropic disks with layered
   resistivity} 
