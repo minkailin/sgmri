@@ -1,6 +1,6 @@
 \section{Local disk model}
 We study the local stability of an inviscid, self-gravitating and
-magnetized barotropic fluid disk orbiting a central mass with
+magnetized fluid disk orbiting a central mass with
 potential $\Phi_*(r,z)$, where $(r,\varphi,z)$ are cylindrical
 co-ordinates from the central mass. We use the shearing box approximation     
 \citep{goldreich65b} and consider a small patch of the disk at
@@ -25,10 +25,12 @@ equations read
 \end{align}
 where $\rho$ is the density field; $\bm{v}$ is the total velocity in
 the local frame; $\bm{B}$ is the magnetic field which satisfies
-$\nabla\cdot\bm{B}=0$; $\Pi \equiv P +
+$\nabla\cdot~\bm{B}=0$; $\Pi \equiv P +
 |\bm{B}|^2/2\mu_0$ is the total pressure ($\mu_0$ is the vacuum
-permeability) and $P=P(\rho)$ is the gas pressure given by a
-barotropic equation of state chosen later.  
+permeability). We choose a barotropic equation of state, specified
+below, so that the gas pressure is given by $P=P(\rho)$. 
+%is the gas pressure given by a
+%barotropic equation of state chosen later.  
 
 The total potential is $\Phi = \Phi_\mathrm{ext} + \Phi_d$, where
 \begin{align}
@@ -53,8 +55,8 @@ drop the subscript $0$ on the frequencies.
 \subsection{Self-gravitating equilibria} 
 The unperturbed disk is steady and described by
 $\rho=\rho(z)$, $\bm{B} = B\hat{\bm{z}}$ where $B$ is a constant, and
-velocity field $\bm{v} = -Sx\hat{\bm{y}}$. We have assumed a thin disk 
-and neglected the radial component of the self-gravitational force in
+velocity field $\bm{v} = -Sx\hat{\bm{y}}$. We assume a thin disk 
+and neglect the radial component of the self-gravitational force in
 the unperturbed disk.    
 
 The equilibrium density field is obtained by solving
@@ -64,34 +66,49 @@ The equilibrium density field is obtained by solving
 \end{align}
 We consider \begin{inparaenum}[(i)]
 \item isothermal disks with $P=c_{s0}^2\rho$\label{iso_eos}; 
-\item polytropic disks with $P=K\rho^2$ where $K=c_{s0}^2/2\rho_0$ and $\rho_0\equiv\rho(0)$
-\end{inparaenum}.
-In both cases $c_{s0}$ is the midplane sound speed. For the polytropic
-disk we define the disk thickness as $H$ such that $\rho(H)=0$. In the
-isothermal case we define a characterisic disk thickness as
-$H=c_{s0}/\Omega$, which is the pressure scale-height in the
-non-self-gravitating limit. 
+\item polytropic disks with $P=K\rho^2$ with $K=c_{s0}^2/2\rho(0)$;
+\end{inparaenum}
+where $c_{s0}$ is the global sound speed in the isothermal disk, and
+is the mid-plane sound speed in the polytropic disk. For the polytropic
+disk the disk thickness $H$ is such that $\rho(H)=0$. Since the
+isothermal disk has no surface, we define $H$ such that
+$\rho(H)=\epsilon\rho(0)$ with $\epsilon=10^{-2}$.   
 
-We solve for $\hat{\rho}\equiv\rho/\rho_0$ subject to $\hat{\rho}=1$
-and $d\hat{\rho}/dz=0$  at $z=0$. This is done numerically for
-isothermal disks and analytically for the polytropic disk (see
-Appendix \ref{appen1}). Examples of density profiles are shown in
-Fig. \ref{eqm_den}. The isothermal disk shows that self-gravity
-compresses the disk and reduces the true pressure scale-height. The
-polytropic disk shows little difference between different strengths of
-self-gravity because the vertical co-ordiante is already normalized by
-the disk thickness. 
+%and $\rho_0\equiv\rho(0)$
+
+We solve for $\hat{\rho}\equiv\rho/\rho_0$, where
+the mid-plane density $\rho_0\equiv\rho(0)$ is parameterized via the
+Toomre $Q$ parameter such that $\rho_0=\Omega^2/4\pi G Q$. Boundary
+conditions are $\hat{\rho}=1$ and $d\hat{\rho}/dz=0$  at $z=0$. This
+is done numerically for isothermal disks and analytically for the
+polytropic disk (see Appendix \ref{appen1}). Examples of density
+profiles are shown in Fig. \ref{eqm_den}. The density field is weakly
+dependent on the strength of self-gravity provided the vertical
+co-ordinate is appropriately normalized. 
+ 
+%As the strength of self-gravity increases, the
+%disk becomes thinner ($H$ decreases)
+
+%The isothermal disk shows that self-gravity
+%compresses the disk and reduces the true pressure scale-height. The
+%polytropic disk shows little difference between different strengths of
+%self-gravity because the vertical co-ordiante is already normalized by
+%the disk thickness. 
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{figures/compare_iso_density}
-  \includegraphics[width=\linewidth]{figures/compare_poly_density}
+  \includegraphics[width=\linewidth,clip=true,trim=0cm 1.5cm 0cm 0cm]{figures/compare_iso_density}
+  \includegraphics[width=\linewidth,clip=true,trim=0cm 0cm 0cm 0.9cm]{figures/compare_poly_density}
   \caption{Equilibrium density field from solving Eq. \ref{eqm_eqns1}
     --- \ref{eqm_eqns2} subject to an isothermal (top) and polytropic
-    (bottom) equation of state. Note that the vertical co-ordinate is
-    normalized differently for convenience. In the isothermal disk,
-    $H$ is the characteristic scale-height in the
-    non-self-gravitating limit; in the polytropic disk $H$ is the
-    disk thickness. \label{eqm_den}}
+    (bottom) equation of state. Note that the normalization for the
+    horizontal axis also depends on the strength of self-gravity,
+    i.e. $H=H(Q)$ and is a decreasing function of $Q$. 
+%Note that the vertical co-ordinate is
+%    normalized differently for convenience. In the isothermal disk,
+%    $H$ is the characteristic scale-height in the
+%    non-self-gravitating limit; in the polytropic disk $H$ is the
+%    disk thickness. 
+\label{eqm_den}}
 \end{figure}
 
 \subsection{Resistivity profile}\label{resis_profile}
@@ -115,14 +132,26 @@ and we define $\eta_0/\eta(\infty)\equiv A$ as the conductivity
 boost factor from the midplane to the disk surface. We remark that
 once the equilibrium $\rho$ and $d\rho/dz$ are obtained from
 Eq. \ref{eqm_eqns1} --- \ref{eqm_eqns2}, the integration for
-Eq. \ref{sigma_pm} can be done implicitly by using the Poisson
+Eq. \ref{sigma_pm} can be performed implicitly by using Poisson's 
 equation. 
 
-Example resistivity profiles are shown in Fig. \ref{eqm_resis} for the isothermal disk. 
-The conductivity is boosted by a factor $A=10$ from the midplane to
-the upper disk boundary. The figure compares a strongly self-gravitating case
-($Q=0.2$) and the non-self-gravitating limit ($Q=10$). 
 
+We use the Elsasser number $\Lambda$ as a non-dimensional measure of
+conductivity,
+\begin{align} 
+  \Lambda \equiv \frac{v_A^2}{\eta\Omega},
+\end{align}
+where $v_A \equiv B/\sqrt{\mu_0\rho}$ is the Alfven speed. Example
+profiles of $\Lambda$ are shown in Fig. \ref{eqm_resis} for the
+isothermal disk. The disk may be considered ideal where $\Lambda
+\gtrsim 1$. Since $\rho(z/H)$ is weakly dependent on  self-gravity, the
+ideal region only expands slightly as $Q$ is decreased. 
+
+%A similar plot is obtained for polytropic disks.   
+
+%The conductivity is boosted by a factor $A=10$ from the midplane to
+%the upper disk boundary. The figure compares a strongly self-gravitating case
+%($Q=0.2$) and the non-self-gravitating limit ($Q=10$). 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/elsasser_iso}
@@ -133,10 +162,10 @@ the upper disk boundary. The figure compares a strongly self-gravitating case
 \end{figure}
 
 
-
-
 \subsection{System parameters}
-The strength of self-gravity is parametrized by
+We summarize here the main parameters describing the resistive,
+self-gravitating shearing box. The strength of self-gravity is
+parametrized by 
 \begin{align}
   Q \equiv \frac{\Omega^2}{4\pi G\rho_0}
 \end{align}
@@ -149,12 +178,13 @@ the magnetic field,
 where $v_{A0}$ is the midplane Alfven speed. The strength of
 resistivity is measured by the midplane Elsasser number 
 \begin{align}
-  \Lambda_0 \equiv \frac{v_{A0}^2}{\eta_0\Omega} = \frac{f^2 R_m}{\beta}, 
+  \Lambda_0 \equiv\Lambda(0) =  \frac{v_{A0}^2}{\eta_0\Omega} = \frac{f^2 R_m}{\beta}, 
 \end{align}
-where the second equality defines the magnetic Reynolds number $R_m$
-and $f\equiv \csmid/H\Omega$ is a numerical factor of order unity.
-The Elsasser number as a function of height is $\Lambda(z)\equiv
-v_A^2/\eta\Omega$. 
+where the third equality defines the magnetic Reynolds number
+$R_m=H^2\Omega/\eta_0$ and $f\equiv \csmid/H\Omega$ is a numerical
+factor of order unity. 
+%The Elsasser number as a function of height is $\Lambda(z)\equiv
+%v_A^2/\eta\Omega$. 
 
 
 
