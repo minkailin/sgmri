@@ -1,13 +1,20 @@
 \section{Results}
+We consider Keplerian disks so that $S = 1.5$ and $\kappa = \Omega =
+\Omega_z.$ In the linear simulations below we fix $\beta=100$ and the
+vertical extent of the disk is $Z_s=0.99$ and $Z_s=1$ in the
+polytropic and isothermal disk, respectively. The numerical resolution
+is $N_z=256$.  
+
 
 \subsection{MRI in self-gravitating polytropic disks with uniform
   resistivity}  
 We first calculate the MRI as a function of $Q$ in a polytropic disk
 with uniform resistivity ($A=1$). We consider $Q\in[0.2,4]$,
 corresponding to stronly self-gravitating to non-self-gravitating
-disks, for mid-plane Elsasser numbers $\Lambda_0\in[0.3,5]$. 
-We fix $k_x=0.1$ and $\beta=100$. The numerical resolution is
-$N_z=256$. 
+disks, for mid-plane Elsasser numbers $\Lambda_0\in[0.3,10]$. We fix
+$k_x=0.1$.  
+%We fix $k_x=0.1$ and $\beta=100$. The disk vertical extent is
+%$Z_s=0.99$ and adopt a numerical resolution of $N_z=256$. 
 
 Fig. \ref{compare_growth_poly_uniresis} plots the MRI growth rates as
 a function of $Q$ and $\Lambda_0$. As expected growth rates generally
@@ -61,12 +68,12 @@ in the limit of high resistivity.
 %For $\Lambda_0\gtrsim 1$, we find
 %the condition $\lambda < 2H$ is well-satisifed throughout most of the
 %disk regardless of $Q$.     
-For polytropic disks the normalized density $\rho$ is weakly dependent
+The normalized polytropic disk density $\rho$ is weakly dependent
 on $Q$ (Fig. \ref{eqm_den}) so self-gravity only affects the
 MRI through the factor $f$, which increases with decreasing $Q$ (see
 Fig. \ref{plot_fq} in Appendix \ref{appen1}). This suggests that
 sufficiently strong self-gravity can stabilize the MRI by making
-$\lambda > 2H$. 
+$ 2H<\lambda $. 
  
 %Physically, the
 %disk becomes thinner with increasing self-gravity, and the MRI will be
@@ -77,19 +84,59 @@ $\lambda > 2H$.
 %strength of self-gravity. This is expected to increase $\lambda$ and
 %weaken the MRI.  
 
-However, $f$ does not vary much for the range of $Q$ considered here. 
+%However, $f$ does not vary much for the range of $Q$ considered here. 
 In the ideal limit, we find $\lambda < 2H$ throughout most of the disk
-for all values of $Q$, so that self-gravity does not affect growth
-rates significantly. Weak variations in $\gamma$ were found to be
-associated with changes in the 
+for the values of $Q$ considered, so that self-gravity does not affect
+growth rates significantly. Fig. \ref{compare_result_lambda10} shows
+the magnetic energies for $\Lambda_0=10$ and a range of Toomre $Q$
+values. The number of vertical nodes decrease with $Q$, 
+%i.e. increasing the strength of vertical self-gravity makes the disk
+%unable to accommodate many wavelengths because it becomes thinner. 
+i.e. the disk accommodates fewer wavelengths because increasing
+vertical self-gravity makes it thinner. 
+%As the strength of 
+%self-gravity increase, the disk becomes thinner so it can only
+%accommodate one wavelength.
+Weak variations in growth rates in the ideal limit, seen in 
+Fig. \ref{compare_growth_poly_uniresis}, were found to be associated
+with changes in the mode character: $\gamma$ decreases
+slightly when the mode begins to acquire an additional vertical node as $Q$ is
+increased. 
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/compare_result_lambda10}
+  \caption{Magnetic energies as a function of height, in the limit of
+    ideal MHD, for various strengths of self-gravity.   
+    \label{compare_result_lambda10}}
+\end{figure}
+
+Self-gravity appreciably decreases the MRI growth rates in the
+resistive limit. We plot in Fig. \ref{lambda_poly_resis}
+Eq. \ref{sano_crit} for $\Lambda_0=0.3$. Even in the
+non-self-gravitating disk ($Q=4$) the instability criterion is only
+marginally satisfied in the bulk of the disk. As $Q$ decreases, the
+Eq. \ref{sano_crit} is violated and the growth rate is dramatically
+reduced. This is seen for $Q=0.2$ where $\lambda \geq 2H$ throughout
+the disk. (The instability is not completely surpressed since
+Eq. \ref{sano_crit} is only an approximation.) Although the function
+$f$ does not change significantly for the range of $Q$ considered, the
+dependence of $\lambda_\mathrm{resis}$ on $f$ (and therefore $Q$) is
+amplified by the denominator $\Lambda_0<1$ in the resistive case. For resistively cases
+we find no nodes in the magnetic energy $E_1$ except at end points,
+i.e. only the longest wavelength survives Ohmic dissipation. 
 
 
+%only one wavelength. no nodes except endpoints.    
 
+
+%although $f$ does not vary significantly, the dependence of
+%$\lambda_\mathrm{resis}$ on $f$ is amplified by $\Lambda_0<1$ in the
+%denominator of Eq. \ref{lambda_resis}. Even in the 
 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/lambda_poly_uniresis}
-  \caption{Wavelength of the most unstable resistive MRI modes as given by
+  \caption{Approximate wavelengths of the most unstable resistive MRI modes as given by
     Eq. \ref{sano_crit}---\ref{lambda_resis}, normalized by the 
     disk thickness, as a function of height for a range of Toomre $Q$
     values.  
@@ -97,13 +144,55 @@ associated with changes in the
 \end{figure}
 
 
-\subsection{Resistive MRI in massive polytropic disks with layered
+\subsection{Resistive MRI in self-gravitating polytropic disks with layered
   resistivity} 
+Here we consider disks with mid-plane Elsasser number $\Lambda_0=0.1$
+and layered resistivity with $A=10^2$. We use $k_x=0.1$ as before.  
+Fig. \ref{poly_layer} compares the magnetic 
+energies for $Q=0.2,\,1$ and $4$. They have similar growth rates, $\gamma/\Omega
+= 0.53,\,0.64$ and $0.66$, respectively. In the non-self-gravitating
+limit ($Q=4$), the MRI is effectively surpressed for $z\lesssim0.5H$, whereas
+in the massive disk ($Q=0.2$) the mode occupies a wider vertical
+extent because its wavelength (in units of $H$) is larger. This
+suggests that in massive disks the MRI is not well localized to the
+active layer, as the instability takes on a more global character
+compared to non-self-gravitating disks.        
+%d is not as well localized
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/compare_results_poly_layer_amp100}
+  \caption{Magnetic energies as a function of height, for layered polytropic disks with
+    such that the conductivity increases by a 
+    factor of $10^2$ in going from the mid-plane to the upper disk
+    boundary. The vertical lines indicate $\Lambda=1$ for each value
+    of $Q$.
+    \label{poly_layer}}
+\end{figure}
+
+%\subsection{GI in magnetized isothermal disks with uniform
+%  resistivity} 
 
 
-\subsection{GI in magnetized isothermal disks with uniform
-  resistivity} 
+%\subsection{GI in magnetized isothermal disks with layered
+%  resistivity} 
+
+\subsection{Influence of self-gravity on MRI at larger horizontal
+  wavenumbers} 
+As remarked above, for $k_xH\ll 1$ the most unstable linear mode is
+the incompressible MRI with vanishing density and potential
+perturbtions. For self-gravity to play a role in the linear
+pertubrations one must consider $k_xH \neq 0$, which we consider
+here. 
 
 
-\subsection{GI in magnetized isothermal disks with layered
-  resistivity} 
+
+
+
+
+
+%to get compressibility effects, need kx non zero 
+%technically not fastest, but still pretty fast 
+
+
+%\subsection{Influence of vertical magnetic field on gravitational
+%  instability} 
