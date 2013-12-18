@@ -71,14 +71,16 @@ be read off Eq. \ref{final_vx}, Eq. \ref{final_vy} and
 Eq. \ref{final_w} respectively, and $L_{4j}$ from
 Eq. \ref{lin_poisson}. 
 
-Note that $L_{31}\propto k_x$, so for $k_x=0$ 
+Note that $L_{13},\,L_{14},\,L_{23},\,L_{24}$ and $L_{31}$ are
+proportional to $k_x$. Then for for $k_x=0$ 
 Eq. \ref{lin1}---\ref{lin2} are decoupled from 
 Eq. \ref{lin3}---\ref{lin4}. In this case, a solution is $\dphi=W=0$,
-with $\dvx$ and $\dvy$ determined by Eq. \ref{lin1}---\ref{lin2},
-which is the incompressible MRI problem. This means that the density
-and potential perturbations can only influence the MRI for
-$k_x\neq0$. However, SG will still have an effect through the
-background equilibrium for $k_x=0$. 
+with $\dvx$ and $\dvy$ determined by $L_{11}\dvx + L_{12}\dvy = 0$ and 
+$L_{21}\dvx + L_{22}\dvy=0$, which is the incompressible MRI problem. 
+This means that the density and potential perturbations can only
+influence the MRI for $k_x\neq0$. Nevertheless, for $k_x=0$,
+self-gravity can still have an effect through the background
+equilibrium.  
 
 \subsection{Boundary conditions}
 We assume $\bm{U}$ is an even function of $z$, so that $d\bm{U}/dz=0$
@@ -122,12 +124,13 @@ such that $\mathrm{det}\bm{M}=0$ \citep[details can be found in][]{lin12}.
 \subsection{Diagnostics}
 We visualize results in terms of energy densities. We define
 \begin{align}
-  &E_1 \equiv \frac{|\delta \bm{B}|^2}{2\beta},\\
-  &E_2 = \frac{\rho}{c_s^2}|\real\left(W\dphi^*\right)|,\\
-  &E_3 = \frac{1}{2}\rho|\delta\bm{v}|^2,\\
-  &E_4 = \frac{\rho|W|^2}{2c_s^2},
+  &E_m \equiv \frac{|\delta \bm{B}|^2}{2\beta},\\
+  &E_g = \frac{\rho}{c_s^2}|\real\left(W\dphi^*\right)|,\\
+  &E_k = \frac{1}{2}\rho|\delta\bm{v}|^2,\\
+  &E_t = \frac{\rho|W|^2}{2c_s^2},
 \end{align}
 as the perturbed magnetic, gravitational, kinetic and thermal
-energies, respectively, which are functions of $z$. We
-then normalize each by $\mathrm{max}(E_1)$. 
+energies, respectively, which are functions of $z$. The total energy
+is $E=E_m+E_g+E_k+E_t$ and we then normalize $E_i$ by
+$\mathrm{max}(E)$.  
  

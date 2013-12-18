@@ -34,6 +34,28 @@ with increasing strength of vertical self-gravity.
     \label{plot_fq}}
 \end{figure}
 
+\section{Relation between $Q$ and the Toomre parameter}\label{q3d2d}
+The Toomre parameter defined for razor-thin disks is $Q_\mathrm{2D}\equiv \kappa c_s/\pi G
+\Sigma$,  where $\Sigma$ is the total column density. To relate our
+self-gravity parameter $Q$ and $Q_\mathrm{2D}$, we replace $c_s$ by
+$\overline{c_s}\equiv\int\rho c_s dz/\int\rho dz$, and replace
+$\kappa$ by $\Omega$, so that 
+\begin{align}
+  Q_\mathrm{2D} = 2Qf \frac{\int_0^1
+    \rho c_s
+    dz}{\left(\int_0^1 \rho dz\right)^2},   
+\end{align}
+where each term on the right-hand-side is non-dimensionalized. 
+We display this relation in Fig. \ref{plot_q3d2d} for the isothermal and
+polytropic disks. 
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/q2d_iso}
+  \caption{Relation between the self-gravity parameter $Q$ and the
+    classic Toomre parameter $Q_\mathrm{2D}$.   
+    \label{plot_q3d2d}}
+\end{figure}
+
 
 \section{Reduction to linear hydrodynamics}\label{reduction} 
 Our task here is to remove the magnetic field and vertical velocity
@@ -138,4 +160,62 @@ Inserting this into the linearized continuity equation
   \frac{1}{c_s^2f^2}\left(\frac{\rho}{Q} + \sigma^2\right)W +
   \left(\ln{\rho}\right)^\prime\dphi^\prime + k_x^2\dphi + \frac{\sigma
   k_x}{f}\dvx.\label{final_w}
+\end{align}
+
+\section{Modifications for incompressible flow} 
+An incompressible flow satisfies 
+\begin{align}
+  \frac{\p \rho}{\p t} + \bm{v}\cdot\nabla\rho &= 0 \quad \mathrm{and} \quad
+  \nabla\cdot\bm{v} = 0
+\end{align}
+independently in the equilibrium and perturbed flows. Linearizing the
+above we obtain 
+\begin{align}
+  \frac{\dd\rho}{\rho} &= \frac{\ii }{\sigma}\dd v_z
+  \left(\ln\rho\right)^\prime,\\
+  0 &= \ii k_x \delta v_x + \dd v_z^\prime. 
+\end{align}
+The Eulerian density and pressure perturbation does not satisify the
+barotropic relation assumed for the unperturbed flow. Instead, the
+linearized pressure force is
+\begin{align}
+  -\frac{\nabla \dd P}{\rho} + \frac{\dd\rho}{\rho^2}\nabla P &=
+  -\nabla W + \nabla\ln\rho\left(\frac{c_s^2\dd\rho}{\rho} - W\right),
+  \notag\\
+  & = -\nabla W + \nabla\ln\rho\left(\frac{\ii c_s^2}{\sigma}\dd v _z \ln\rho^\prime  - W\right)
+\end{align}
+where $W=\delta P/\rho$ as before. The linearized vertical momentum
+equation acquires the second term, which gives the vertical velocity as 
+\begin{align}
+\dd v_z =
+\frac{\ii\sigma\left[\tilde{W}^\prime+\left(\ln\rho\right)^\prime W\right]}{\sigma^2 -
+  c_s^2\left(\ln{\rho}\right)^{\prime 2}}. 
+\end{align}
+Differentiating this and using $\delta v_z^\prime = -\ii k_x \delta
+v_x$, we obtain, after non-dimensionalizing, 
+\begin{align}
+  k_x \dd v_x\left[\sigma^2 -
+  f^2 c_s^2\left(\ln{\rho}\right)^{\prime 2}\right] + 
+  \sigma\left[\tilde{W}^{\prime\prime} +
+    \left(\ln\rho\right)^{\prime\prime}W +
+    \left(\ln\rho\right)^{\prime}W^\prime\right]f \notag\\ +
+  \frac{\sigma c_s^2 \left[\tilde{W}^\prime+\left(\ln{\rho}\right)^\prime
+    W\right]\left(\ln{\rho}\right)^\prime}{\sigma^2 -
+  f^2c_s^2\left(\ln{\rho}\right)^{\prime 2}}\left[\left(\ln{c_s^2}\right)^\prime\left(\ln{\rho}\right)^\prime
+      + 2\left(\ln{\rho}\right)^{\prime\prime}\right]f^3=0. 
+\end{align}
+The dimensionless linearized Poisson equation becomes
+\begin{align}
+  \dd\Phi^{\prime\prime} - k_x^2\dd\Phi +
+  \frac{\rho\left(\ln{\rho}\right)^\prime\left[\tilde{W}^\prime+\left(\ln\rho\right)^\prime
+      W\right]}{Q \left[\sigma^2 -
+  f^2c_s^2\left(\ln{\rho}\right)^{\prime 2}\right]} = 0.  
+\end{align}
+%boundary condition modifications
+The boundary condition for the gravitational potential is also
+modified to 
+\begin{align}
+  \dd\Phi^\prime + k_x\dd\Phi +
+  \frac{\rho\left[\tilde{W}^\prime+\left(\ln\rho\right)^\prime
+      W\right]}{Q\left[\sigma^2 - f^2c_s^2\left(\ln{\rho}\right)^{\prime 2}\right]}=0.
 \end{align}
