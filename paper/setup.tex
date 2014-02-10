@@ -28,9 +28,15 @@ the local frame; $\bm{B}$ is the magnetic field which satisfies
 $\nabla\cdot~\bm{B}=0$; $\Pi \equiv P +
 |\bm{B}|^2/2\mu_0$ is the total pressure ($\mu_0$ is the vacuum
 permeability). We choose a barotropic equation of state, specified
-below, so that the gas pressure is given by $P=P(\rho)$. 
+below, so that the gas pressure is given by $P=P(\rho)$. The
+resistivity $\eta$ is either uniform or a prescribed function of
+height. 
+%The %resistivity is allowed to be non-uniform, $\eta=eta(z)$.  
+
 %is the gas pressure given by a
 %barotropic equation of state chosen later.  
+%no curvature effects - magnetic tension neglected (limits strength of
+%toroidal field that can be considered
 
 The total potential is $\Phi = \Phi_\mathrm{ext} + \Phi_d$, where
 \begin{align}
@@ -52,11 +58,25 @@ and the gas potential $\Phi_d$ statisfies Poisson's equation
 where $G$ is the gravitational constant. For clarity, hereafter we
 drop the subscript $0$ on the frequencies. 
 
-\subsection{Self-gravitating equilibria} 
+%We consider two cases
+%\begin{enumerate}
+%\item Purely vertical field with constant or variable
+%  resistivity, so that $\epsilon = 0$ and $\eta=\eta(z)$. 
+%\item Tilted field with uniform resistivity
+%  so that $\epsilon \neq 0$ and $\eta=\rm{constant}$.   
+%\end{enumerate}
+
+\subsection{Equilibrium disk} 
 The unperturbed disk is steady and described by
-$\rho=\rho(z)$, $\bm{B} = B\hat{\bm{z}}$ where $B$ is a constant, and
-velocity field $\bm{v} = -Sx\hat{\bm{y}}$. We assume a thin disk 
-and neglect the radial component of the self-gravitational force in
+$\rho=\rho(z)$, $\bm{B} = B_z\hat{\bm{z}} + B_y\hat{\bm{y}}$ where
+$B_{y,z}$ are constants and the toroidal field strength is
+$B_y=\epsilon B_z$. The equilibrium 
+velocity field is $\bm{v} = -Sx\hat{\bm{y}}$. We consider Keplerian
+disks so that $S = 3\Omega/2$ and the epicyclic frequency 
+$\kappa\equiv\sqrt{2\Omega(2\Omega-S)}=\Omega=\Omega_z$. 
+%$\Omega = \Omega_z.$ 
+We assume a thin disk and neglect the radial component of the
+self-gravitational force in 
 the unperturbed disk.    
 
 The equilibrium density field is obtained by solving
@@ -66,9 +86,10 @@ The equilibrium density field is obtained by solving
 \end{align}
 We consider \begin{inparaenum}[(i)]
 \item isothermal disks with $P=c_{s0}^2\rho$\label{iso_eos}; 
-\item polytropic disks with $P=K\rho^2$ with $K=c_{s0}^2/2\rho(0)$;
+\item polytropic disks with $P=K\rho^2$ with $K=c_{s0}^2/2\rho_0$;
 \end{inparaenum}
-where $c_{s0}$ is the global sound speed in the isothermal disk, and
+where $\rho_0\equiv\rho(0)$. The sound speed $c_s\equiv\sqrt{dP/d\rho}$
+so that $c_{s0}$ is the global sound speed in the isothermal disk, and
 is the mid-plane sound speed in the polytropic disk. For the polytropic
 disk the disk thickness $H$ is such that $\rho(H)=0$. Since the
 isothermal disk has no surface, we define $H$ such that
@@ -76,16 +97,17 @@ $\rho(H)=\epsilon\rho(0)$ with $\epsilon=10^{-2}$.
 
 %and $\rho_0\equiv\rho(0)$
 
-We solve for $\hat{\rho}\equiv\rho/\rho_0$, where
-the mid-plane density $\rho_0\equiv\rho(0)$ is parameterized via the
-Toomre $Q$ parameter such that $\rho_0=\Omega^2/4\pi G Q$. Boundary
-conditions are $\hat{\rho}=1$ and $d\hat{\rho}/dz=0$  at $z=0$. This
+We solve for $\hat{\rho}\equiv\rho/\rho_0$ with 
+%$\rho_0\equiv\rho(0)$ is the mid-plane density.
+%is parameterized via the
+%Toomre $Q$ parameter such that $\rho_0=\Omega^2/4\pi G Q$. 
+boundary conditions $\hat{\rho}=1$ and $d\hat{\rho}/dz=0$  at $z=0$. This
 is done numerically for isothermal disks and analytically for the
 polytropic disk (see Appendix \ref{appen1}). Examples of density
-profiles are shown in Fig. \ref{eqm_den}. The density field is weakly
-dependent on the strength of self-gravity provided the vertical
-co-ordinate is appropriately normalized. 
- 
+profiles are shown in Fig. \ref{eqm_den}. The normalized density field
+is weakly dependent on the strength of self-gravity provided the
+vertical co-ordinate is appropriately scaled as well.  
+
 %As the strength of self-gravity increases, the
 %disk becomes thinner ($H$ decreases)
 
@@ -111,8 +133,16 @@ co-ordinate is appropriately normalized.
 \label{eqm_den}}
 \end{figure}
 
+%\subsection{}
+
+
+
+
 \subsection{Resistivity profile}\label{resis_profile}
-Following \cite{fleming03}, we adopt the resistivity profile
+In this work we consider either constant resistivity or a
+resistivity prescription such that $\eta(z)$ increases away from the
+midplane. In the latter case, we follow \cite{fleming03} and adopt the
+resistivity profile 
 \begin{align}
   \eta(z) =
   \sqrt{2}\eta_0\left[\exp{\left(-g_+\right)}+\exp{\left(-g_-\right)}\right]^{-1/2},  
@@ -141,10 +171,10 @@ conductivity,
 \begin{align} 
   \Lambda \equiv \frac{v_A^2}{\eta\Omega},
 \end{align}
-where $v_A \equiv B/\sqrt{\mu_0\rho}$ is the Alfven speed. Example
+where $v_A \equiv B_z/\sqrt{\mu_0\rho}$ is the vertical Alfven speed. Example
 profiles of $\Lambda$ are shown in Fig. \ref{eqm_resis} for the
 isothermal disk. The disk may be considered ideal where $\Lambda
-\gtrsim 1$. Since $\rho(z/H)$ is weakly dependent on  self-gravity, the
+\gtrsim 1$. Since $\hat{\rho}(z/H)$ is weakly dependent on  self-gravity, the
 ideal region only expands slightly as $Q$ is decreased. 
 
 %A similar plot is obtained for polytropic disks.   
@@ -169,16 +199,15 @@ parametrized by
 \begin{align}
   Q \equiv \frac{\Omega^2}{4\pi G\rho_0}
 \end{align}
-\citep{mamat10}. The relation between $Q$ and the Toomre 
-parameter for gravitational instability of razor-thin disks is
-described in Appendix \ref{q3d2d}.
+\citep{mamat10}, which is used to set the mid-plane density $\rho_0$. 
+The relation between $Q$ and the Toomre parameter for gravitational
+instability of razor-thin disks is described in Appendix \ref{q3d2d}. 
 
-
-The plasma $\beta$ measures the inverse strength of
-the magnetic field,
+The plasma $\beta$ measures the inverse strength of the  
+magnetic field, 
 \begin{align}
   \beta \equiv \frac{\csmid^2}{v_{A0}^2} =
-  \frac{\csmid^2\mu_0\rho_0}{B^2},  
+  \frac{\csmid^2\mu_0\rho_0}{B_z^2},  
 \end{align}
 where $v_{A0}$ is the midplane Alfven speed. The strength of
 resistivity is measured by the midplane Elsasser number 
@@ -188,8 +217,6 @@ resistivity is measured by the midplane Elsasser number
 where the third equality defines the magnetic Reynolds number
 $R_m=H^2\Omega/\eta_0$ and $f\equiv \csmid/H\Omega$ is a numerical
 factor of order unity. 
+
 %The Elsasser number as a function of height is $\Lambda(z)\equiv
 %v_A^2/\eta\Omega$. 
-
-
-

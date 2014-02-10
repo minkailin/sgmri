@@ -1,116 +1,138 @@
 \section{Linear problem}\label{linear}
 We consider axisymmetric Eulerian perturbations to the above
 equilibrium in the form $\real[\dd\rho(z)\exp{\imgi(k_xx + \sigma
-    t)}]$ and similarly for other fluid variables. Here, $k_x$ is a constant radial wavenumber and 
-$\sigma=-(\omega +\imgi\gamma)$ is a complex 
-frequency, where $-\omega$ is the real mode frequency and $\gamma$ is
-the growth rate. Hereafter, we surpress the exponential factor, as
-well as the real part notation.  We further write 
-\begin{align}
-  &z=\hat{z}H,\quad k_x =  \hat{k}_x/H,\quad \sigma = \hat{\sigma}\Omega,
-  \quad \delta\bm{v} = \csmid 
-  \delta\hat{\bm{v}}, \\ 
-  &\delta\bm{B} = B\delta\hat{\bm{B}},\quad
-  \delta\rho = \rho\hat{W}/\hat{c}_s^2,\quad \delta\Phi =
-  \csmid^2\delta\hat{\Phi}, 
-\end{align}
-where we have introduced the non-dimensional enthalpy perturbation
-$\hat{W}$ and the sound-speed $\hat{c}_s=\csmid^{-1}\sqrt{dP/d\rho}$ can be 
-obtained from the equation of state. The background frequencies are
-written $S=\hat{S}\Omega$ and $\Omega_z=\hat{\Omega}_z\Omega$ and the 
-resistivity as $\eta = \hat{\eta}H^2\Omega$. 
+    t)}]$ and similarly for other fluid variables. Here, $k_x$ is a
+constant radial wavenumber and $\sigma=-(\omega +\imgi\gamma)$ is a
+complex  frequency, where $-\omega$ is the real mode frequency and $\gamma$ is
+the growth rate. We take $k_x>0$ without loss of generality. 
+Hereafter, we surpress the exponential factor, as
+well as the real part notation. 
 
-We will now drop the $\hat{\phantom{a}}$ notation. Henceforth it is
-understood that all variables have been appropriately normalized
-(i.e. $\Omega\to 1$ and $H\to 1$), unless otherwise stated. The
-linearized continuity equation is 
+The linearized continuity equation is 
 \begin{align}
-  \frac{\imgi\sigma}{fc_s^2}W + \imgi k_x \dd v_x
+  \frac{\imgi\sigma}{c_s^2}W + \imgi k_x \dd v_x
   +\left(\ln\rho\right)^\prime\dd v_z + \dd v_z^\prime = 0,\label{lin_cont}
 \end{align}
-where $^\prime$ denotes $d/dz$. The linearized equations of motion are
+where $^\prime$ denotes $d/dz$ and $W=\delta P/\rho =
+c_s^2\delta\rho/\rho$ is the enthalpy perturbation.  
+The linearized equations of motion are
 \begin{align}
-  &\imgi\sigma \dvx - 2\dvy = f\left[v_A^2\dbx^\prime - \imgi k_x
-    \left(\w + v_A^2\dbz
-    \right)\right],\\
-  &\imgi\sigma\dvy + \frac{\kappa^2}{2}\dvx = fv_A^2\dby^\prime,\\
-  & \imgi\sigma\dvz = -f\w^\prime,
+  &\imgi\sigma \dvx - 2\Omega\dvy  = - \imgi
+  k_x\w + \frac{B_z}{\mu_0\rho} \left[\dbx^\prime - \imgi 
+    k_x\left(\dbz + \epsilon\dby\right)\right],\\
+  &\imgi\sigma\dvy + 
+    \frac{\kappa^2}{2\Omega}\dvx = \frac{B_z}{\mu_0\rho}\dby^\prime\label{lin_vy},\\ 
+  & \imgi\sigma\dvz = -\w^\prime - \frac{B_y}{\mu_0\rho}\dby^\prime\label{lin_vz},  
 \end{align}
-where the Alfven speed $v_A =
-\left(\beta\rho\right)^{-1/2}$, the effective enthalpy perturbation
-$\w = W + \dphi$ and the epicycle frequency $\kappa=\sqrt{2(2-S)}$. 
-The linearized induction equation is
+where the effective enthalpy perturbation
+$\w = W + \dphi$. The linearized induction equation is
 \begin{align}
-&  \imgi\bar{\sigma}\dbx = f\dvx^\prime +
+&  \imgi\bar{\sigma}\dbx = B_z\dvx^\prime +
   \eta\dbx^{\prime\prime}+\eta^\prime\dbx^\prime - \imgi k_x
   \eta^\prime \dbz,\label{induct_x}\\
-&\imgi\bar{\sigma}\dby = f\dvy^\prime - S\dbx +
+&\imgi\bar{\sigma}\dby = B_z\dvy^\prime -B_y\Delta - S\dbx +
   \eta\dby^{\prime\prime}+\eta^\prime\dby^\prime,\label{induct_y}\\
-& \imgi\bar{\sigma}\dbz = -\imgi f k_x \dvx + \eta\dbz^{\prime\prime}, \label{induct_vert}
-\end{align}
-where $\imgi\bar{\sigma} = \imgi\sigma + \eta k_x^2$, and the
-divergence-free condition is $\imgi k_x\dbx + \dbz^\prime=0$. Finally,
-the linearized Poisson equation is
+& \imgi\bar{\sigma}\dbz = -\imgi  k_xB_z \dvx +
+\eta\dbz^{\prime\prime}, \label{induct_vert}
+%& \imgi\bar{\sigma}\dbz = -\imgi  k_x \dvx  -\imgi k_x\eta \dbx^{\prime}, \label{induct_vert}
+\end{align} 
+where $\imgi\bar{\sigma} = \imgi\sigma + \eta k_x^2$,
+$\Delta\equiv \nabla\cdot\bm{\delta v}  = \imgi k_x\dvx + \dvz^\prime$,   
+and the divergence-free condition is $\imgi k_x\dbx +
+\dbz^\prime=0$. Finally, the linearized Poisson equation is 
 \begin{align}
-  \dphi^{\prime\prime} - k_x^2\dphi = \frac{\rho}{c_s^2f^2Q}W.  \label{lin_poisson}
+  \dphi^{\prime\prime} - k_x^2\dphi = \frac{\Omega^2\rho}{c_s^2Q\rho_0}W.  \label{lin_poisson}
 \end{align}
 
-We now eliminate $\dd\bm{B}$ and $\dvz$ between the linearized
+We eliminate $\dd\bm{B}$ and $\dvz$ between the linearized
 equations to obtain a system of ordinary differential equations for
 $\bm{U}=\left(\dvx,\dvy,W,\dphi\right)$. We detail the steps 
-in Appendix \ref{reduction}. The problem is schematically 
+in Appendix \ref{reduction} for two cases considered in this paper:
+%We consider two cases:
+\begin{enumerate}
+\item Purely vertical field with constant or variable
+  resistivity (see below), so that $\epsilon = 0$ and $\eta=\eta(z)$. 
+\item Tilted field with uniform resistivity
+  so that $\epsilon \neq 0$ and $\eta=\rm{constant}$.   
+\end{enumerate}
+Schematically, the numerical problem is to solve 
 \begin{align}
   L_{11}\dvx + L_{12}\dvy + L_{13}W + L_{14}\dphi &= 0, \label{lin1}\\
   L_{21}\dvx + L_{22}\dvy + L_{23}W + L_{24}\dphi &= 0, \label{lin2}\\
-  L_{31}\dvx \quad\quad\quad\,\,\,\,\,\,\, + L_{33}W + L_{34}\dphi &=0,\label{lin3}\\
+  L_{31}\dvx +L_{32}\dvy + L_{33}W + L_{34}\dphi &=0,\label{lin3}\\
   \phantom{L_{31}\dvx + L_{22}\dvy +} L_{43}W + L_{44}\dphi
-  &=0\label{lin4}, 
+  &=0\label{lin4},
 \end{align}
-where the differential operators $L_{1j}$, $L_{2j}$ and $L_{3j}$ can
-be read off Eq. \ref{final_vx}, Eq. \ref{final_vy} and 
-Eq. \ref{final_w} respectively, and $L_{4j}$ from
-Eq. \ref{lin_poisson}. 
+where differential operators $L_{1j},\,L_{2j}$ and $L_{3j}$
+($j=1,2,3,4$) can be read off Appendix \ref{reduction} and $L_{4j}$
+($j=3,4$) from the linearized Poisson equation above. We remark that
+the more general problem of tilted field and variable resistivity
+%($\epsilon\neq0$ and $\eta=\eta(z)$
+can also be reduced to the above form. 
 
-Note that $L_{13},\,L_{14},\,L_{23},\,L_{24}$ and $L_{31}$ are
-proportional to $k_x$. Then for for $k_x=0$ 
-Eq. \ref{lin1}---\ref{lin2} are decoupled from 
-Eq. \ref{lin3}---\ref{lin4}. In this case, a solution is $\dphi=W=0$,
-with $\dvx$ and $\dvy$ determined by $L_{11}\dvx + L_{12}\dvy = 0$ and 
-$L_{21}\dvx + L_{22}\dvy=0$, which is the incompressible MRI problem. 
-This means that the density and potential perturbations can only
-influence the MRI for $k_x\neq0$. Nevertheless, for $k_x=0$,
-self-gravity can still have an effect through the background
-equilibrium.  
+
+%where the differential operators $L_{1j}$, $L_{2j}$ and $L_{3j}$ can
+%be read off Eq. \ref{final_vx}, Eq. \ref{final_vy} and 
+%Eq. \ref{final_w} respectively, and $L_{4j}$ from
+%Eq. \ref{lin_poisson}. 
+
+%Note that $L_{13},\,L_{14},\,L_{23},\,L_{24}$ and $L_{31}$ are
+%proportional to $k_x$. Then for for $k_x=0$ 
+%Eq. \ref{lin1}---\ref{lin2} are decoupled from 
+%Eq. \ref{lin3}---\ref{lin4}. In this case, a solution is $\dphi=W=0$,
+%with $\dvx$ and $\dvy$ determined by $L_{11}\dvx + L_{12}\dvy = 0$ and 
+%$L_{21}\dvx + L_{22}\dvy=0$, which is the incompressible MRI problem. 
+%This means that the density and potential perturbations can only
+%influence the MRI for $k_x\neq0$. Nevertheless, for $k_x=0$,
+%self-gravity can still have an effect through the background
+%equilibrium.  
+
 
 \subsection{Boundary conditions}
-We assume $\bm{U}$ is an even function of $z$, so that $d\bm{U}/dz=0$
-at $z=0$. This implies that $\dbx=\dby=0$ at the midplane, consistent
-with a highly resistive dead zone. At the upper disk boundary
-$z=\zmax$ we assume 
+At the vertical disk boundaries $z=\pm\zmax$ we assume  
 $\dvz=\dbx=\dby=0$, and 
 \begin{align}
-  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0
+  \dphi^\prime(\zmax) \pm k_x\dphi(\zmax) = 0
 \end{align}
-for the potential perturbation \citep[see][]{goldreich65a}.  
+for the potential perturbation \citep[see][]{goldreich65a}, where the
+upper (lower) sign applies to the upper (lower) disk surface. 
+For Case 1 (purely vertical field) we additionally assume $\bm{U}$ is
+an even function of $z$, so that $d\bm{U}/dz=0$ 
+at $z=0$. 
+
+%This implies that $\dbx=\dby=0$ at the midplane, consistent
+%with a highly resistive dead zone. 
 
 \subsection{Numerical procedure}
-We use a pseudo-spectral approach to solve the set of linearized
+We use a pseudo-spectral method to solve the set of linearized
 equations. Let
 \begin{align}\label{cheby_expand}
   \bm{U}(z) 
   = \sum_{k=1}^{N_z} \bm{U}_k\psi_k(z/\zmax), 
 \end{align}
-where $  \psi_k  = T_{2(k-1)},  $ and  $T_l$ is a Chebyshev polynomial of the first
-kind of order $l$ \citep{stegun65}. %The number of basis functions is
+where 
+\begin{align}
+  \psi_k  = 
+  \begin{cases}
+    T_{2(k-1)} & \text{Vertical field (case 1)},\\
+    T_{k-1}   & \text{Tilted field (case 2)},
+  \end{cases}
+\end{align}
+and  $T_l$ is a Chebyshev polynomial of the first kind of order $l$
+\citep{stegun65}. %Note that in case 1
+%The number of basis functions is
 %$N_z$ and $l_\mathrm{max}=2(N_Z-1)$ is the highest polynomial order. 
-Note that we only use even Chebyshev polynomials so the symmetry 
-condition at $z=0$ is satisfied. Henceforth we only consider $z\geq 0$. 
+For a vertical field we only use even Chebyshev polynomials 
+to satisfy the symmetry condition at $z=0$, so in case 1 we only
+consider $z\geq 0$.  
+
 The pseudo-spectral coefficients $\bm{U}_n$  are obtained by demanding
 the set of linear equations to be satisfied at $N_z$ collocation
 points along the vertical direction. We choose these points as the
-extrema of $T_{2(N_z-1)}$ plus end points. 
+extrema of $T_{l_\mathrm{max}}$ plus end points, where
+$l_\mathrm{max}$ is the highest polynomial order.  
 
-This procedure discretizes the linear equations to a matrix equation,
+The above procedure discretizes the linear equations to a matrix equation,
 \begin{align}\label{matrix_eqn}
 \bm{M}\bm{w} = 0, 
 \end{align}
@@ -121,13 +143,34 @@ Starting with an initial guess for $\sigma$, non-trivial solutions to
 Eq. \ref{matrix_eqn} are obtained by varying $\sigma$ using Newton-Raphson iteration 
 such that $\mathrm{det}\bm{M}=0$ \citep[details can be found in][]{lin12}.
 
-\subsection{Diagnostics}
-We visualize results in terms of energy densities. We define
+
+\subsubsection{Non-dimensionalization}\label{non-dim}
+In practice we solve the linearized equations in non-dimensional form,
+by defining
+%We further write 
 \begin{align}
-  &E_m \equiv \frac{|\delta \bm{B}|^2}{2\beta},\\
-  &E_g = \frac{\rho}{c_s^2}|\real\left(W\dphi^*\right)|,\\
-  &E_k = \frac{1}{2}\rho|\delta\bm{v}|^2,\\
-  &E_t = \frac{\rho|W|^2}{2c_s^2},
+  &z=\hat{z}H,\quad k_x =  \hat{k}_x/H,\quad \sigma = \hat{\sigma}\Omega,
+  \quad \delta\bm{v} = \csmid 
+  \delta\hat{\bm{v}}, \\ 
+  &\delta\bm{B} = B_z\delta\hat{\bm{B}},\quad
+  \delta\rho = \rho\hat{W}/\hat{c}_s^2,\quad \delta\Phi =
+  \csmid^2\delta\hat{\Phi},  
+\end{align} 
+where $\hat{c}_s=c_s/\csmid$. We also non-dimensionalize other
+background quantities, i.e. $\hat{v}_A=v_A/\csmid$,
+$\hat{S}=S/\Omega$, $\hat{\kappa}=\kappa/\Omega$,
+$\hat{\Omega}_z=\Omega_z/\Omega$ and $\hat{\eta} = \eta/(H^2\Omega)$. 
+
+
+\subsection{Diagnostics}
+We visualize results in terms of dimensionless energy densities. We
+define 
+\begin{align}
+  &E_m \equiv \frac{|\delta \hat{\bm{B}}|^2}{2\beta},\\
+  &E_g =
+  \frac{\hat{\rho}}{\hat{c}_s^2}\left|\real\left(\hat{W}\dd\hat{\Phi}^*\right)\right|,\\  
+  &E_k = \frac{1}{2}\hat{\rho}|\delta\hat{\bm{v}}|^2,\\
+  &E_t = \frac{\hat{\rho}|\hat{W}|^2}{2\hat{c}_s^2},
 \end{align}
 as the perturbed magnetic, gravitational, kinetic and thermal
 energies, respectively, which are functions of $z$. The total energy
