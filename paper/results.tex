@@ -1,12 +1,13 @@
 \section{Results: MRI in self-gravitating disks}
+In this section we focus on the MRI. We use the vertical field setup
+of case 1. The numerical resolution is $N_z=256$.  
 
 \subsection{Influence of self-gravity on the MRI through the
   background equilibrium}
- 
-In this section we focus on the MRI. We consider polytropic disks,
-which have a well-defined thickness, and a vertical field. 
-We set the upper disk boundary at $Z_s=0.99H$ and fix $\beta=100$ and
-$k_xH=0.1$. The numerical resolution is $N_z=256$.  
+
+Here we consider polytropic disks, which have a well-defined
+thickness. Numerically, the upper disk boundary is set to
+$Z_s=0.99H$. We fix $\beta=100$ and $k_xH=0.1$.  
 
 %kx -> 0 so incompressible 
 
@@ -59,7 +60,6 @@ Fig. \ref{plot_fq} in Appendix \ref{appen1}). This suggests that
 sufficiently strong self-gravity can stabilize the MRI by making
 $ 2H<\lambda $. 
  
-
 In the ideal limit, we find $\lambda < 2H$ throughout most of the disk
 for the values of $Q$ considered, so that self-gravity does not affect
 growth rates significantly. However, the wavelength of the instability
@@ -135,13 +135,12 @@ compared to non-self-gravitating disks.
 
 \subsection{Influence of self-gravity on the MRI through the linear
   response}  
- 
 Our goal here is to examine whether or not self-gravity can amplify
 the density perturbations caused by the MRI. We choose a massive 
 isothermal disk with $Q=0.2$, which is still expected to be marginally
 stable to gravitational instability \citep[][who find
-a critical value of  $Q\simeq 0.2$]{mamat10}.  
-The upper disk boundary is set to $Z_s=H$. The field is vertical.  
+a critical value of  $Q\simeq 0.2$]{mamat10}.   
+The upper disk boundary is set to $Z_s=H$. 
 
 %resolution Nz=256
 
@@ -149,8 +148,11 @@ The upper disk boundary is set to $Z_s=H$. The field is vertical.
 We first consider the limit of ideal MHD by adopting a uniform
 resistivity with $\Lambda_0=100$. %Non-zero density perturbations
 %require $k_x\neq0$ so we consider linear modes as a function of $k_x$.   
-
-
+Fig. \ref{gravity_energy} shows the maximum gravitational potential
+energy perturbation, as a function of $k_x$ for several values of
+$\beta$. The potential perturbation is negligible for all cases when 
+$k_xH\lesssim 0.5$, since the MRI becomes incompressible as $k_x\to
+0$. 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_energy_ideal}
@@ -160,22 +162,52 @@ resistivity with $\Lambda_0=100$. %Non-zero density perturbations
     \label{gravity_energy}}
 \end{figure}
 
+For $\beta\gg 1$, i.e. a weak field, density perturbations are
+negligible and the standard MRI operates. However, as $\beta$ is
+lowered we find non-negligible potential perturbation for
+$k_xH=O(1)$. This suggets that in a strongly magnetized disk that
+still permits the MRI, the associated density perturbation can be
+important when the disk is self-gravitating. 
+
+Fig. \ref{mri_massive} shows an example of a MRI mode with
+non-negligible density perturbation. The growth rate $\gamma\simeq
+0.4\Omega$ is comparable to that of the most unstable mode
+($\gamma\simeq 0.6\Omega$ for $k_x\simeq0$). 
+We therefore expect significant density perturbations to grow
+dynamically, even though the disk is expected to be gravitationally
+stable. 
+
+%dynamical
+%timescales 
+%($\gamma\sim0.4\Omega$)    
+ 
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/result_ideal_sg}
+  \caption{Example of a linear MRI mode with non-zero density and
+    potential perturbation, in a strongly magnetized massive disk
+    ($\beta=10$ and $Q=0.2$) in the limit of ideal MHD
+    ($\Lambda_0=10^2$).   
+    \label{mri_massive}}
+\end{figure}
+
+
+\subsubsection{Resistive case}
 
 
 
 
 \subsubsection{Qualitative interpretation} 
-In order to make sense of the above results, we consider ideal MHD and
-a vertical field. For this discussion we will ignore stratification
-and set $d/dz\to \imgi k_z$ where $k_z$ is a vertical 
-wavenumber. Equivalently, we are considering regions close to the disk
-midplane. The governing equations are then
+In order to make sense of the above results, we return to ideal MHD. 
+We consider regions close to the disk midplane ($z\sim 0$), where
+self-gravity is expected to be most important. For this discussion we
+will ignore stratification and set $d/dz\to \imgi k_z$ where $k_z$ is
+a vertical wavenumber. The governing equations are then
 
 \begin{align}
   &  0= v_A^2k^2\dvx + \imgi\sigma\left(\imgi\sigma \dvx - 2\Omega\dvy + \imgi k_x \w\right),\label{simp1}\\
   &  0= v_A^2k_z^2\left(\dvy + \frac{\imgi S
   }{\sigma}\dvx\right) + \imgi\sigma\left(\imgi\sigma\dvy +
-  \frac{\kappa^2}{2\Omega}\dvx\right),\\
+  \frac{\kappa^2}{2\Omega}\dvx\right),\label{simp2}\\
   & 0 = -k_z^2\w + \frac{\sigma^2}{c_s^2}W + \sigma k_x \dvx, \label{simp3}\\
   & 0 = k^2\dphi + \frac{\Omega^2}{c_s^2Q}W,\label{simp4}
 \end{align}
@@ -186,6 +218,9 @@ starting from the \emph{Cowling approximation}, defined to be the
 solution to Eq. \ref{simp1}---\ref{simp3} with potential perturbation
 set to zero. This is the standard MRI and we denote the solution as
 $\dvx^{(0)}$, $\dvy^{(0)}$ and $W^{(0)}$. 
+
+
+
 
 We now include self-gravity. In general, the MRI will have some
 density perturbation so $W^{(0)}\neq0$. The Poisson equation implies
@@ -215,34 +250,49 @@ W^{(1)}\sim0$. This is compatible with Eq. \ref{simp_pert3} if
 \begin{align}
   \left|k_z^2\right| \gg \left|\frac{\sigma^2}{c_s^2}\right|. \label{cond}
 \end{align}
-These assumptions imply
+For the ideal MRI,  we assume $k_z\sim \Omega/v_A$. Then
+$|\sigma^2/c_s^2k_z^2|\sim |\sigma^2/\Omega^2\beta|\ll1$ because
+$|\sigma|\lesssim \Omega$ and we are considering $\beta\gtrsim
+10$. Thus Eq. \ref{cond} is generally satisfied.   
+
+The above assumptions imply
 \begin{align}
   W^{(1)} \sim \frac{\Omega^2}{c_s^2 Q k^2} W^{(0)},\label{feedback}
 \end{align} 
 which indicates a non-zero density perturbation due to the
-MRI can be amplified by self-gravity. 
-%However, the magnetic field
-%perturbations remain that in the   
-
-By introducing $\hat{k}_z=k_zH$, Eq. \ref{cond} can be
-non-dimensionalized to 
+MRI can be amplified by self-gravity. Now, for $k_xH\sim 1$ we have
+$|k_z^2/k_x^2|\sim \beta/f\gg1$ because $f=O(1)$ and $\beta\gtrsim10$
+for the cases considered above. Then
 \begin{align}
-  \left|\frac{\hat{\sigma}^2}{f^2\hat{c}_s^2\hat{k}_z^2}\right|\ll 1.  
+  \left|\frac{W^{(1)}}{W^{(0)}}\right| \sim \frac{1}{Q\beta}, 
 \end{align}
+ suggesting stronger amplification of the density field by 
+ self-gravity with increasing field strength (decreasing
+ $\beta$). 
 
+ For weak fields, the MRI has small vertical wavelength,
+ implying rapid density variations with height. The magnitude of the
+ corresponding gravitational potential is then expected to be small
+ because of internal cancellations, since the potential is essentially
+ the integral of the density field. 
 
-%\begin{align}
-%  
-%\end{align}
-%However, in the full problem $\dphi$ appears in the $\mathcal{G}$
+% not expect significant potential perturbations 
 
-%We write the horizontal velocities and enthalpy perturbations as
-%\begin{align}
-%  \dvx &= u + \Delta u,\\
-%  \dvy &= v + \Delta v,\\
-%  W    &= w + \Delta w,
-%\end{align}
-%where $u$, $v$ and $w$ is the solution to
-%Eq. \ref{simp1}---\ref{simp4} in the Cowling approximation, in which
-%the Poisson equation is ignored and the potential perturbation set to
-%zero. 
+%Conversely, for strong fields, only a single MRI wavelength occupies
+%the fluid column. 
+
+The above arguments also apply to the resistive
+limit. Eq. \ref{simp3}---\ref{simp4} are unchanged, while resistive
+terms appearing in Eq. \ref{simp1}---\ref{simp2} only involve the
+potential perturbation through $\w$. For the resistive MRI we assume
+$k_z\sim v_A/\eta$ and $|\sigma|\sim v_A^2/\eta = \Lambda\Omega$
+\citep{sano99}. Then $|\sigma^2/c_s^2k_z^2|\sim 1/\beta \ll 1$ so
+Eq. \ref{cond} is satisfied. Noting that $k_z^2\sim
+\Lambda^2\Omega^2\beta/c_s^2$, the feedback equation becomes
+\begin{align}
+  \left|\frac{W^{(1)}}{W^{(0)}}\right| \sim
+  \frac{1}{Q\left(f^2\hat{k}_x^2 + \beta\Lambda^2\right)},
+\end{align}
+so increasing the resistivity (decreasing $\Lambda$) should enhance
+density perturbations. 
+ 
