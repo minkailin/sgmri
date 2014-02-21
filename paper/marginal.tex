@@ -1,0 +1,410 @@
+\documentclass[12pt,preprint]{aastex}
+%\documentclass[iop]{emulateapj}
+%\documentclass{article}
+%\usepackage{draftwatermark}
+\usepackage{paralist}
+\shorttitle{Magnetized massive disks}
+\shortauthors{M-K. Lin}
+
+\usepackage{amsmath}
+%\usepackage{url}
+\usepackage{bm}
+%\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\newcommand{\p}{\partial}
+\newcommand{\lmax}{l_\mathrm{max}}
+\newcommand{\sbar}{\bar{\sigma}} 
+\newcommand{\imgi}{\mathrm{i}} 
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\C}{\mathcal{C}^\lambda}
+\newcommand{\wop}[1]{\mathcal{V}^{(#1)}}
+\newcommand{\avg}[1]{\langle{#1}\rangle}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\he}{\mathcal{H}}
+\newcommand{\amp}{\mathcal{A}}
+\newcommand{\dd}{\delta}
+\newcommand{\real}{\operatorname{Re}}
+\newcommand{\imag}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\zmax}{Z_s}
+\newcommand{\wbar}{\tilde{W}}
+\newcommand{\qbar}{\tilde{Q}}
+\newcommand{\dbigH}{\frac{H^\prime}{H}}
+\newcommand{\Rp}{\frac{\rho_0^\prime}{\rho_0}}
+\newcommand{\Fp}{\frac{g^\prime}{g}}
+\newcommand{\Rpp}{\frac{\rho_0^{\prime\prime}}{\rho_0}}
+\newcommand{\Fpp}{\frac{g^{\prime\prime}}{g}}
+\newcommand{\ils}{L_s^{-1}}
+\newcommand{\ilp}{L_p^{-1}}
+\newcommand{\ihp}{H_p^{-1}}
+\newcommand{\ihs}{H_s^{-1}}
+\newcommand{\ciso}{c_\mathrm{iso}}
+\newcommand{\csmid}{c_{s0}} 
+\newcommand{\hiso}{h_\mathrm{iso}}
+\newcommand{\Hiso}{H_\mathrm{iso}}
+\newcommand{\zeus}{\texttt{ZEUS-MP }}
+\newcommand{\rsph}{r_\mathrm{sph}}
+\newcommand{\dvx}{\dd v_x}
+\newcommand{\dvy}{\dd v_y}
+\newcommand{\dvz}{\dd v_z}
+\newcommand{\dbx}{\dd B_x}
+\newcommand{\dby}{\dd B_y}
+\newcommand{\dbz}{\dd B_z}
+\newcommand{\w}{ \widetilde{W}}
+%\newcommand{\sbar}{\bar{\sigma}}
+\newcommand{\dphi}{\dd \Phi}
+\defcitealias{lin12}{L12} 
+
+\begin{document}
+
+\title{Marginal local stability analysis of self-gravitating Keplerian
+  disks with polytropic index $n=1$ and a vertical magnetic field}   
+
+
+\author{Min-Kai Lin}
+\affil{Canadian Institute for Theoretical Astrophysics,
+  60 St. George Street, Toronto, ON, M5S 3H8, Canada}
+\email{mklin924@cita.utoronto.ca}
+
+\section{Problem setup}
+Consider axisymmetric perturbations in the shearing box
+framework. Equation of state is $P\propto \rho^2$. Then the 
+square of the sound-speed $c_s^2\equiv dP/d\rho \propto \rho$. For a
+Keplerian disk, the equilibrium density field is
+\begin{align}
+\hat{\rho}(z)\equiv \frac{\rho}{\rho_0} = (1+Q)\cos{az} - Q, 
+\end{align}
+where $\rho_0\equiv\rho(0)$, $Q\equiv \Omega^2 / 4\pi G\rho_0$ and
+$aH\equiv \arccos{Q/(1+Q)}$ so that $\rho(H) = 0$, i.e. $H$ is the
+disk thickness. For the magnetic field, assume ideal 
+MHD. The initial field is vertical.      
+
+\subsection{Normalization}
+Lengths are normalized by the disk thickness $H$. Velocities
+normalized by the midplane sound-speed $c_{s0}$. Magnetic field
+normalized by initial field $B_z$. Frequencies normalized by the
+rotation frequency $\Omega$. Potential and perturbed enthalpy normalized by
+$c_{s0}^2$. Density normalized by $\rho_0$. Note that for a polytropic
+disk with $n=1$, $c_s^2=\rho$ in normalized 
+units.  
+
+
+\section{Governing equations}
+The non-dimensional linearized equations are listed here. The
+continuity equation is 
+\begin{align}
+  \frac{\imgi\sigma\rho}{c_s^2}W + \imgi  f k_x \rho \dvx +
+  f\left(\rho\dvz\right)^\prime = 0, \label{cont}   
+\end{align}
+where $W = c_s^2\delta\rho/\rho$ is the enthalpy perturbation, and 
+$f= c_{s0}/H\Omega$. The eigenfrequency is $\sigma$ such that
+perturbations have time dependence $\exp{\imgi\sigma t}$. 
+
+
+The equations of motion are
+\begin{align}
+  \imgi\sigma \dvx - 2 \dvy  &= - \imgi
+  f k_x\w + fv_A^2 \left(\dbx^\prime - \imgi 
+  k_x\dbz\right),\\
+  \imgi\sigma\dvy + 
+  \frac{\kappa^2}{2}\dvx &= fv_A^2\dby^\prime\label{lin_vy},\\ 
+  \imgi\sigma\dvz & = -f \w^\prime\label{lin_vz}, 
+\end{align}
+where $\w \equiv W + \delta\Phi$, and the square of the Alfven speed
+$v_A^2= (\beta\rho)^{-1}$ in normalized units. 
+
+The components of the induction equation are 
+\begin{align}
+&  \imgi\sigma\dbx = f \dvx^\prime\label{induct_x}\\
+&\imgi \sigma \dby = f\dvy^\prime - S\dbx, \label{induct_y}\\
+& \imgi\sigma \dbz = -\imgi  f k_x \dvx, \label{induct_vert}
+%& \imgi\bar{\sigma}\dbz = -\imgi  k_x \dvx  -\imgi k_x\eta \dbx^{\prime}, \label{induct_vert}
+\end{align}    
+and the divergence-free condition is $\imgi k_x\dbx +
+\dbz^\prime=0$. 
+
+The linearized Poisson equation is 
+\begin{align}
+  \dphi^{\prime\prime} - k_x^2\dphi =
+  \frac{\Omega^2\rho}{c_s^2Qf^2}W.  \label{lin_poisson} 
+\end{align}
+
+Using the induction equation to eliminate the magnetic field from the
+horizontal equations of motion gives
+\begin{align}
+f^2v_A^2\left(\dvx^{\prime\prime} - k_x^2\dvx\right) + \sigma^2\dvx +
+2\imgi\sigma\dvy + \sigma f k_x \w &= 0,\label{vx_new}\\
+f^2v_A^2\left(\sigma\dvy^{\prime\prime} + \imgi S
+\dvx^{\prime\prime}\right) + \sigma^3\dvy - \frac{\imgi\sigma^2\kappa^2}{2}\dvx&=0.\label{vy_new}
+\end{align}
+
+
+\subsection{Boundary conditions}
+Even symmetry at the mid-plane,
+\begin{align}
+  \dvx^\prime(0) = \dvy^\prime(0)=W^\prime(0) = \dphi^\prime(0) = 0.
+\end{align}
+Assume a vertical field at the disk surface, $\delta B_x(1) = \delta
+B_y(1) = 0$, or 
+\begin{align}
+  \dvx^\prime(1) = \dvy^\prime(1) = 0. 
+\end{align}
+Impose no vertical velocity at the disk surface, $\dvz(1) = 0$, or 
+\begin{align}
+  W^\prime(1) + \dphi^\prime(1) = 0. 
+\end{align}
+The boundary condition for the potential is
+\begin{align}
+  \dphi^\prime (1) + k_x \dphi(1) = 0.  \label{pot_cond}
+\end{align}
+
+\section{Marginal stability} 
+Consider the problem in the limit $\sigma \to 0$. Assume perturbations
+have power series solutions in $\sigma$, i.e. 
+\begin{align}
+  \dvx &= \sum_{n=0}^\infty u_n(z)\sigma^n,\\
+  \dvy &= \sum_{n=0}^\infty v_n(z)\sigma^n,\\
+  W    &= \sum_{n=0}^\infty w_n(z)\sigma^n,\\
+  \dphi&= \sum_{n=0}^\infty \phi_n(z)\sigma^n, 
+\end{align}
+and $\w = \sum_{n=0}^\infty \tilde{w}_n \sigma^n$ with $\tilde{w}_n =
+w_n + \phi_n$. 
+
+\subsection{The Poisson equation} 
+Assuming a similar expansion as above for the vertical velocity, at
+$O(\sigma^0)$ the vertical equation of motion (Eq. \ref{lin_vz}) reads
+\begin{align}
+  \tilde{w}^\prime_0 = 0. 
+\end{align}
+This implies
+\begin{align}
+  w_0(z) + \phi_0(z) \equiv \tilde{w} _0 = \mathrm{constant}. 
+\end{align}
+The Poisson equation reads, after setting $\dphi = \w - W$ and
+$c_s^2=\rho$, 
+\begin{align}
+  \left(\tilde{w}_n-w_n\right)^{\prime\prime} - k_x^2\left(\tilde{w}_n - w_n\right) =
+  \frac{1}{f^2Q} w_n. 
+\end{align}
+For $n=0$ this is
+\begin{align}
+  w_0^{\prime\prime} + \underbrace{\left(\frac{1}{f^2Q} -
+    k_x^2\right)}_{\tilde{k}_x^2}w_0 = -k_x^2 \tilde{w}_0, 
+\end{align}
+and the RHS is a constant. The boundary conditions are 
+\begin{align}
+  &w_0^\prime(0) = 0,\\
+  &w_0^\prime(1) + k_x w_0(1) = k_x \tilde{w}_0, \label{poisson_zero}
+\end{align} 
+where the condition at the disk surface is implied by the potential
+condition (Eq. \ref{pot_cond}). The solution to Eq. \ref{poisson_zero}
+is then
+\begin{align}
+  w_0(z) = \frac{\tilde{w}_0\left(1 +
+    k_x^2/\tilde{k}_x^2\right)}{\cos{\tilde{k}_x} -
+    \left(\tilde{k}_x/k_x\right)\sin{\tilde{k}_x}}\cos{\tilde{k}_xz} -
+  \frac{k_x^2}{\tilde{k}_x^2}\tilde{w}_0. \label{w0_sol}  
+\end{align}
+
+\subsection{The continuity equation} 
+Integrating the continuity equation gives
+\begin{align}
+  \sigma \int_0^1 W dz + f k_x \int_0^1\rho \dvx = 0,  \label{int_cont0}
+\end{align}
+where $c_s^2 = \rho$ has been used, as well as the boundary condition
+$\dvz(0)=\dvz(1)=0$. At $O(\sigma^1)$ this equation reads
+\begin{align}
+  \int_0^1w_0 dz + f k_x \int_0^1\rho u_1 dz = 0.
+\end{align}
+Inserting the above solution for $w_0$ (Eq. \ref{w0_sol}), 
+\begin{align}
+   \frac{\tilde{w}_0\left(1 +
+    k_x^2/\tilde{k}_x^2\right)}{\left[\cos{\tilde{k}_x} -
+    \left(\tilde{k}_x/k_x\right)\sin{\tilde{k}_x}\right]}\frac{\sin{\tilde{k}_x}}{\tilde{k}_x} -
+  \frac{k_x^2}{\tilde{k}_x^2}\tilde{w}_0 + fk_x \int_0^1\rho u_1 dz.
+  =0 \label{int_cont} 
+\end{align}
+Note that at $O(\sigma^0)$, Eq. \ref{int_cont0} is satisfied by
+$u_0=0$, which is consistent with the horizontal equations of motion
+discussed next. 
+
+
+\subsection{Horizontal equations of motion}
+\noindent Eq. \ref{vx_new} at $O(\sigma^0)$,
+\begin{align}
+  u_0^{\prime\prime} - k_x^2u_0 = 0.
+\end{align}
+Eq. \ref{vx_new} at $O(\sigma^1)$,
+\begin{align}
+  f^2v_A^2\left(u_1^{\prime\prime} - k_x^2u_1\right)  + 2 \imgi v_0 +
+  f k_x \tilde{w}_0= 0. \label{vx_o1} 
+\end{align}
+Eq. \ref{vx_new} at $O(\sigma^2)$,
+\begin{align}
+  f^2v_A^2\left(u_2^{\prime\prime} - k_x^2u_2\right)  + u_0 + 2 \imgi v_1 +
+  f k_x \tilde{w}_1= 0.   
+\end{align}
+Eq. \ref{vy_new} at $O(\sigma^0)$,
+\begin{align}
+  u_0^{\prime\prime} = 0.
+\end{align}
+Eq. \ref{vy_new} at $O(\sigma^1)$,
+\begin{align}
+  v_0^{\prime\prime} + \imgi S u_1^{\prime\prime} = 0.\label{v0pp}
+\end{align}
+Eq. \ref{vy_new} at $O(\sigma^2)$,
+\begin{align}
+  f^2v_A^2\left(v_1^{\prime\prime} + \imgi S u_2^{\prime\prime}\right)
+  - \frac{\imgi\kappa^2}{2}u_0= 0.  
+\end{align}
+Eq. \ref{vy_new} at $O(\sigma^3)$,
+\begin{align}
+  f^2v_A^2\left(v_2^{\prime\prime} + \imgi S u_3^{\prime\prime}\right)
+  + v_0 - \frac{\imgi\kappa^2}{2}u_1= 0.  \label{vy_o3} 
+\end{align}
+
+\subsubsection{Relation between $v_0$ and $u_1$}
+Integrating Eq. \ref{v0pp} and imposing the midplane symmetry
+condition gives
+\begin{align}
+  v_0(z) = K -\imgi S u_1(z),  
+\end{align}
+where $K$ is a constant. Multiplying this equation by $\rho$ and
+integrating, 
+\begin{align}
+  \int_0^1\rho v_0 dz = \frac{K\Sigma}{2} - \imgi S \int_0^1\rho u_1 dz, 
+\end{align}
+where $\Sigma = \int_{-1}^1\rho dz$ is the dimensionless column
+density. 
+
+Recalling that $v_A^2\propto 1/\rho$, multiply Eq. \ref{vy_o3} by
+$\rho$ and integrating,
+\begin{align}
+  \int_0^1\rho v_0 dz = \frac{\imgi\kappa^2}{2} \int_0^1\rho u_1 dz, 
+\end{align} 
+where the midplane symmetry condition was used. Hence
+\begin{align}
+  K = \frac{\imgi}{\Sigma}\left(2S + \kappa^2\right)\int_0^1\rho u_1
+  dz. \label{K_def}
+\end{align}
+
+\subsubsection{Solution for $u_1$} 
+Inserting $v_0 = K - \imgi S u_1$ into Eq. \ref{vx_o1} and
+rearranging, 
+\begin{align}
+  u_1^{\prime\prime}(z) - k_x^2u_1(z) +
+  \frac{2S\beta}{f^2}\rho(z)u_1(z) =
+  -\frac{\beta}{f^2}\left(fk_x\tilde{w}_0 + 2\imgi K\right)\rho(z)\equiv
+  g(z).  
+\end{align}
+Inserting the expression for the density field,
+\begin{align}
+  u_1^{\prime\prime}(z) - \left( k_x^2 + \frac{2\beta S
+    Q}{f^2}\right)u_1(z) + 2\frac{\beta S(1+Q)}{f^2}\cos{(az)}
+  u_1(z) = g(z). 
+\end{align}
+Let
+\begin{align}
+  az &= 2X,\\
+  k_1 & =  -\frac{4}{a^2}\left( k_x^2 + \frac{2\beta S
+    Q}{f^2}\right),\\
+  k_2 & = -\frac{4}{a^2}\frac{\beta S(1+Q)}{f^2},\\
+  \bar{g} &= \frac{4}{a^2} g.
+\end{align}
+Then
+\begin{align}
+  u_1^{\prime\prime}(X) + \left[k_1 - 2k_2\cos{\left(2X\right)} \right]u_1(X) =
+  \bar{g}(X). \label{u1_eq} 
+\end{align}
+The homogeneous part of Eq. \ref{u1_eq} is Mathieu's differential
+equation and is solved by Mathieu functions. We define the
+complementary functions
+\begin{align}
+  y_a(X) &= M_c(k_1, k_2, X),\\
+  y_b(X) &= M_c(k_1, k_2, X)\frac{M_{s1}^\prime}{M_{c1}^\prime} -
+  M_s(k_1, k_2, X),  
+\end{align}
+where $M_c$ and $M_s$ are even and odd Mathieu functions,
+respectively, and subscript $1$ denotes evaluation at $X=a/2$
+($z=1$). Note that we have chosen $y_a$ to satisfy the symmetry
+condition at $z=0$ and $y_b$ to satisfy the upper disk boundary
+condition. We will omit writing the dependence on $k_1$ and $k_2$ from
+now on. 
+
+The inhomogeneous problem, Eq. \ref{u1_eq}, is solved with the
+variation of parameters,
+\begin{align}
+  u_1(X) =
+  y_b(X)\int_0^X\frac{y_a(\xi)\bar{g}(\xi)}{\mathcal{W}}d\xi +
+  y_a(X) \int_X^{a/2}\frac{y_b(\xi)\bar{g}(\xi)}{\mathcal{W}}d\xi, 
+\end{align} 
+where the Wronskian is defined as 
+\begin{align}
+  \mathcal{W} \equiv y_ay_b^\prime - y_by_a^\prime,
+\end{align}
+and is a constant for the choice of $y_{a,b}$ above. Inserting the
+definition for $\bar{g}$ gives
+\begin{align}
+  u_1(X) = -\frac{4}{a^2}\frac{\beta}{f^2\mathcal{W}}\left(fk_x\tilde{w}_0 +
+  2\imgi K \right)\left[
+    y_b(X)\int_0^X y_a(\xi)\rho(\xi) d\xi +
+    y_a(X) \int_X^{a/2}y_b(\xi)\rho(\xi)d\xi
+    \right],\label{u1_explicit}
+\end{align} 
+and note that $\rho(\xi) = (1+Q)\cos{2\xi} - Q$. 
+
+Next, define
+\begin{align}
+\Theta \equiv \frac{1}{\mathcal{W}}\int_0^{a/2}\rho(X)y_b(X)dX\left[\int_0^X y_a(\xi)\rho(\xi) d\xi\right] +
+    \int_0^{a/2}\rho(X)y_a(X)dX
+    \left[\int_X^{a/2}y_b(\xi)\rho(\xi)d\xi\right], 
+\end{align}
+so that multiplying Eq. \ref{u1_explicit} by $\rho$ and integrating it
+gives 
+\begin{align}
+\int_0^{a/2}\rho(X)u_1(X)dX &= -\frac{4\beta\Theta}{a^2 f^2
+  }\left(fk_x\tilde{w}_0 + 2\imgi K\right),\notag\\
+&= -\frac{4\beta\Theta}{a^2 f^2
+}\left[fk_x\tilde{w}_0 - \frac{2(2S +
+    \kappa^2)}{\Sigma}\int_0^{1}\rho(z)u_1(z)dz\right], 
+\end{align}
+where the expression for $K$ is used (Eq. \ref{K_def}). Inserting $X = az/2$ on the LHS gives
+\begin{align}
+  \frac{a^2f^2}{4\beta\Theta}\frac{a}{2}\int_0^1\rho(z)u_1(z)dz = -
+  fk_x\tilde{w}_0 +
+  \frac{2(2S+\kappa^2)}{\Sigma}\int_0^1\rho(z)u_1(z)dz, 
+\end{align}
+or
+\begin{align}
+  fk_x\tilde{w}_0 = \left[\frac{2(2S + \kappa^2)}{\Sigma} -
+    \frac{a^3f^2}{8\beta\Theta}\right]\int_0^1\rho(z)u_1(z)dz. \label{int_horizontal}
+\end{align}
+
+\subsection{Condition for marginal stability}
+Eliminating the integrals between Eq. \ref{int_cont} and
+Eq. \ref{int_horizontal} gives
+\begin{align}
+   \frac{\left(1 +
+    k_x^2/\tilde{k}_x^2\right)}{\left[\cos{\tilde{k}_x} -
+    \left(\tilde{k}_x/k_x\right)\sin{\tilde{k}_x}\right]}\frac{\sin{\tilde{k}_x}}{\tilde{k}_x} -
+  \frac{k_x^2}{\tilde{k}_x^2} + \frac{f^2k_x^2
+    }{\left[\frac{2(2S + \kappa^2)}{\Sigma} -
+    \frac{a^3f^2}{8\beta\Theta}\right]} = 0.
+\end{align}
+Given $Q$ and $\beta$, this equation should be solved for $k_x$. 
+
+%\begin{abstract}
+%\end{abstract}
+%\section{Introduction}
+%\input{setup}
+%\input{linear}
+%\input{results}
+%\input{results_gi}
+%\appendix
+%\input{appendix}
+%\bibliographystyle{apj}
+%\bibliography{ref}
+
+
+\end{document}
+

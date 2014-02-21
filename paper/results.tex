@@ -159,7 +159,8 @@ $k_xH\lesssim 0.5$, since the MRI becomes incompressible as $k_x\to
   \includegraphics[width=\linewidth]{figures/compare_energy_ideal}
   \caption{Maximum gravitational potential energy perturbation
     associated with the MRI in a self-gravitating disk with $Q=0.2$ in
-    the limit of ideal MHD ($\Lambda_0=10^2$). 
+    the limit of ideal MHD ($\Lambda_0=10^2$), for a range of field
+    strengths $\beta$.  
     \label{gravity_energy}}
 \end{figure}
 
@@ -184,37 +185,65 @@ stable.
  
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/result_ideal_sg}
-  \caption{Example of a linear MRI mode with non-zero density and
+  \caption{Example of a linear MRI mode with non-negligible density and
     potential perturbation, in a strongly magnetized massive disk
-    ($\beta=10$ and $Q=0.2$) in the limit of ideal MHD
+    ($\beta=10$ and $Q=0.2$) in the limit of ideal MHD 
     ($\Lambda_0=10^2$).   
     \label{mri_massive}}
 \end{figure}
 
 
 \subsubsection{Resistive case}
-We repeat the above calculation for resistive disks. We fix
-$\beta=100$. Fig. \ref{gravity_energy_resis}   
+We repeat the above calculation for resistive disks, but fix
+$\beta=100$. Fig. \ref{gravity_energy_resis} shows the maximum
+perturbed gravitational energy increases with 
+resistivity. Interestingly, in the highly resistive case
+the MRI can be energeically dominated by self-gravity. An example is shown in
+Fig. \ref{mri_massive_resis}, which  plots the energies assocaited with the 
+linear MRI mode with $k_xH\sim1.3$ in the $\Lambda_0=0.1$  
+disk. The gravitational potential energy significantly exceeds the
+magnetic energy near the midplane ($z\lesssim0.3H$).  
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_energy_resis}
   \caption{Maximum gravitational potential energy perturbation
     associated with the MRI in a self-gravitating disk with $Q=0.2$,
-    for a range of midplane Elsasser numbers.   
+    for a range of midplane Elsasser numbers $\Lambda_0$ at fixed
+    field strength $\beta=100$.    
     \label{gravity_energy_resis}}
 \end{figure}
+
+We also calculated the mode in Fig. \ref{mri_massive_resis} with the \emph{Cowling 
+  approximation}, where the Poisson equation is ignored in the 
+linearized equations and the potential perturbation set to zero  
+(formally, we set $Q\to\infty$ in Eq. \ref{lin_poisson}).  
+We compare the magnetic energy in the Cowling approximation to that of
+the full problem in Fig. \ref{mri_massive_cowling}. The growth rate
+increases when self-gravity is included in the linear response, as
+expected, but only slightly. $\gamma$ and $E_m$ are similar in both cases,
+indicating that the instability in the self-gravitating calculation is
+still due to the MRI.  
+
+
 
 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/result_resis_sg}
   \caption{Example of a linear resistive MRI mode with significant
-    gravitational potential perturbation.  
+    gravitational potential energy perturbation.  The vertical line
+    inidicates $\Lambda=1$.  
     \label{mri_massive_resis}}
 \end{figure}
 
 
-
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/compare_result_cowling}
+  \caption{Magnetic energy associated with the linear mode shown in
+    Fig. \ref{mri_massive_resis} (solid) compared with that computed
+    under the Cowling approximation (dotted). 
+    \label{mri_massive_cowling}}
+\end{figure}
 
 \subsubsection{Qualitative interpretation} 
 In order to make sense of the above results, we return to ideal MHD. 
@@ -234,16 +263,14 @@ a vertical wavenumber. The governing equations are then
 where $k^2 = k_z^2 + k_x^2$. 
 
 We imagine an iterative procedure to solve the above equations,
-starting from the \emph{Cowling approximation}, defined to be the
-solution to Eq. \ref{simp1}---\ref{simp3} with potential perturbation
-set to zero. This is the standard MRI and we denote the solution as
+starting from the Cowling approximation. %defined to be the
+%solution to Eq. \ref{simp1}---\ref{simp3} with potential perturbation
+%set to zero. 
+This is the standard MRI and we denote the solution as
 $\dvx^{(0)}$, $\dvy^{(0)}$ and $W^{(0)}$. 
 
-
-
-
-We now include self-gravity. In general, the MRI will have some
-density perturbation so $W^{(0)}\neq0$. The Poisson equation implies
+We now include self-gravity. In general, the compressible MRI has
+$W^{(0)}\neq0$. The Poisson equation implies
 an associated potential perturbation,    
 \begin{align} 
   \dphi = -\frac{\Omega^2}{c_s^2 Q k^2} W^{(0)}.
