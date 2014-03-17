@@ -88,17 +88,57 @@ can also be reduced to the above form.
 %equilibrium.  
 
 
-\subsection{Boundary conditions}
-At the vertical disk boundaries $z=\pm\zmax$ we assume  
-$\dvz=\dbx=\dby=0$, and 
+\subsection{Domain and boundary conditions}
+
+\subsubsection{Case 1: vertical field}
+We impose $\bm{U}$ to be an even function of $z$, so that
+$d\bm{U}/dz=0$ at $z=0$. This reduces the computational domain to
+$z\in[0,Z_s]$ and permits higher numerical resolution. At the disk
+surface we set %$\dbx=\dby=\dvz=0$ 
 \begin{align}
-  \dphi^\prime(\zmax) \pm k_x\dphi(\zmax) = 0
+  \dbx(Z_s) = \dby(Z_s) = \dvz (Z_s) = 0, 
 \end{align}
-for the potential perturbation \citep[see][]{goldreich65a}, where the
-upper (lower) sign applies to the upper (lower) disk surface. 
-For Case 1 (purely vertical field) we additionally assume $\bm{U}$ is
-an even function of $z$, so that $d\bm{U}/dz=0$ 
-at $z=0$. 
+so the field remains vertical. The potential boundary
+condition is 
+\begin{align}
+  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0 \label{pot_bc1}
+\end{align}
+\citep{goldreich65a}. 
+
+\subsubsection{Case 2: tilted field} 
+In this more general setup the computational domain is
+$z\in[-Z_s, Z_s]$. At the disk surfaces we adopt the `halo' model of
+\cite{gammie94}, so that
+\begin{align}
+  \Delta(\pm Z_s) & = 0, \\
+  \dby(\pm Z_s) & = 0,\\
+  \dbz(\pm Z_s) \mp \imgi \dbx(\pm Z_s) &= 0,
+\end{align}
+and the potential boundary condition is 
+\begin{align}
+  \dphi^\prime(\pm \zmax) \pm k_x\dphi(\pm\zmax) =  - \left. \frac{\Omega^2
+    \rho \xi_z}{\rho_0Q}\right|_{\pm\zmax}, \label{pot_bc2}
+\end{align}
+where $\xi_z=\dvz/\imgi\sigma$ is the vertical Lagrangian
+displacement. In practice,  Eq. \ref{pot_bc1} and \ref{pot_bc2} are
+very similar because $\rho(\pm\zmax)\ll\rho_0$. 
+
+%We adopt two kinds of vertical boundary conditions depending on the
+%field geometry. 
+%In both case 1 and case 2 the potential boundary
+%condition is 
+%\begin{align}
+%  \dphi^\prime(\zmax) \pm k_x\dphi(\zmax) = 0
+%\end{align}
+
+%At the vertical disk boundaries $z=\pm\zmax$ we assume  
+%$\dvz=\dbx=\dby=0$, and 
+
+%for the potential perturbation \citep[see][]{goldreich65a}, where the
+%upper (lower) sign applies to the upper (lower) disk surface. 
+%For Case 1 (purely vertical field) we additionally assume $\bm{U}$ is
+%an even function of $z$, so that $d\bm{U}/dz=0$ 
+%at $z=0$. 
 
 %This implies that $\dbx=\dby=0$ at the midplane, consistent
 %with a highly resistive dead zone. 
@@ -114,23 +154,26 @@ where
 \begin{align}
   \psi_k  = 
   \begin{cases}
-    T_{2(k-1)} & \text{Vertical field (case 1)},\\
-    T_{k-1}   & \text{Tilted field (case 2)},
+    T_{2(k-1)} & B_y \equiv 0 \text{ (case 1)},\\
+    T_{k-1}   & B_y\neq 0 \text{ (case 2)},
   \end{cases}
 \end{align}
 and  $T_l$ is a Chebyshev polynomial of the first kind of order $l$
-\citep{stegun65}. %Note that in case 1
+\citep{stegun65}. Note that for case 1 the midplane symmetry condition
+is taken care of by the choice of basis functions. 
+%Note that in case 1
 %The number of basis functions is
 %$N_z$ and $l_\mathrm{max}=2(N_Z-1)$ is the highest polynomial order. 
-For a vertical field we only use even Chebyshev polynomials 
-to satisfy the symmetry condition at $z=0$, so in case 1 we only
-consider $z\geq 0$.  
+%For a vertical field we only use even Chebyshev polynomials 
+%to satisfy the symmetry condition at $z=0$, so in case 1 we only
+%consider $z\geq 0$.  
 
 The pseudo-spectral coefficients $\bm{U}_n$  are obtained by demanding
 the set of linear equations to be satisfied at $N_z$ collocation
 points along the vertical direction. We choose these points as the
 extrema of $T_{l_\mathrm{max}}$ plus end points, where
-$l_\mathrm{max}$ is the highest polynomial order.  
+$l_\mathrm{max}$ is the highest polynomial order. Our standard
+resolution is $N_z=256$.  
 
 The above procedure discretizes the linear equations to a matrix equation,
 \begin{align}\label{matrix_eqn}
@@ -145,7 +188,7 @@ such that $\mathrm{det}\bm{M}=0$ \citep[details can be found in][]{lin12}.
 
 
 \subsubsection{Non-dimensionalization}\label{non-dim}
-In practice we solve the linearized equations in non-dimensional form,
+We solve the linearized equations in non-dimensional form,
 by defining
 %We further write 
 \begin{align}
@@ -174,7 +217,8 @@ define
 \end{align}
 as the perturbed magnetic, gravitational, kinetic and thermal
 energies, respectively, which are functions of $z$. The total energy
-is $E=E_m+E_g+E_k+E_t$. 
+is $E=E_m+E_g+E_k+E_t$. We use $\avg{\cdot}$ to denote an average over
+$z$. 
 %and we then normalize $E_i$ by
 %$\mathrm{max}(E)$.  
  
