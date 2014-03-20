@@ -173,11 +173,11 @@ the set of linear equations to be satisfied at $N_z$ collocation
 points along the vertical direction. We choose these points as the
 extrema of $T_{l_\mathrm{max}}$ plus end points, where
 $l_\mathrm{max}$ is the highest polynomial order. Our standard
-resolution is $N_z=256$.  
+resolution is $N_z=256$ ($N_z=257$) for case 1 (case 2).   
 
 The above procedure discretizes the linear equations to a matrix equation,
 \begin{align}\label{matrix_eqn}
-\bm{M}\bm{w} = 0, 
+\bm{M}\bm{w} = \mathbf{0}, 
 \end{align}
 where $\bm{M}$ is a $4N_z\times 4 N_z$ matrix representing the $L_{ij}$ 
 and upper disk boundary conditions, 
@@ -210,13 +210,15 @@ We visualize results in terms of dimensionless energy densities. We
 define 
 \begin{align}
   &E_m \equiv \frac{|\delta \hat{\bm{B}}|^2}{2\beta},\\
-  &E_g =
-  \frac{\hat{\rho}}{\hat{c}_s^2}\left|\real\left(\hat{W}\dd\hat{\Phi}^*\right)\right|,\\  
+  &E_g = 
+  \frac{\hat{\rho}}{2\hat{c}_s^2}\left|\real\left(\hat{W}\dd\hat{\Phi}^*\right)\right|,\\  
   &E_k = \frac{1}{2}\hat{\rho}|\delta\hat{\bm{v}}|^2,\\
   &E_t = \frac{\hat{\rho}|\hat{W}|^2}{2\hat{c}_s^2},
 \end{align}
 as the perturbed magnetic, gravitational, kinetic and thermal
-energies, respectively, which are functions of $z$. The total energy
+energies, respectively, which are functions of $z$. Although we do not
+solve an energy equation, we nevertheless define $E_t$ as a measure of
+density perturbations \citep{kojima89}. The total energy
 is $E=E_m+E_g+E_k+E_t$. We use $\avg{\cdot}$ to denote an average over
 $z$. 
 %and we then normalize $E_i$ by
