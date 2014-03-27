@@ -1,4 +1,4 @@
-\section{Local disk model}
+\section{Local disk model}\label{setup}
 We study the local stability of an inviscid, self-gravitating and
 magnetized fluid disk orbiting a central mass with
 potential $\Phi_*(r,z)$, where $(r,\varphi,z)$ are cylindrical
@@ -26,8 +26,8 @@ equations read
 where $\rho$ is the density field; $\bm{v}$ is the total velocity in
 the local frame; $\bm{B}$ is the magnetic field which satisfies
 $\nabla\cdot~\bm{B}=0$; $\Pi \equiv P +
-|\bm{B}|^2/2\mu_0$ is the total pressure ($\mu_0$ is the vacuum
-permeability). We choose a barotropic equation of state, specified
+|\bm{B}|^2/2\mu_0$ is the total pressure, and $\mu_0$ is the vacuum
+permeability. We choose a barotropic equation of state, specified
 below, so that the gas pressure is given by $P=P(\rho)$. The
 resistivity $\eta$ is either uniform or a prescribed function of
 height. 
@@ -88,12 +88,18 @@ We consider \begin{inparaenum}[(i)]
 \item isothermal disks with $P=c_{s0}^2\rho$\label{iso_eos}; 
 \item polytropic disks with $P=K\rho^2$ with $K=c_{s0}^2/2\rho_0$;
 \end{inparaenum}
-where $\rho_0\equiv\rho(0)$. The sound speed $c_s\equiv\sqrt{dP/d\rho}$
+where $\rho_0\equiv\rho(0)$ is the mid-plane density.
+The sound speed $c_s\equiv\sqrt{dP/d\rho}$ 
 so that $c_{s0}$ is the global sound speed in the isothermal disk, and
 is the mid-plane sound speed in the polytropic disk. For the polytropic
 disk the disk thickness $H$ is such that $\rho(H)=0$. Since the
 isothermal disk has no surface, we define $H$ such that
-$\rho(H)=\epsilon\rho(0)$ with $\epsilon=10^{-2}$.   
+$\rho(H)=\epsilon\rho(0)$ with $\epsilon=10^{-2}$. A non-dimensional
+measure of the disk thickness is given by 
+\begin{align}
+  f^{-1} = \frac{H\Omega}{\csmid}, 
+\end{align}
+and $f$ will appear in subsequent discussions. 
 
 %and $\rho_0\equiv\rho(0)$
 
@@ -106,7 +112,7 @@ is done numerically for isothermal disks and analytically for the
 polytropic disk (see Appendix \ref{appen1}). Examples of density
 profiles are shown in Fig. \ref{eqm_den}. The normalized density field
 is weakly dependent on the strength of self-gravity provided the
-vertical co-ordinate is appropriately scaled as well.  
+$z$-axis is appropriately scaled. 
 
 %As the strength of self-gravity increases, the
 %disk becomes thinner ($H$ decreases)
@@ -124,7 +130,7 @@ vertical co-ordinate is appropriately scaled as well.
     --- \ref{eqm_eqns2} subject to an isothermal (top) and polytropic
     (bottom) equation of state. Note that the normalization for the
     horizontal axis also depends on the strength of self-gravity,
-    i.e. $H=H(Q)$ and is a decreasing function of $Q$. 
+    i.e. $H=H(Q)$ and is an increasing function of $Q$. 
 %Note that the vertical co-ordinate is
 %    normalized differently for convenience. In the isothermal disk,
 %    $H$ is the characteristic scale-height in the
@@ -139,7 +145,7 @@ vertical co-ordinate is appropriately scaled as well.
 
 
 \subsection{Resistivity profile}\label{resis_profile}
-In this work we consider either constant resistivity or a
+We consider constant resistivity or 
 resistivity prescription such that $\eta(z)$ increases away from the
 midplane. In the latter case, we follow \cite{fleming03} and adopt the
 resistivity profile 
@@ -176,8 +182,9 @@ where $v_A \equiv B_z/\sqrt{\mu_0\rho}$ is the vertical Alfven speed.
 %profiles of $\Lambda$ are shown in Fig. \ref{eqm_resis} for the
 %isothermal disk. 
 The disk may be considered ideal where $\Lambda
-\gtrsim 1$. Since $\hat{\rho}(z/H)$ is weakly dependent on  self-gravity, the
-ideal region only changes slightly as $Q$ is decreased. 
+\gtrsim 1$. 
+%Since $\hat{\rho}(z/H)$ is weakly dependent on  self-gravity, the
+%ideal region only changes slightly as $Q$ is decreased. 
 
 %A similar plot is obtained for polytropic disks.   
 
@@ -214,11 +221,12 @@ magnetic field,
 where $v_{A0}$ is the midplane Alfven speed. The strength of
 resistivity is measured by the midplane Elsasser number 
 \begin{align}
-  \Lambda_0 \equiv\Lambda(0) =  \frac{v_{A0}^2}{\eta_0\Omega} = \frac{f^2 R_m}{\beta}, 
+  \Lambda_0 \equiv\Lambda(0) =  \frac{v_{A0}^2}{\eta_0\Omega}. %= \frac{f^2 R_m}{\beta}, 
 \end{align}
-where the third equality defines the magnetic Reynolds number
-$R_m=H^2\Omega/\eta_0$ and $f\equiv \csmid/H\Omega$ is a numerical
-factor of order unity. 
+%where the third equality defines the magnetic Reynolds number
+%$R_m=H^2\Omega/\eta_0$ and
+%where $f\equiv \csmid/H\Omega$ is a numerical
+%factor of order unity. %measures thickness
 
 %The Elsasser number as a function of height is $\Lambda(z)\equiv
 %v_A^2/\eta\Omega$. 

@@ -53,6 +53,7 @@
 \newcommand{\w}{ \widetilde{W}}
 %\newcommand{\sbar}{\bar{\sigma}}
 \newcommand{\dphi}{\dd \Phi}
+\newcommand{\actaa}{Acta Astron.}
 \defcitealias{lin12}{L12} 
 
 \begin{document}
@@ -60,38 +61,158 @@
 \title{Linear stability of magnetized massive protoplanetary disks}
 
 
-\author{Min-Kai Lin (+Menou, Fromang, Youdin)}
+\author{Min-Kai Lin }%(+Menou, Fromang, Youdin)}
 \affil{Canadian Institute for Theoretical Astrophysics,
   60 St. George Street, Toronto, ON, M5S 3H8, Canada}
 \email{mklin924@cita.utoronto.ca}
 
 \begin{abstract}
+  Magneto-rotational instability (MRI) and gravitational instability
+  (GI) are the two principle routes to turbulent angular momentum
+  transport in accretion disks. Protoplanetary disks may develop
+  both. The goal of this paper is to reinvigorate interest in the study of
+  magnetized  massive protoplanetary disks, starting from the basic
+  issue of stability. The linear stability of a local patch of a
+  self-gravitating, magnetized three-dimensional (3D) disk to
+  axisymmetric perturbations is examined. %Addition effects such as
+  %resistivity and azimuthal fields are considered. 
 
+%We examine the local linear stability of
+%  magnetized, self-gravitating and differentially rotating disks to
+%  axisymmetric perturbations. 
+%
+%not many studies model both
+%revisits 
 \end{abstract}
 
 \section{Introduction}
-Understanding the evolution of protoplanetatry disks (PPDs) is key to
-planet formation theory. A central aspect of PPD evolution is the mechanism
-of angular momentum transport. It is believed that 
+Astrophysical disks host a wide range of fluid instabilities. Among
+them, the magneto-rotational instability \citep[MRI,][]{chandrasekhar61,
+  balbus91,balbus98} %balbus %chandrasekhar ref
+and gravitational instability \citep[GI, ][]{toomre64,goldreich65a,goldreich65b} 
+provide robust pathways to turbulent angular momentum transport that
+enables mass accretion \citep[][ 
+  and references therein]{balbus99,armitage11,turner14}.   
+%gammie, lin/pringle, paczynski 
+%relevance of MRI and GI to planet formation 
+They are also relevant to planet formation theory. For example,
+the strength of MRI turbulence directly affect planetesimal dynamics
+in protoplanetary disks \citep{yang12,gressel12}; while GI can
+potentially form giant planets directly through disk fragmentation
+\citep{boss97,boss98,gammie01,voro13,helled14}. 
+%gammie,
+%boss %some review articles (PP6)  
+%shakura73, pacz78, lin87,
+
+Accretion disks such as those surrounding black holes can develop both
+MRI and GI \citep{menou01,goodman03}.  
+Protoplanetary disks (PPDs) are also expected to be massive and  
+magnetized in its earliest evolutionary phase \citep{inutsuka10}.  
+The interplay between MRI and GI has been invoked to explain outbursts
+in circumstellar disks \citep{armitage01, zhu10a, zhu10b,
+  martin12b}, and predicts similar phenomenon in circumplanetary disks
+\citep{lubow12}. This results from the development of `dead zones' 
+--- magnetically inactive, laminar regions near the disk midplane --- with
+magnetized layers above and below 
+\citep{gammie96,martin12,landry13}. Mass accumulation in the dead zone can lead to
+GI and trigger MRI through heating. In these models, the condition required
+for MRI is realized through GI, but the MRI is unaffected by disk
+self-gravity. 
 
 
+PPDs subject to both MRI and GI are often modeled through separate
+turbulent viscosities in a hydrodynamical framework 
+\citep{terquem08}. This implicitly assumes that the development of MRI 
+and GI can be assessed independently. 
+%That is, MRI is unaffected by
+%disk self-gravity; and GI is unaffected by weak magnetization. 
+Circumstellar disk models that explicitly combine the equations of magneto-hydrodynamics
+and self-gravity have been limited to a few early simulations 
+\citep{fromang04,fromang04b,fromang05}. It will be neccessary to %no
+%major difference % kim/ostriker/stone
+revisit and extend these pioneering calculations to fully explore the
+impact of MRI and GI on the structure and evolution of PPDs. In
+preparation of this, it is important to have a thorough understanding
+of the stability properties of such systems.  
+%non-ideal effects important 
 
-%early phases
+%why is GI and MRI independent 
+%compressibility is not fundamental to MRI 
+%horizontal wavenumber (gammie/balbus) 
+%The effect of self-gravity on the linear MRI has not been considered, 
+%since fluid compressibility is not fundamental to the MRI. 
 
-%'dead zones'
+Since compressibility is not fundamental for the MRI, much of the
+early stability calculations assume incompressible perturbations
+\citep{goodman94,jin96}. However, recent works indicate
+compressibility may be important under certain conditions,
+such as strong fields \citep{kim00, pessah05,bonanno07}.   
+Previous MRI studies have also focused on modes with vanishing
+radial wavenumber, because they are the most unstable
+\citep{sano99,reyes01}. Self-gravity has minimal effect on such
+perturbations in a rotating disk. However, modes
+with radial lengthscales on the order of the disk scale height may be
+subject to self-gravity. It is of interest to generalize the MRI with
+non-zero radial waveumbers to massive disks. 
 
-%gi planet formation
 
-%mri self-gravitating disks -> situations when mri is compressible 
+%Simiarly, studies of GI in accretion disks have mostly neglected
+%magnetization \citep{mamat10,kim12}. 
+%particularly in the context of 
 
+%Studies of GI in accretion disks do not often include magnetization
+%\citep{mamat10,kim12}. 
 
+The effect of a magnetic field on the GI of rotating disks has been
+considered by some authors.  
+% \cite{lynden-bell66} found that a toroidal
+%field can destabilize non-axisymmetric disturbances
+Recently, \cite{lizano10} generalized the classic Toomre stability
+criterion for razor-thin disks to include a vertical field. For
+circumstellar disks, the authors concluded that the field is
+stabilizing. This is consistent with previous analysis by
+\cite{nakamura83} for three-dimensional (3D) uniformly rotating
+disks. However, the GI of 3D differentially rotating disks have
+mostly neglected magnetic fields \citep{mamat10,kim12}, but such disks
+are subject to the MRI if magnetized. 
+%how is the dispersion relation for GI affected by the presence of MRI?
+%It is interesting to ask whether
+%or not the presence of MRI affects GI. 
+%
+%It is desirable to clarify
+%whether or not the presence of MRI modes affect the dispersion
+%relation for GI. 
 
+%although MRI and GI are physically distinct 
+%explicitly show 
+
+This paper marks the beginning of our study of magnetized,
+self-gravitating PPDs. We start from linear calculations. 
+Linear stability analyses have the advantage that a wide range of
+parameters can be studied with negligible computational cost. This
+allows one to indentify conditions, if any, under which MRI and GI
+cannot be consdered independent. It is also important to have such 
+calculations at hand to help benchmark and guide non-linear
+simulations.   
+
+%This paper marks the beginning of our study of magnetized,
+%self-gravitating PPDs and is organized as follows. 
+
+This paper is organized as follows. \S\ref{setup} lists the governing
+equations and describes the disk equilibra under consideration. 
+The linear problem is formulated in \S\ref{linear}. The impact
+of self-gravity on the MRI is discussed in
+\S\ref{result1}; gravitationally unstable disks are considered in
+\S\ref{result2} and equilibra with an azimuthal field is explored in
+\S\ref{result3}. We summarize results in \S\ref{summary}, including a
+discussion of caveats and future directions. 
 
 \input{setup}
 \input{linear}
 \input{results}
 \input{results_gi}
 \input{results_azi} 
+\input{summary}
 
 \appendix
 \input{appendix}
