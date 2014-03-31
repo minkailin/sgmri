@@ -5,8 +5,7 @@ equilibrium in the form $\real[\dd\rho(z)\exp{\imgi(k_xx + \sigma
 constant radial wavenumber and $\sigma=-(\omega +\imgi\gamma)$ is a
 complex  frequency, where $-\omega$ is the real mode frequency and $\gamma$ is
 the growth rate. We take $k_x>0$ without loss of generality. 
-Hereafter, we surpress the exponential factor, as
-well as the real part notation. 
+Hereafter, we surpress the exponential factor and the real part notation. 
 
 The linearized continuity equation is 
 \begin{align}
@@ -25,7 +24,8 @@ The linearized equations of motion are
   & \imgi\sigma\dvz = -\w^\prime - \frac{B_y}{\mu_0\rho}\dby^\prime\label{lin_vz},  
 \end{align}
 where the effective enthalpy perturbation
-$\w = W + \dphi$. The linearized induction equation is
+$\w = W + \dphi$. The components of the linearized induction equation
+are 
 \begin{align}
 &  \imgi\bar{\sigma}\dbx = B_z\dvx^\prime +
   \eta\dbx^{\prime\prime}+\eta^\prime\dbx^\prime - \imgi k_x
@@ -51,7 +51,7 @@ in Appendix \ref{reduction} for two cases considered in this paper:
 %We consider two cases:
 \begin{enumerate}
 \item Purely vertical field with constant or variable
-  resistivity (see below), so that $\epsilon = 0$ and $\eta=\eta(z)$. 
+  resistivity, so that $\epsilon = 0$ and $\eta=\eta(z)$. 
 \item Tilted field with uniform resistivity
   so that $\epsilon \neq 0$ and $\eta=\rm{constant}$.   
 \end{enumerate}
@@ -63,10 +63,10 @@ Schematically, the numerical problem is to solve
   \phantom{L_{31}\dvx + L_{22}\dvy +} L_{43}W + L_{44}\dphi
   &=0\label{lin4},
 \end{align}
-where differential operators $L_{1j},\,L_{2j}$ and $L_{3j}$
+where the differential operators $L_{1j},\,L_{2j}$ and $L_{3j}$
 ($j=1,2,3,4$) can be read off Appendix \ref{reduction} and $L_{4j}$
 ($j=3,4$) from the linearized Poisson equation above. We remark that
-the more general problem of tilted field and variable resistivity
+the case of a tilted field and variable resistivity
 %($\epsilon\neq0$ and $\eta=\eta(z)$
 can also be reduced to the above form. 
 
@@ -90,7 +90,8 @@ can also be reduced to the above form.
 
 \subsection{Domain and boundary conditions}
 
-\subsubsection{Case 1: vertical field}
+\subsubsection{Case 1: vertical field}%because SG can only destabilize
+                                %symmetric density perts
 We impose $\bm{U}$ to be an even function of $z$, so that
 $d\bm{U}/dz=0$ at $z=0$. This reduces the computational domain to
 $z\in[0,Z_s]$ and permits higher numerical resolution. At the disk
@@ -101,9 +102,10 @@ surface we set %$\dbx=\dby=\dvz=0$
 so the field remains vertical. The potential boundary
 condition is 
 \begin{align}
-  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0 \label{pot_bc1}
+  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0 \label{pot_bc1},
 \end{align}
-\citep{goldreich65a}. 
+and is adapted from \cite{goldreich65a}. The general form of this
+potential boundary condition is used for case 2 below. 
 
 \subsubsection{Case 2: tilted field} 
 In this more general setup the computational domain is
@@ -159,7 +161,7 @@ where
   \end{cases}
 \end{align}
 and  $T_l$ is a Chebyshev polynomial of the first kind of order $l$
-\citep{stegun65}. Note that for case 1 the midplane symmetry condition
+\citep{stegun65}. Note that for case 1 the mid-plane symmetry condition
 is taken care of by the choice of basis functions. 
 %Note that in case 1
 %The number of basis functions is
@@ -180,7 +182,7 @@ The above procedure discretizes the linear equations to a matrix equation,
 \bm{M}\bm{w} = \mathbf{0}, 
 \end{align}
 where $\bm{M}$ is a $4N_z\times 4 N_z$ matrix representing the $L_{ij}$ 
-and upper disk boundary conditions, 
+plus boundary conditions, 
 and $\bm{w}$ is a vector storing the pseudo-spectral coefficients. 
 Starting with an initial guess for $\sigma$, non-trivial solutions to
 Eq. \ref{matrix_eqn} are obtained by varying $\sigma$ using Newton-Raphson iteration 
@@ -221,6 +223,17 @@ solve an energy equation, we nevertheless define $E_t$ as a measure of
 density perturbations \citep{kojima89}. The total energy
 is $E=E_m+E_g+E_k+E_t$. We use $\avg{\cdot}$ to denote an average over
 $z$. 
+%The colorbar quantifies the importance of
+%self-gravity with 
+
+Since we will primarily be concerned with massive disks, we define
+\begin{align}
+ \tau \equiv \frac{\avg{E_g}}{\avg{E_g} + \avg{E_m}} 
+\end{align} 
+as a measure of the importance of self-gravity. Thus, modes with $\tau
+= 1$ are energetically dominated by self-gravity (GI) and modes with
+$\tau\ll1$ are dominated by magnetic perturbations (MRI).   
+
 %and we then normalize $E_i$ by
 %$\mathrm{max}(E)$.  
  

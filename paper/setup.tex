@@ -1,11 +1,11 @@
 \section{Local disk model}\label{setup}
 We study the local stability of an inviscid, self-gravitating and
-magnetized fluid disk orbiting a central mass with
+magnetized fluid disk orbiting a central star with
 potential $\Phi_*(r,z)$, where $(r,\varphi,z)$ are cylindrical
-co-ordinates from the central mass. We use the shearing box approximation     
-\citep{goldreich65b} and consider a small patch of the disk at
-$r=r_0$. The local frame rotates at angular velocity 
-$\Omega_0=\Omega(r_0,0)$ about the central mass, where $r\Omega^2 =
+co-ordinates from the star. We use the shearing box approximation     
+\citep{goldreich65b} to consider a small patch of the disk at
+a fiducial radius $r=r_0$. The local frame rotates at angular velocity 
+$\Omega_0=\Omega(r_0,0)$ about the star, where $r\Omega^2 =
 \p\Phi_*/\p r$. We also define $S=-r\p\Omega/\p r$ as the local shear
 rate and $\Omega_z^2\equiv\p^2\Phi_*/\p z^2$ as the square of the
 local vertical frequency. 
@@ -68,7 +68,7 @@ drop the subscript $0$ on the frequencies.
 
 \subsection{Equilibrium disk} 
 The unperturbed disk is steady and described by
-$\rho=\rho(z)$, $\bm{B} = B_z\hat{\bm{z}} + B_y\hat{\bm{y}}$ where
+$\rho=~\rho(z)$, $\bm{B} = B_z\hat{\bm{z}} + B_y\hat{\bm{y}}$ where
 $B_{y,z}$ are constants and the toroidal field strength is
 $B_y=\epsilon B_z$. The equilibrium 
 velocity field is $\bm{v} = -Sx\hat{\bm{y}}$. We consider Keplerian
@@ -94,7 +94,7 @@ so that $c_{s0}$ is the global sound speed in the isothermal disk, and
 is the mid-plane sound speed in the polytropic disk. For the polytropic
 disk the disk thickness $H$ is such that $\rho(H)=0$. Since the
 isothermal disk has no surface, we define $H$ such that
-$\rho(H)=\epsilon\rho(0)$ with $\epsilon=10^{-2}$. A non-dimensional
+$\rho(H)=10^{-2}\rho_0$. A non-dimensional
 measure of the disk thickness is given by 
 \begin{align}
   f^{-1} = \frac{H\Omega}{\csmid}, 
@@ -145,9 +145,9 @@ $z$-axis is appropriately scaled.
 
 
 \subsection{Resistivity profile}\label{resis_profile}
-We consider constant resistivity or 
+We consider constant resistivity or a 
 resistivity prescription such that $\eta(z)$ increases away from the
-midplane. In the latter case, we follow \cite{fleming03} and adopt the
+mid-plane. In the latter case, we follow \cite{fleming03} and adopt the
 resistivity profile 
 \begin{align}
   \eta(z) =
@@ -164,13 +164,12 @@ and $\Sigma_0\equiv\Sigma_{\pm}(0)$, so that $g_\pm(0)=0$ and $\eta_0
   \cosh{\left(\frac{\Sigma_0}{\Sigma_*}\right)} =
   \left[\frac{\eta_0}{\eta(\infty)}\right]^2,
 \end{align}
-and we define $\eta_0/\eta(\infty)\equiv A$ as the conductivity
-boost factor from the midplane to the disk surface. We remark that
-once the equilibrium $\rho$ and $d\rho/dz$ are obtained from
+and we define $\eta_0/\eta(\infty)\equiv A$ as the conductivity 
+boost factor from the mid-plane to the disk surface. We remark that
+once $\rho$ and $d\rho/dz$ are obtained from
 Eq. \ref{eqm_eqns1} --- \ref{eqm_eqns2}, the integration for
 Eq. \ref{sigma_pm} can be performed implicitly by using Poisson's 
 equation. 
-
 
 We use the Elsasser number $\Lambda$ as a non-dimensional measure of
 conductivity,
@@ -181,8 +180,9 @@ where $v_A \equiv B_z/\sqrt{\mu_0\rho}$ is the vertical Alfven speed.
 %Example
 %profiles of $\Lambda$ are shown in Fig. \ref{eqm_resis} for the
 %isothermal disk. 
-The disk may be considered ideal where $\Lambda
-\gtrsim 1$. 
+Because of the density stratification, the Elsasser number 
+increases with height even for constant resistivity. The disk may be
+considered ideal where $\Lambda \gtrsim 1$. 
 %Since $\hat{\rho}(z/H)$ is weakly dependent on  self-gravity, the
 %ideal region only changes slightly as $Q$ is decreased. 
 
@@ -202,24 +202,26 @@ The disk may be considered ideal where $\Lambda
 
 
 \subsection{System parameters}
-We summarize here the main parameters describing the resistive,
-self-gravitating shearing box. The strength of self-gravity is
+The main parameters describing the resistive, self-gravitating
+shearing box is as follows. The strength of self-gravity is
 parametrized by 
 \begin{align}
   Q \equiv \frac{\Omega^2}{4\pi G\rho_0}
 \end{align}
 \citep{mamat10}, which is used to set the mid-plane density $\rho_0$. 
 The relation between $Q$ and the Toomre parameter for gravitational
-instability of razor-thin disks is described in Appendix \ref{q3d2d}. 
+instability of razor-thin disks, $Q_\mathrm{2D}$, is described in
+Appendix \ref{q3d2d}.  
 
 The plasma $\beta$ measures the inverse strength of the  
-magnetic field, 
+magnetic field,  
 \begin{align}
   \beta \equiv \frac{\csmid^2}{v_{A0}^2} =
   \frac{\csmid^2\mu_0\rho_0}{B_z^2},  
 \end{align}
-where $v_{A0}$ is the midplane Alfven speed. The strength of
-resistivity is measured by the midplane Elsasser number 
+where $v_{A0}$ is the midplane Alfven speed. Note that we use 
+the vertical field for this definition throughout the paper. The
+strength of conductivity is measured by the midplane Elsasser number  
 \begin{align}
   \Lambda_0 \equiv\Lambda(0) =  \frac{v_{A0}^2}{\eta_0\Omega}. %= \frac{f^2 R_m}{\beta}, 
 \end{align}

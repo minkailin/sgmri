@@ -1,44 +1,44 @@
 \section{MRI in self-gravitating disks}\label{result1}
-In this section we focus on the MRI. We use the vertical field setup
-of case 1. We first consider MRI modes with negligble densit/potential
+In this section we focus on the MRI and use the vertical field setup
+of case 1. We first consider MRI modes with negligble density/potential
 perturbations to see the effect of self-gravity on the MRI through the
-background stratification, then go on to consider MRI modes with
-significant density/potential perturbations in massive disks. 
+background stratification, then go on to examine MRI modes with
+density/potential perturbations in massive disks.  
 
 \subsection{Influence of self-gravity on the MRI through the
   background equilibrium}
-
-Here we use polytropic disks, which have a well-defined
-thickness. The upper disk boundary is set to 
+Here we use polytropic disks, so that the disk thickness is
+well-defined. The upper disk boundary is set to 
 $Z_s=0.99H$. We fix $\beta=100$ and $k_xH=0.1$ unless otherwise
 stated. 
 
 %kx -> 0 so incompressible 
 
 \subsubsection{Uniform
-  resistivity}  
-We first calculate the MRI as a function of $Q$ with uniform
-resistivity ($A=1$) for mid-plane Elsasser numbers $\Lambda_0\in[0.3,10]$.    
-
-Fig. \ref{compare_growth_poly_uniresis} plots the MRI growth rates as
-a function of $Q$ and $\Lambda_0$. As expected growth rates generally
-decrease with increasing $\Lambda_0$. In the limit of ideal MHD ($\Lambda_0>1$), 
-there is negligible dependence on $Q$. In the resistive limit
-($\Lambda_0<1$), however, growth rates decrease noticeably for $Q<1$. This shows
+  resistivity}   
+%We calculate the MRI as a function of $Q$ with uniform
+%resistivity ($A=1$) for mid-plane Elsasser numbers $\Lambda_0\in[0.3,10]$.    
+Fig. \ref{compare_growth_poly_uniresis} plots MRI growth rates as a
+function of $Q$ and $\Lambda_0$. The resistivity is uniform ($A=1$). 
+%As expected growth rates generally decrease with decreasing 
+%$\Lambda_0$ \citep{jin96}. 
+In the limit of ideal MHD ($\Lambda_0>1$), there is negligible
+dependence on $Q$. In the resistive limit 
+($\Lambda_0<1$), however, growth rates decrease noticeably for $Q<0.5$
+($Q_\mathrm{2D}\lesssim 1.5$). This shows 
 show that disk self-gravity affects the MRI through the background
 equilibrium, even though density and potential perturbations are  
-negligible (i.e. the linear response is
-non-self-gravitating).    
+unimportant (i.e. the linear response is non-self-gravitating).    
  
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_growth_poly_uniresis2}
-  \caption{MRI growth rates as a function of $Q$ for mid-planet
+  \caption{MRI growth rates as a function of $Q$ for mid-planee 
     Elsasser numbers $\Lambda_0=0.3$ (solid), $0.5$ (dotted), $1.0$
     (dashed) and $5.0$ (dash-dot).  
     \label{compare_growth_poly_uniresis}}
 \end{figure}
 
-\cite{sano99} found that for instability to occur the linear mode
+\cite{sano99} found that for MRI to operate, its 
 wavelength $\lambda$ should fit inside the disk. That is,   
 \begin{align}\label{sano_crit}
   \lambda \equiv
@@ -50,7 +50,7 @@ where the MRI wavelengths are given by
   \frac{\lambda_\mathrm{ideal}}{2H} = \frac{4\pi}{\sqrt{15}} f \hat{v}_A =
   \frac{4\pi f}{\sqrt{15\beta\hat{\rho}}}
 \end{align}
-in the limit of ideal MHD, and 
+for ideal MHD, and 
 \begin{align}\label{lambda_resis}
   \frac{\lambda_\mathrm{resis}}{2H} = \frac{2\pi}{\sqrt{3}}\frac{\hat{\eta}}{\hat{v}_A f} =
   \frac{2\pi f}{\Lambda_0}\sqrt{\frac{\hat{\rho}}{3\beta}} 
@@ -60,24 +60,31 @@ in the limit of high resistivity.
 Since $\hat{\rho}$ is weakly dependent
 on $Q$ (Fig. \ref{eqm_den}), self-gravity only affects the
 MRI through the factor $f$, which increases with decreasing $Q$ (see
-Fig. \ref{plot_fq} in Appendix \ref{appen1}). This suggests that
-sufficiently strong self-gravity can stabilize the MRI by making
-$ 2H<\lambda $. 
+Fig. \ref{plot_fq} in Appendix \ref{appen1}).   
+This implies that sufficiently strong self-gravity can stabilize the
+MRI by making $ 2H<\lambda $.  %these perts are not gravitationally
+                               %unstable  
  
 In the ideal limit, we find $\lambda < 2H$ throughout most of the disk
-for the values of $Q$ considered, so that self-gravity does not affect
-growth rates significantly. However, the wavelength of the instability
-increases. This is shown in Fig. \ref{compare_result_lambda10} which
-plots the magnetic energies for $\Lambda_0=10$ and a range of Toomre $Q$
-values. The number of vertical nodes decrease with $Q$, 
-i.e. the disk accommodates fewer wavelengths because increasing
-vertical self-gravity makes it thinner. 
+for the values of $Q$ considered, so self-gravity does not affect
+growth rates significantly. However, the wavelength of the
+instability, in units of $H$, increases. This is shown in
+Fig. \ref{compare_result_lambda10} which plots the magnetic energies
+for $\Lambda_0=10$ and a range of $Q$ values. The number of vertical
+nodes decrease with $Q$, i.e. the disk accommodates fewer wavelengths
+because increasing vertical self-gravity makes it thinner. 
 
 %Weak variations in growth rates in the ideal limit, seen in 
 %Fig. \ref{compare_growth_poly_uniresis}, were found to be associated
 %with changes in the mode character: $\gamma$ decreases
 %slightly when the mode begins to acquire an additional vertical node as $Q$ is
 %increased. 
+
+
+%{\bf DISCUSS STRESS} Although for ideal MHD self-gravity makes no
+%difference to the MRI growth rate, we find the associated stress does
+%change with $Q$. 
+
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_result_lambda10}
@@ -95,23 +102,23 @@ Eq. \ref{sano_crit} is violated and the MRI growth rate is
 significantly reduced. This is seen for $Q=0.2$ where $\lambda \geq 2H$ throughout
 the disk. (The instability is not completely surpressed since
 Eq. \ref{sano_crit} is only an approximation.) Although the function
-$f$ does not change significantly for the range of $Q$ considered, the
-dependence of $\lambda_\mathrm{resis}$ on $f$ (and therefore $Q$) is
-amplified by the denominator $\Lambda_0<1$ in the resistive case. For
-resistive cases we find no nodes in the magnetic energy $E_1$ except
-at end points, i.e. only the longest wavelength survives.   
+$f(Q)$ does not change significantly for the range of $Q$ considered, the
+dependence of $\lambda_\mathrm{resis}$ on $f(Q)$ is amplified by the
+denominator $\Lambda_0<1$ in the resistive case. For resistive cases
+we find no nodes in the magnetic energy $E_m$ except at end points,
+i.e. only the longest wavelength survives.    
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/lambda_poly_uniresis}
-  \caption{Approximate wavelengths of the most unstable resistive MRI modes as given by
+  \caption{Approximate wavelengths of the most unstable MRI modes as given by
     Eq. \ref{sano_crit}---\ref{lambda_resis}, normalized by the 
-    disk thickness, as a function of height for a range of Toomre $Q$
-    values.  
+    disk thickness, as a function of height. MRI is expected to
+    operate if $\lambda/2H\lesssim 1$. 
     \label{lambda_poly_resis}}
 \end{figure}
 
 
-\subsubsection{Layered
+\subsubsection{Layered 
   resistivity} 
 Here we consider disks with mid-plane Elsasser number $\Lambda_0=0.1$
 and a variable resistivity profile with
@@ -144,8 +151,25 @@ disk self-gravity, the MRI becomes more global in the vertical
 direction. We find a similar result in the horizontal direction. 
 In Fig. \ref{compare_growth_poly_kx} we plot MRI growth rates as a
 function of $k_x$ for a range of $Q$ values. Increasing self-gravity
-decreases the cut-off horizontal wavenumber for the MRI, implying that
-small-scale MRI does not operate in massive disks. 
+decreases the cut-off horizontal wavenumber for the MRI. We checked
+that these modes have negligible density perturbations. Then we can 
+understand this result by invoking the instability criteria for  
+incompressible MRI in an unstratified Keplerian disk,
+\begin{align}
+  v_A^2(k_z^2 + k_x^2) < 3\Omega^2,
+\end{align}
+where $k_z$ is a vertical wavenumber \citep{kim00}. Setting $k_z^2\sim
+\Omega^2/v_A^2$ and non-dimensionalizing, we find
+\begin{align} 
+  k_xH \lesssim \frac{\sqrt{\beta}}{f},
+\end{align}
+where order-unity factors have been dropped. Despite a simplistic
+approach, this demonstrates that with increasing self-gravity
+(increasing $f$), we expect that MRI modes with small radial
+lengthscales to be suppressed.   
+
+%, implying that
+%small-scale MRI does not operate in massive disks. 
  
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_growth_poly_varQ_kx}
@@ -167,41 +191,46 @@ small-scale MRI does not operate in massive disks.
 \subsection{Influence of self-gravity on the MRI through the linear
   response}  
 Our goal here is to examine whether or not self-gravity can amplify
-the density perturbations caused by the MRI. We choose a massive 
-isothermal disk with $Q=0.2$ (corresponding to $Q_\mathrm{2D}=0.72$),
-which is still expected to be marginally 
+the density perturbations caused by the MRI. We compute unstable modes
+in a massive isothermal disk with $Q=0.2$ (corresponding to
+$Q_\mathrm{2D}=0.72$), which is still expected to be marginally  
 stable to gravitational instability \citep[][who find
 a critical value of  $Q\simeq 0.2$]{mamat10}.   
 The upper disk boundary is set to $Z_s=H$. 
 
 %resolution Nz=256
 
-\subsubsection{Ideal case}
-We first consider the limit of ideal MHD by adopting a uniform
+\subsubsection{Ideal disks}
+We first consider ideal MHD by adopting a uniform 
 resistivity with $\Lambda_0=100$. %Non-zero density perturbations
 %require $k_x\neq0$ so we consider linear modes as a function of $k_x$.   
-Fig. \ref{gravity_energy} shows the mean gravitational potential
-energy perturbation, as a function of $k_x$ for several values of
-$\beta$. The potential perturbation is negligible for all cases when 
-$k_xH\lesssim 0.5$, since the MRI becomes incompressible as $k_x\to
-0$. 
+Fig. \ref{gravity_energy} plots MRI growth rates as a function of
+$k_x$ for several values of $\beta$. The curves are color-coded
+according to $\tau$. The potential perturbation is
+negligible for all cases when $k_xH\lesssim 0.5$, since the MRI
+becomes incompressible as $k_x\to 0$. 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_energy_ideal}
-  \caption{Average gravitational potential energy perturbation
-    associated with the MRI, compared to the average magnetic energy
-    perturbation, in a self-gravitating disk with $Q=0.2$ in 
-    the limit of ideal MHD ($\Lambda_0=10^2$), for a range of field
-    strengths $\beta$.  
+  \caption{Growth rates of MRI modes in an isothermal self-gravitating
+    disk with $Q=0.2$ ($Q_\mathrm{2D}=0.72$) in the limit of ideal MHD
+    ($\Lambda_0=10^2$), for a range of field strengths $\beta$. The
+    colorbar measures the importance of self-gravity by $\tau$.  
+    %{\bf ADD BETA=8}
     \label{gravity_energy}}
 \end{figure}
 
 For $\beta\gg 1$, i.e. a weak field, density perturbations are
 negligible and the standard MRI operates. However, as $\beta$ is
-lowered we find non-negligible potential perturbation for
-$k_xH=O(1)$. This suggets that in a strongly magnetized disk that
-still permits the MRI, the associated density perturbation can be
-important when the disk is self-gravitating. 
+lowered and the MRI growth rate reduced, we find non-negligible
+potential perturbation for $k_xH=O(1)$. This suggets that in a
+strongly magnetized disk that still permits the MRI, the associated
+density perturbation can be important when the disk is
+self-gravitating. %but formall stable 
+
+
+%critical beta, below which MRI is surpressed, increases with the
+%strength of self-gravity.
 
 %Fig. \ref{mri_massive} shows an example of a MRI mode with
 %non-negligible density perturbation. The growth rate $\gamma\simeq
@@ -221,34 +250,31 @@ important when the disk is self-gravitating.
 %    \label{mri_massive}}
 %\end{figure}
 
-
-\subsubsection{Resistive case}
+\subsubsection{Resistive disks}
 We repeat the above calculation for resistive disks, but fix
-$\beta=100$. Fig. \ref{gravity_energy_resis} shows the 
-perturbed gravitational energy increases with   
-resistivity. Interestingly, in the highly resistive case
-the MRI can be energeically dominated by self-gravity, i.e. the case
-with $\Lambda_0=0.1$ and $k_xH\simeq1.3$. We also calculated this mode
-in the \emph{Cowling  
+$\beta=100$ and vary the mid-plane Elasser number $\Lambda_0$. Growth
+rates are shown in Fig. \ref{gravity_energy_resis}. 
+Interestingly, in the highly resistive case
+the magnetic and gravitational energies can be comparable. For 
+$\Lambda_0=0.1$ and $k_xH\simeq1.3$, $\tau\sim 0.3$ which corresponds
+to $\avg{E_g}\sim 0.5\avg{E_m}$.  
+Fig. \ref{mri_massive_cowling}, we compare the magnetic
+energy of this mode to that computed in in the \emph{Cowling  
   approximation}, where the Poisson equation is ignored in the 
 linearized equations and the potential perturbation set to zero  
-(formally letting $Q\to\infty$ in Eq. \ref{lin_poisson}).
-Fig. \ref{mri_massive_cowling} compares the magnetic energy in the
-Cowling approximation to that of 
-the full problem in . The growth rate increases when self-gravity is
-included in the linear response, as expected, but only
-slightly. $\gamma$ and $E_m$ are similar in both cases, indicating
-that the instability in the self-gravitating calculation is 
-still the MRI.   
-
+(formally letting $Q\to\infty$ in Eq. \ref{lin_poisson}).  
+The growth rate increases slightly when self-gravity is included in the linear
+response, since self-gravity is usually destabilizing. However, the
+similarity between $\gamma$ and $E_m$ indicates that the instability
+in the self-gravitating calculation is fundamentally the MRI.   
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_energy_resis}
-  \caption{Average gravitational potential energy perturbation
-    associated with the MRI, compared to the average magnetic energy
-    perturbation, in a self-gravitating disk with $Q=0.2$,
-    for a range of midplane Elsasser numbers $\Lambda_0$ at fixed
-    field strength $\beta=100$.    
+  \caption{
+    Growth rates of MRI modes in an isothermal self-gravitating
+    disk with $Q=0.2$ ($Q_\mathrm{2D}=0.72$) at fixed $\beta=100$, 
+    for a range of mid-plane Elasser numbers. The resistivity is
+    uniform. The colorbar measures the importance of self-gravity by $\tau$. 
     \label{gravity_energy_resis}}
 \end{figure}
 
@@ -258,37 +284,35 @@ still the MRI.
   \caption{Magnetic energy associated with the linear mode with
     largest gravitational-to-magnetic energy ratio in
     Fig. \ref{gravity_energy_resis} (solid) compared with that computed
-    under the Cowling approximation (dotted). 
+    under the Cowling approximation (dotted). %{\bf REDO FIGURE}
     \label{mri_massive_cowling}}
 \end{figure}
 
-
-An example is shown in
-Fig. \ref{mri_massive_resis}, which  plots the energies assocaited with the 
-linear MRI mode with $k_xH\sim1.3$ in the $\Lambda_0=0.1$  
-disk. The gravitational potential energy exceeds the
+Fig. \ref{mri_massive_resis} plots the energies assocaited with the 
+MRI mode discussed above. 
+%with $k_xH\sim1.3$ in the $\Lambda_0=0.1$  
+%disk. 
+The gravitational energy exceeds the 
 magnetic energy near the midplane ($z\lesssim0.2H$). The growth rate $\gamma=0.25\Omega$
 is not much smaller than that of the most unstable mode
-($\gamma=0.36\Omega$) so significant density perturbations are
-expected to grow on dynamical timescales. 
+($\gamma=0.36\Omega$ for $k_xH=0.1$), so significant density
+perturbations are expected to grow on dynamical timescales for this
+system, even though GI should not develop. 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/result_resis_sg}
-  \caption{Example of a linear resistive MRI mode with significant
-    gravitational potential energy perturbation.  The vertical line
+  \caption{Example of a resistive MRI mode with significant
+    gravitational potential perturbation.  The vertical line
     inidicates $\Lambda=1$.  
     \label{mri_massive_resis}}
 \end{figure}
 
-
-
-
 \subsubsection{Qualitative interpretation} 
-In order to make sense of the above results, we return to ideal MHD. 
-We consider regions close to the disk midplane ($z\sim 0$), where
+To make sense of the above results, we first return to ideal MHD and 
+consider regions close to the disk midplane ($z\sim 0$), where
 self-gravity is expected to be most important. For this discussion we
-will ignore stratification and set $d/dz\to \imgi k_z$ where $k_z$ is
-a vertical wavenumber. The governing equations are then
+will ignore stratification and set $d^2/dz^2\to -k_z^2$. The governing
+equations are then 
 
 \begin{align}
   &  0= v_A^2k^2\dvx + \imgi\sigma\left(\imgi\sigma \dvx - 2\Omega\dvy + \imgi k_x \w\right),\label{simp1}\\
@@ -298,10 +322,9 @@ a vertical wavenumber. The governing equations are then
   & 0 = -k_z^2\w + \frac{\sigma^2}{c_s^2}W + \sigma k_x \dvx, \label{simp3}\\
   & 0 = k^2\dphi + \frac{\Omega^2}{c_s^2Q}W,\label{simp4}
 \end{align}
-where $k^2 = k_z^2 + k_x^2$. 
-
-We imagine an iterative procedure to solve the above equations,
-starting from the Cowling approximation. %defined to be the
+where $k^2 = k_z^2 + k_x^2$. We imagine an iterative procedure to
+solve the above equations, starting from the Cowling approximation. 
+%defined to be the
 %solution to Eq. \ref{simp1}---\ref{simp3} with potential perturbation
 %set to zero. 
 This is the standard MRI and we denote the solution as
@@ -313,11 +336,15 @@ an associated potential perturbation,
 \begin{align} 
   \dphi = -\frac{\Omega^2}{c_s^2 Q k^2} W^{(0)}.
 \end{align}
-Physically, we expect $k^2\geq0$, so that a positive (negative) density
-perturbation causes a negative (positive) potential perturbation. We
-then regard $\dphi$ to alter the Cowling solution, so
-that $\dvx^{(0)} \to \dvx^{(0)} + \dvx^{(1)}$ and similarly for $\dvy$ and
-$W$. Then 
+Physically, we expect $k^2\geq0$, so that a local positive (negative) density
+perturbation causes a negative (positive) local potential
+perturbation. We then insert $\dphi$ back into the momentum and
+continuity equations, and ask how does this potential perturbation
+modify the Cowling solution? Writing $\dvx^{(0)} \to \dvx^{(0)} +
+\dvx^{(1)}$ and similarly for $\dvy $ and $ W$, we find 
+%regard $\dphi$ to alter the Cowling solution, so
+%that 
+%Then 
 \begin{align}
   &   k_x\sigma \dphi = v_A^2k^2\dvx^{(1)} + \imgi\sigma\left[\imgi\sigma
   \dvx^{(1)} - 2\Omega\dvy^{(1)} + \imgi k_x W^{(1)}\right], \label{simp_pert1}\\ 
@@ -337,8 +364,8 @@ W^{(1)}\sim0$. This is compatible with Eq. \ref{simp_pert3} if
 \end{align}
 For the ideal MRI,  we assume $k_z\sim \Omega/v_A$. Then
 $|\sigma^2/c_s^2k_z^2|\sim |\sigma^2/\Omega^2\beta|\ll1$ because
-$|\sigma|\lesssim \Omega$ and we are considering $\beta\gtrsim
-10$. Thus Eq. \ref{cond} is generally satisfied.   
+$|\sigma|\lesssim \Omega$ and we are considering $\beta\gtrsim 10$. 
+Thus Eq. \ref{cond} is generally satisfied.   
 
 The above assumptions imply
 \begin{align}
@@ -355,29 +382,28 @@ for the cases considered above. Then
  self-gravity with increasing field strength (decreasing
  $\beta$). 
 
+% not expect significant potential perturbations 
+%Conversely, for strong fields, only a single MRI wavelength occupies
+%the fluid column. 
+
+ The above arguments can be adapted to the resistive
+ limit. Eq. \ref{simp3}---\ref{simp4} are unchanged, while resistive
+ terms appearing in Eq. \ref{simp1}---\ref{simp2} only involve the
+ potential perturbation through $\w$. For the resistive MRI we assume
+ $k_z\sim v_A/\eta$ and $|\sigma|\sim v_A^2/\eta = \Lambda\Omega$
+ \citep{sano99}. Then $|\sigma^2/c_s^2k_z^2|\sim 1/\beta \ll 1$ so
+ Eq. \ref{cond} is satisfied. Noting that $k_z^2\sim
+ \Lambda^2\Omega^2\beta/c_s^2$, the feedback equation becomes
+ \begin{align}
+   \left|\frac{W^{(1)}}{W^{(0)}}\right| \sim
+   \frac{1}{Q\left(f^2\hat{k}_x^2 + \beta\Lambda^2\right)},
+ \end{align}
+ so increasing the resistivity (decreasing $\Lambda$) should enhance
+ density perturbations. 
+ 
+
  For weak fields, the MRI has small vertical wavelength,
  implying rapid density variations with height. The magnitude of the
  corresponding gravitational potential is then expected to be small
  because of internal cancellations, since the potential is essentially
  the integral of the density field. 
-
-% not expect significant potential perturbations 
-
-%Conversely, for strong fields, only a single MRI wavelength occupies
-%the fluid column. 
-
-The above arguments also apply to the resistive
-limit. Eq. \ref{simp3}---\ref{simp4} are unchanged, while resistive
-terms appearing in Eq. \ref{simp1}---\ref{simp2} only involve the
-potential perturbation through $\w$. For the resistive MRI we assume
-$k_z\sim v_A/\eta$ and $|\sigma|\sim v_A^2/\eta = \Lambda\Omega$
-\citep{sano99}. Then $|\sigma^2/c_s^2k_z^2|\sim 1/\beta \ll 1$ so
-Eq. \ref{cond} is satisfied. Noting that $k_z^2\sim
-\Lambda^2\Omega^2\beta/c_s^2$, the feedback equation becomes
-\begin{align}
-  \left|\frac{W^{(1)}}{W^{(0)}}\right| \sim
-  \frac{1}{Q\left(f^2\hat{k}_x^2 + \beta\Lambda^2\right)},
-\end{align}
-so increasing the resistivity (decreasing $\Lambda$) should enhance
-density perturbations. 
- 

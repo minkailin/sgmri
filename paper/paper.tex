@@ -18,6 +18,8 @@
 \newcommand{\C}{\mathcal{C}^\lambda}
 \newcommand{\wop}[1]{\mathcal{V}^{(#1)}}
 \newcommand{\avg}[1]{\langle{#1}\rangle}
+%\newcommand{\max}[1]{\mathrm{max}({#1})}
+%\newcommand{\min}[1]{\mathrm{min}({#1})}
 \newcommand{\zhat}{\hat{z}}
 \newcommand{\rhat}{\hat{r}}
 \newcommand{\he}{\mathcal{H}}
@@ -69,14 +71,30 @@
 \begin{abstract}
   Magneto-rotational instability (MRI) and gravitational instability
   (GI) are the two principle routes to turbulent angular momentum
-  transport in accretion disks. Protoplanetary disks may develop
-  both. The goal of this paper is to reinvigorate interest in the study of
+  transport in accretion disks. Protoplanetary disks may develop 
+  both. This paper aims to reinvigorate interest in the study of
   magnetized  massive protoplanetary disks, starting from the basic
-  issue of stability. The linear stability of a local patch of a
-  self-gravitating, magnetized three-dimensional (3D) disk to
-  axisymmetric perturbations is examined. %Addition effects such as
-  %resistivity and azimuthal fields are considered. 
+  issue of stability. The local linear stability of a 
+  self-gravitating, uniformly magnetized, differentially rotating, 
+  three-dimensional disk subject to axisymmetric perturbations is
+  calculated numerically. The formulation includes 
+  resistivity. It is found that the reduction in the disk scale height
+  by self-gravity (SG) can decrease MRI growth rates. SG causes the MRI to
+  become global in the vertical direction, and MRI modes
+  with small radial lengthscales are stabilized. In massive
+  disks with layered resistivity, the MRI is not well-localized
+  to regions where the Elsasser number exceeds unity. For MRI modes
+  with radial lengthscales on the order of the disk scale-height, SG
+  can enhance density perturbations, an effect that becomes 
+  significant in the presence of a strong toroidal field. In
+  gravitationally unstable disks where GI and MRI growth rates are
+  comparable, the character of unstable modes can transition smoothly
+  between MRI and GI. Implications for non-linear simulations are
+  discussed briefly.   
 
+%layered dis   
+  %Addition effects such as
+  %resistivity and azimuthal fields are considered. 
 %We examine the local linear stability of
 %  magnetized, self-gravitating and differentially rotating disks to
 %  axisymmetric perturbations. 
