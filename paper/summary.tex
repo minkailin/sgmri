@@ -47,45 +47,96 @@ to self-gravitating disks.  %strong magnetization
 We find MRI perturbations with radial scale of $\sim H$ can acquire  
 density perturbations in a massive but Toomre-stable disk. 
 This occurs when the MRI is weak, for example with a strong field or
-high resisitivty. We argue in that case $\lambda\simH$, so the density
+high resisitivty. We argue in that case $\lambda\sim H$, so the density
 perturbation caused by the MRI can be enhanced by self-gravity. 
 
 %further enhancing density perturbations. 
-At this point it is worth mentioning previous non-linear calculations 
-performed by \cite{kim03} and \cite{fromang04a,fromang04} in the
-context of galactic and circumstellar disks, respectively. These
-authors simulated the MRI in self-gravitating disks. They find
-self-gravity has little impact on the MRI.   
+At this point it is worth mentioning previous non-linear simulations
+of magnetized self-gravitating galactic and circumstellar disks
+\citep{kim03,fromang04a,fromang04}. These authors find self-gravity
+does not enhance MRI density flucations significantly. However, they
+employed ideal MHD simulations with gas-to-magnetic pressure ratios of
+order $10^2$ to $10^3$. According  
+to our results, self-gravity is not expected to affect the MRI in this
+regime of $\beta$. On the other hand, \cite{fromang04} found
+self-gravity makes MRI turbulence more coherent. This may be related
+to our finding that small radial scale MRI is surpressed when
+self-gravity is included in the background equilibria. 
 
+Physically, we expect MRI to only interact with self-gravity when
+their spatial scales are similar. Because self-gravity acts globally in the
+vertical direction, for it to affect the MRI, future non-linear
+simluations should consider parameter regimes in which the MRI is
+vertically global. Indeed, in the setup of \cite{kim03}, the disk
+scale height exceeds the MRI vertical wavelength and self-gravity has
+little effect.   
 
-
+%We suggest that in
+%order for self-gravity to be significant,
+%We suggest that in
+%order for self-gravity to influence MRI,      
 %cite{kim03} and \cite{fromang04}
-
-
-
 %Numerical experiments
 %varying the field strength and resisitivity indicate this is again a
 %result  
 
+%GI/MRI: avoided crossings, relevance to simulations
+Curiously, when GI and MRI are simultaneously supported, we find
+unstable modes transition between MRI and GI. Such modes
+have comparable potential and magnetic energy perturbations. These
+transitions occur smoother with decreasing $\beta$
+(Fig. \ref{compare_growth3}) or increasing $k_x$
+(Fig. \ref{compare_growth3_Q01d2}). The latter implies that, in order
+to capture magnetic-gravitational interactions represented by these
+intermediate modes, non-linear simulations must resolve radial scales
+smaller than the most unstable GI mode. For example, 
+Fig. \ref{compare_growth3_Q01d2} suggest radial scales down to $\sim H/2$
+should be resolved. 
 
-
-
-
-%GI/MRI: avoided crossings 
+%This is
+%consistent with the MRI only affected by self-gravity for strong
+%fields 
+%mode classificication ambgious 
+%This is consistent /expected
+%numerical simulations should measure a continous range of modes
+%This is
+%consistent self-gravity only affecting the MRI when it is weak.  
+%mag field only affect GI through pressure
+%mri influenced by GI at large kx - > small scale -> need resolution
 
 %azimuthal fields 
 
-%\subsection{Implications for non-linear simulations}
-%what scaes? resolution
-%why don't formang  and kim/ostriker see any difference? 
+We examined the effect of an additional azimuthal field, while
+keeping the vertical field at fixed strength. In this case, we also
+relaxed the equitorial symmetry condition applied previously and
+considered the full disk column. Self-gravity affects the MRI
+differently depending on the midplane symmetry of the MRI density
+perturbation. Self-gravity destabilizes MRI modes where the magnetic
+energy reaches a minimum at $z=0$, which have a symmetric
+density perturbation in the limit $B_y\to0$. However, 
+self-gravity stabilizes MRI modes where the magnetic energy maximizes
+at $z=0$. These modes have an anti-symmetric density
+perturbation in the limit $B_y\to0$. This stabilization effect is
+stronger for increasing $B_y$. Previous linear calculations indicate
+increased compressibility associated with a toroidal field stabilizes
+the MRI \citep{kim03}. We conjecture that self-gravity can
+further enhance this effect.   
+%can't do WKB (can't tell symmetries)
+
+%lesure 14 (strong azimuthal field)
+%implications non-linear MRI simulations with a strong toroidal field
+%would over-estimate growth rates (and perhaps turbulence strengths)
+%if SG is not accounted for. not applicable to self-gravitating disks     
+%previous linear calcs show compressibility stabilizes MRI 
+%additional pressure stabilizing MRI 
 
 \subsection{Caveats and outlooks}
 We discuss below two major extensions to our linear model that
-should be undertaken, before performing non-linear simulations of
+should be undertaken, before embarking on non-linear simulations of
 magnetized, self-gravitating disks, which is our eventual goal.  
 
 \emph{Beyond the shearing box.} The shearing box ignores the curvature
-of toroidal field lines present in the global disk
+of toroidal field lines present in the global disk 
 geometry. \cite{pessah05} have shown that new effects on the MRI arise
 when the curvature of a super-thermal toroidal field is accounted for;
 although \citeauthor{pessah05} focused on modes with large (small)
@@ -112,9 +163,7 @@ to self-consistently probe this regime.
 %spiral arms, GI angular mometum distribution 
 \emph{Beyond axisymmetry.} It is well known that self-gravitating
 disks can be unstable to non-axisymmetric perturbations but stable
-against axisymmetric perturbations, although the threshold Toomre
-parameter for both is still of order unity. %papaloizou/lin,
-                                %sajvoini??
- 
+against axisymmetric perturbations \citep{papaloizou89,papaloizou91}.   
+
 
 
