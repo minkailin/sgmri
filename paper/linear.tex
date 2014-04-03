@@ -90,14 +90,11 @@ can also be reduced to the above form.
 
 \subsection{Domain and boundary conditions}\label{domain}
 
-\subsubsection{Case 1: vertical field}%because SG can only destabilize
-                                %symmetric density perts%for
-                                %simplicity
-%for future simulations (set vertical field)
+\subsubsection{Case 1: vertical field}
 We impose $\bm{U}$ to be an even function of $z$, so that
-$d\bm{U}/dz=0$ at $z=0$. This reduces the computational domain to
-$z\in[0,Z_s]$ and permits higher numerical resolution. At the disk
-surface we set %$\dbx=\dby=\dvz=0$ 
+$d\bm{U}/dz=0$ at $z=0$. This permits higher numerical resolution by
+reducing the computational domain to $z\in~[0,Z_s]$.  
+At the upper disk boundary $z=Z_s$ we set 
 \begin{align}
   \dbx(Z_s) = \dby(Z_s) = \dvz (Z_s) = 0, 
 \end{align}
@@ -127,25 +124,7 @@ where $\xi_z=\dvz/\imgi\sigma$ is the vertical Lagrangian
 displacement. In practice,  Eq. \ref{pot_bc1} and \ref{pot_bc2} are
 very similar because $\rho(\pm\zmax)\ll\rho_0$. 
 
-%We adopt two kinds of vertical boundary conditions depending on the
-%field geometry. 
-%In both case 1 and case 2 the potential boundary
-%condition is 
-%\begin{align}
-%  \dphi^\prime(\zmax) \pm k_x\dphi(\zmax) = 0
-%\end{align}
 
-%At the vertical disk boundaries $z=\pm\zmax$ we assume  
-%$\dvz=\dbx=\dby=0$, and 
-
-%for the potential perturbation \citep[see][]{goldreich65a}, where the
-%upper (lower) sign applies to the upper (lower) disk surface. 
-%For Case 1 (purely vertical field) we additionally assume $\bm{U}$ is
-%an even function of $z$, so that $d\bm{U}/dz=0$ 
-%at $z=0$. 
-
-%This implies that $\dbx=\dby=0$ at the midplane, consistent
-%with a highly resistive dead zone. 
 
 \subsection{Numerical procedure}
 We use a pseudo-spectral method to solve the set of linearized
@@ -163,19 +142,13 @@ where
   \end{cases}
 \end{align}
 and  $T_l$ is a Chebyshev polynomial of the first kind of order $l$
-\citep{stegun65}. Note that for case 1 the mid-plane symmetry condition
+\citep{stegun65}. Note that for case 1 the midplane symmetry condition
 is taken care of by the choice of basis functions. 
-%Note that in case 1
-%The number of basis functions is
-%$N_z$ and $l_\mathrm{max}=2(N_Z-1)$ is the highest polynomial order. 
-%For a vertical field we only use even Chebyshev polynomials 
-%to satisfy the symmetry condition at $z=0$, so in case 1 we only
-%consider $z\geq 0$.  
 
 The pseudo-spectral coefficients $\bm{U}_n$  are obtained by demanding
 the set of linear equations to be satisfied at $N_z$ collocation
-points along the vertical direction. We choose these points as the
-extrema of $T_{l_\mathrm{max}}$ plus end points, where
+points along the vertical direction, here chosen to be the 
+extrema of $T_{l_\mathrm{max}}$ plus end points, where 
 $l_\mathrm{max}$ is the highest polynomial order. Our standard
 resolution is $N_z=256$ ($N_z=257$) for case 1 (case 2).   
 
@@ -203,7 +176,7 @@ by defining
   \delta\rho = \rho\hat{W}/\hat{c}_s^2,\quad \delta\Phi =
   \csmid^2\delta\hat{\Phi},  
 \end{align} 
-where $\hat{c}_s=c_s/\csmid$. We also non-dimensionalize other
+where $\hat{c}_s=c_s/\csmid$. We also non-dimensionalize 
 background quantities, i.e. $\hat{v}_A=v_A/\csmid$,
 $\hat{S}=S/\Omega$, $\hat{\kappa}=\kappa/\Omega$,
 $\hat{\Omega}_z=\Omega_z/\Omega$ and $\hat{\eta} = \eta/(H^2\Omega)$. 
@@ -225,17 +198,13 @@ solve an energy equation, we nevertheless define $E_t$ as a measure of
 density perturbations \citep{kojima89}. The total energy
 is $E=E_m+E_g+E_k+E_t$. We use $\avg{\cdot}$ to denote an average over
 $z$. 
-%The colorbar quantifies the importance of
-%self-gravity with 
 
 Since we will primarily be concerned with massive disks, we define
 \begin{align}
- \tau \equiv \frac{\avg{E_g}}{\avg{E_g} + \avg{E_m}} 
+  \tau \equiv \frac{\avg{E_g}}{\avg{E_g} + \avg{E_m}} 
 \end{align} 
 as a measure of the importance of self-gravity. Thus, modes with $\tau
 = 1$ are energetically dominated by self-gravity (GI) and modes with
 $\tau\ll1$ are dominated by magnetic perturbations (MRI).   
 
-%and we then normalize $E_i$ by
-%$\mathrm{max}(E)$.  
- 
+

@@ -106,21 +106,17 @@
 \section{Introduction}
 Astrophysical disks host a wide range of fluid instabilities. Among
 them, the magneto-rotational instability \citep[MRI,][]{chandrasekhar61,
-  balbus91,balbus98} %balbus %chandrasekhar ref
+  balbus91,balbus98} 
 and gravitational instability \citep[GI, ][]{toomre64,goldreich65a,goldreich65b} 
 provide robust pathways to turbulent angular momentum transport that
 enables mass accretion \citep[][ 
   and references therein]{balbus99,armitage11,turner14}.   
-%gammie, lin/pringle, paczynski 
-%relevance of MRI and GI to planet formation 
 They are also relevant to planet formation theory. For example,
 the strength of MRI turbulence directly affect planetesimal dynamics
 in protoplanetary disks \citep{yang12,gressel12}; while GI can
 potentially form giant planets directly through disk fragmentation
 \citep{boss97,boss98,gammie01,voro13,helled14}. 
-%gammie,
-%boss %some review articles (PP6)  
-%shakura73, pacz78, lin87,
+
 
 Accretion disks such as those surrounding black holes can develop both
 MRI and GI \citep{menou01,goodman03}.  
@@ -142,23 +138,14 @@ PPDs subject to both MRI and GI are often modeled through separate
 turbulent viscosities in a hydrodynamical framework 
 \citep{terquem08}. This implicitly assumes that the development of MRI 
 and GI can be assessed independently. 
-%That is, MRI is unaffected by
-%disk self-gravity; and GI is unaffected by weak magnetization. 
 Circumstellar disk models that explicitly combine the equations of magneto-hydrodynamics
 and self-gravity have been limited to a few early simulations 
-\citep{fromang04,fromang04b,fromang05}. It will be neccessary to %no
-%major difference % kim/ostriker/stone
+\citep{fromang04,fromang04b,fromang05}. It will be neccessary to 
 revisit and extend these pioneering calculations to fully explore the
 impact of MRI and GI on the structure and evolution of PPDs. In
 preparation of this, it is important to have a thorough understanding
 of the stability properties of such systems.  
-%non-ideal effects important 
 
-%why is GI and MRI independent 
-%compressibility is not fundamental to MRI 
-%horizontal wavenumber (gammie/balbus) 
-%The effect of self-gravity on the linear MRI has not been considered, 
-%since fluid compressibility is not fundamental to the MRI. 
 
 Since compressibility is not fundamental for the MRI, much of the
 early stability calculations assume incompressible perturbations
@@ -170,22 +157,13 @@ radial wavenumber, because they are the most unstable
 \citep{sano99,reyes01}. Self-gravity has minimal effect on such
 perturbations in a rotating disk. However, modes
 with radial lengthscales on the order of the disk scale height may be
-subject to self-gravity. It is of interest to generalize the MRI with
+subject to self-gravity. It is therefore of interest to generalize the MRI with
 non-zero radial waveumbers to massive disks. 
 
 
-%Simiarly, studies of GI in accretion disks have mostly neglected
-%magnetization \citep{mamat10,kim12}. 
-%particularly in the context of 
-
-%Studies of GI in accretion disks do not often include magnetization
-%\citep{mamat10,kim12}. 
 
 The effect of a magnetic field on the GI of rotating disks has been
-considered by some authors.  
-% \cite{lynden-bell66} found that a toroidal
-%field can destabilize non-axisymmetric disturbances
-Recently, \cite{lizano10} generalized the classic Toomre stability
+considered recently by \cite{lizano10}, who generalized the Toomre stability
 criterion for razor-thin disks to include a vertical field. For
 circumstellar disks, the authors concluded that the field is
 stabilizing. This is consistent with previous analysis by
@@ -193,37 +171,26 @@ stabilizing. This is consistent with previous analysis by
 disks. However, the GI of 3D differentially rotating disks have
 mostly neglected magnetic fields \citep{mamat10,kim12}, but such disks
 are subject to the MRI if magnetized. 
-%how is the dispersion relation for GI affected by the presence of MRI?
-%It is interesting to ask whether
-%or not the presence of MRI affects GI. 
-%
-%It is desirable to clarify
-%whether or not the presence of MRI modes affect the dispersion
-%relation for GI. 
 
-%although MRI and GI are physically distinct 
-%explicitly show 
 
-This paper marks the beginning of our study of magnetized,
-self-gravitating PPDs. We start from linear calculations. 
-Linear stability analyses have the advantage that a wide range of
-parameters can be studied with negligible computational cost. This
-allows one to indentify conditions, if any, under which MRI and GI
-cannot be consdered independent. It is also important to have such 
-calculations at hand to help benchmark and guide non-linear
+This work marks the beginning of our study of magnetized,
+self-gravitating PPDs. We start from linear calculations, which  
+have the advantage that a wide range of parameters can be studied at
+negligible computational cost. This  allows us to indentify
+conditions, if any, under which MRI and GI 
+cannot be considered independent. It is also important to have such 
+calculations to benchmark and guide future non-linear
 simulations.   
 
-%This paper marks the beginning of our study of magnetized,
-%self-gravitating PPDs and is organized as follows. 
 
 This paper is organized as follows. \S\ref{setup} lists the governing
 equations and describes the disk equilibra under consideration. 
 The linear problem is formulated in \S\ref{linear}. The impact
-of self-gravity on the MRI is discussed in
-\S\ref{result1}; gravitationally unstable disks are considered in
-\S\ref{result2} and equilibra with an azimuthal field is explored in
-\S\ref{result3}. We summarize results in \S\ref{summary}, including a
-discussion of caveats and future directions. 
+of self-gravity on the MRI with a vertical field is discussed in
+\S\ref{result1}, gravitationally unstable disks are considered in
+\S\ref{result2}, and equilibra including an azimuthal field is explored in
+\S\ref{result3}. We summarize results in \S\ref{summary} with a 
+discussion of important extensions to our current models.
 
 \input{setup}
 \input{linear}

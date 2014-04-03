@@ -7,34 +7,27 @@ density/potential perturbations in massive disks.
 
 \subsection{Influence of self-gravity on the MRI through the
   background equilibrium}
-Here we use polytropic disks, so that the disk thickness is
-well-defined. The upper disk boundary is set to 
-$Z_s=0.99H$. We fix $\beta=100$ and $k_xH=0.1$ unless otherwise
-stated. 
-
-%kx -> 0 so incompressible 
+Here we use polytropic disks, which have a well-defined disk
+thickness. The upper disk boundary is set to $Z_s=0.99H$. We fix
+$\beta=100$ and $k_xH=0.1$ unless otherwise stated. 
 
 \subsubsection{Uniform
   resistivity}   
-%We calculate the MRI as a function of $Q$ with uniform
-%resistivity ($A=1$) for mid-plane Elsasser numbers $\Lambda_0\in[0.3,10]$.    
 Fig. \ref{compare_growth_poly_uniresis} plots MRI growth rates as a
 function of $Q$ and $\Lambda_0$. The resistivity is uniform ($A=1$). 
-%As expected growth rates generally decrease with decreasing 
-%$\Lambda_0$ \citep{jin96}. 
-In the limit of ideal MHD ($\Lambda_0>1$), there is negligible
-dependence on $Q$. In the resistive limit 
+For ideal MHD ($\Lambda_0>1$), there is negligible dependence on
+$Q$. In the resistive limit   
 ($\Lambda_0<1$), however, growth rates decrease noticeably for $Q<0.5$
-($Q_\mathrm{2D}\lesssim 1.5$). This shows 
-show that disk self-gravity affects the MRI through the background
-equilibrium, even though density and potential perturbations are  
-unimportant (i.e. the linear response is non-self-gravitating).    
- 
+($Q_\mathrm{2D}\lesssim 1.5$).  Since we find density and potential
+perturbations to be negligible (i.e. the linear response is
+non-self-gravitating), this shows that disk self-gravity can affect the
+MRI through the background equilibrium.
+
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_growth_poly_uniresis2}
-  \caption{MRI growth rates as a function of $Q$ for mid-planee 
-    Elsasser numbers $\Lambda_0=0.3$ (solid), $0.5$ (dotted), $1.0$
-    (dashed) and $5.0$ (dash-dot).  
+  \caption{MRI growth rates as a function of $Q$ and midplane 
+    Elsasser numbers, in polytropic disks with $\beta=100$ and uniform
+    resistivity.  
     \label{compare_growth_poly_uniresis}}
 \end{figure}
 
@@ -57,41 +50,30 @@ for ideal MHD, and
 \end{align}
 in the limit of high resistivity.  
    
-Since $\hat{\rho}$ is weakly dependent
+Because $\hat{\rho}$ is weakly dependent
 on $Q$ (Fig. \ref{eqm_den}), self-gravity only affects the
 MRI through the factor $f$, which increases with decreasing $Q$ (see
 Fig. \ref{plot_fq} in Appendix \ref{appen1}).   
 This implies that sufficiently strong self-gravity can stabilize the
-MRI by making $ 2H<\lambda $.  %these perts are not gravitationally
-                               %unstable  
+MRI by making $ 2H<\lambda $.   
  
 In the ideal limit, we find $\lambda < 2H$ throughout most of the disk
 for the values of $Q$ considered, so self-gravity does not affect
-growth rates significantly. However, the wavelength of the
-instability, in units of $H$, increases. This is shown in
+growth rates significantly. However, the ratio $\lambda/2H$ does
+increase with stronger self-gravity. Consequently, the wavelength of
+the instability, in units of $H$, increases. This is shown in
 Fig. \ref{compare_result_lambda10} which plots the magnetic energies
 for $\Lambda_0=10$ and a range of $Q$ values. The number of vertical
 nodes decrease with $Q$, i.e. the disk accommodates fewer wavelengths
 because increasing vertical self-gravity makes it thinner. 
 
-%Weak variations in growth rates in the ideal limit, seen in 
-%Fig. \ref{compare_growth_poly_uniresis}, were found to be associated
-%with changes in the mode character: $\gamma$ decreases
-%slightly when the mode begins to acquire an additional vertical node as $Q$ is
-%increased. 
-
-
-%{\bf DISCUSS STRESS} Although for ideal MHD self-gravity makes no
-%difference to the MRI growth rate, we find the associated stress does
-%change with $Q$. 
-
-
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_result_lambda10}
-  \caption{Magnetic energies as a function of height, in the limit of
-    ideal MHD, for various strengths of self-gravity.   
+  \caption{MRI magnetic energies in ideal polytropic disks
+    for different strengths of self-gravity.    
     \label{compare_result_lambda10}}
 \end{figure}
+
 
 Self-gravity appreciably decreases the MRI growth rates in the
 resistive limit. Fig. \ref{lambda_poly_resis} plots 
@@ -100,13 +82,16 @@ disk ($Q=4$) the instability criterion is marginally satisfied and the
 MRI operates. As $Q$ decreases, 
 Eq. \ref{sano_crit} is violated and the MRI growth rate is
 significantly reduced. This is seen for $Q=0.2$ where $\lambda \geq 2H$ throughout
-the disk. (The instability is not completely surpressed since
-Eq. \ref{sano_crit} is only an approximation.) Although the function
-$f(Q)$ does not change significantly for the range of $Q$ considered, the
-dependence of $\lambda_\mathrm{resis}$ on $f(Q)$ is amplified by the
-denominator $\Lambda_0<1$ in the resistive case. For resistive cases
-we find no nodes in the magnetic energy $E_m$ except at end points,
-i.e. only the longest wavelength survives.    
+the disk. (The instability is not surpressed since
+Eq. \ref{lambda_ideal}---\ref{lambda_resis} is only exact for
+unstratified disks.) Although the function 
+$f(Q)$ does not change significantly for the range of $Q$ considered,
+the dependence of $\lambda_\mathrm{resis}$ on $f(Q)$ is amplified by the
+denominator $\Lambda_0<1$ in the resistive case. Modes in
+Fig. \ref{lambda_poly_resis} have no nodes in the magnetic energy
+$E_m$ except at $z\simeq0,\,H$, i.e. only the longest wavelength survives
+with large resistivity. 
+%self-gravity tips it over    
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/lambda_poly_uniresis}
@@ -118,29 +103,30 @@ i.e. only the longest wavelength survives.
 \end{figure}
 
 
+
 \subsubsection{Layered 
   resistivity} 
-Here we consider disks with mid-plane Elsasser number $\Lambda_0=0.1$
+Here we consider disks with midplane Elsasser number $\Lambda_0=0.1$
 and a variable resistivity profile with
 $A=10^2$. Fig. \ref{poly_layer} compares the magnetic  
 energies for $Q=0.2,\,1$ and $4$. They have similar growth rates, $\gamma/\Omega
 = 0.53,\,0.64$ and $0.66$, respectively. In the non-self-gravitating
 limit ($Q=4$), the MRI is effectively surpressed for
-$z\lesssim0.5H$. This is consistent with layered accretion. However,
-in the massive disk ($Q=0.2$) the mode occupies a wider vertical
+$z\lesssim0.5H$. This is consistent with the picture of layered
+accretion proposed for non-self-gravitating disks \citep{gammie96,fleming03}. 
+However,in the massive disk ($Q=0.2$) the mode occupies a wider vertical
 extent because its wavelength (in units of $H$) is larger. This
-suggests that in massive disks the MRI is not well localized to the
-active layer. 
+suggests that in massive disks, the MRI is not well localized to a
+sub-layer within the height, even when the resisitvity has a layered
+structure.  
 
-%MRI penetrates 
-%d is not as well localized
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_results_poly_layer_amp100}
-  \caption{Magnetic energies as a function of height, for layered polytropic disks with
-    such that the conductivity increases by a 
-    factor of $10^2$ in going from the mid-plane to the upper disk
-    boundary. The vertical lines indicate $\Lambda=1$ for each value
+  \caption{Magnetic energies as a function of height, for polytropic disks
+    in which the conductivity increases by a
+    factor $A=10^2$ in going from the midplane to the upper disk
+    boundary. The vertical lines indicate $\Lambda=1$ for each value 
     of $Q$.
     \label{poly_layer}}
 \end{figure}
@@ -149,9 +135,9 @@ active layer.
 The above experiments show that with increasing 
 disk self-gravity, the MRI becomes more global in the vertical
 direction. We find a similar result in the horizontal direction. 
-In Fig. \ref{compare_growth_poly_kx} we plot MRI growth rates as a
+Fig. \ref{compare_growth_poly_kx} show MRI growth rates as a
 function of $k_x$ for a range of $Q$ values. Increasing self-gravity
-decreases the cut-off horizontal wavenumber for the MRI. We checked
+decreases the cut-off radial wavenumber for the MRI. We checked
 that these modes have negligible density perturbations. Then we can 
 understand this result by invoking the instability criteria for  
 incompressible MRI in an unstratified Keplerian disk,
@@ -165,11 +151,10 @@ where $k_z$ is a vertical wavenumber \citep{kim00}. Setting $k_z^2\sim
 \end{align}
 where order-unity factors have been dropped. Despite a simplistic
 approach, this demonstrates that with increasing self-gravity
-(increasing $f$), we expect that MRI modes with small radial
+(increasing $f$), we expect MRI modes with small radial
 lengthscales to be suppressed.   
 
-%, implying that
-%small-scale MRI does not operate in massive disks. 
+
  
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_growth_poly_varQ_kx}
@@ -181,17 +166,11 @@ lengthscales to be suppressed.
 \end{figure}
 
 
-%these modes are still non-sg
-%use beta = 40 so only a small range of kx need to be simulated to
-%demonstrate this effect
-%{\bf cut-off $k_xH$ decreases with increasing SG -> small-scale MRI
-%  stabilized by self-gravity}
-
 
 \subsection{Influence of self-gravity on the MRI through the linear
   response}  
 Our goal here is to examine whether or not self-gravity can amplify
-the density perturbations caused by the MRI. We compute unstable modes
+the density perturbations associated with the MRI. We compute unstable modes
 in a massive isothermal disk with $Q=0.2$ (corresponding to
 $Q_\mathrm{2D}=0.72$), which is still expected to be marginally  
 stable to gravitational instability \citep[][who find
@@ -252,7 +231,7 @@ self-gravitating. %but formall stable
 
 \subsubsection{Resistive disks}
 We repeat the above calculation for resistive disks, but fix
-$\beta=100$ and vary the mid-plane Elasser number $\Lambda_0$. Growth
+$\beta=100$ and vary the midplane Elasser number $\Lambda_0$. Growth
 rates are shown in Fig. \ref{gravity_energy_resis}. 
 Interestingly, in the highly resistive case
 the magnetic and gravitational energies can be comparable. For 
@@ -273,7 +252,7 @@ in the self-gravitating calculation is fundamentally the MRI.
   \caption{
     Growth rates of MRI modes in an isothermal self-gravitating
     disk with $Q=0.2$ ($Q_\mathrm{2D}=0.72$) at fixed $\beta=100$, 
-    for a range of mid-plane Elasser numbers. The resistivity is
+    for a range of midplane Elasser numbers. The resistivity is
     uniform. The colorbar measures the importance of self-gravity by $\tau$. 
     \label{gravity_energy_resis}}
 \end{figure}
