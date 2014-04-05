@@ -14,10 +14,11 @@ All three cases display distinct GI modes (red/brown branch). The GI
 growth rates are $\gamma\simeq 0.25\Omega,\,0.6\Omega,\,0.8\Omega$ for
 $Q=0.18,\,0.14,\,0.12$, respecitvely. GI is stabilized by magnetic
 pressure for sufficiently small $\beta$. The critical
-field strength increases with increasing self-gravity \citep{nakamura83}. 
+field strength for stabilizating GI increases with increasing
+self-gravity, consistent with \cite{nakamura83}.   
 For $Q=0.18$, GI is stabilized for $\beta \lesssim 15$. Nevertheless, 
 the MRI branch for $\beta < 15$ becomes self-gravitating, so that
-density perturbations will still develop, even though GI does not
+density perturbations still grow, even though GI does not
 formally operate.  
 
 %critical beta increases with $Q$
@@ -29,16 +30,16 @@ formally operate.
     0.5cm]{figures/compare_growth3_kx1_Q0d14.ps} 
   \includegraphics[width=\linewidth,clip=true,trim=0cm 0cm 0cm
     0.5cm]{figures/compare_growth3_kx1_Q0d12.ps} 
-  \caption{Growth rates for modes with $k_xH=1$ in an isothermal disk with
-    $Q=0.18$ (top), $Q=0.14$ (middle) and $Q=0.14$ (bottom). The
+  \caption{Growth rates for modes with $k_xH=1$ in isothermal ideal
+    disks with $Q=0.18$ (top), $Q=0.14$ (middle) and $Q=0.14$ (bottom). The
     colorbar measures the importance of  
-    self-gravity with $\tau$.   
+    self-gravity by $\tau$.   
     \label{compare_growth3}}
 \end{figure}
 
 The GI and MRI branches only interact when their growth rates
-are similar. This is seen in Fig. \ref{compare_growth3} for $Q=0.18$
-where the GI branch approaches an MRI branch at $\beta\simeq 25,\,
+are similar. This is seen in Fig. \ref{compare_growth3} for $Q=~0.18$
+where the GI branch approaches a MRI branch at $\beta\simeq 25,\,
 \gamma\simeq 0.2\Omega$. In fact, following the red curve to smaller
 $\beta$ indicates GI transitions to MRI. The
 `gaps' in the GI and MRI branches for $Q=0.18$ and $Q=0.12$ may be due
@@ -48,11 +49,13 @@ to the phenomenon of avoided crossing, as seen in stars
 one another in frequency and exchange character. However, we cannot
 exclude the possibility  that some modes may have been missed in a 
 numerical search of eigenfrequencies.  
+%maybe ogilvie?
 
 Thus, our results do not rigorously prove that the GI and MRI branches
 do not intersect.  Nevertheless, the continous variation of $\tau$
 strongly suggest that unstable modes can transition smoothly from 
 MRI to GI and vice versa, especially at low $\beta$.     
+%no unique transition
 
 \subsubsection{Case study} 
 In reality, perturbations with a range of $k_x$ will be present for a
@@ -60,14 +63,14 @@ given set of disk parameters. Fig. \ref{compare_growth3_Q01d2} show
 growth rates as a function of $k_x$ in a disk with
 $Q=0.12,\,\beta=20$, where MRI and GI have comparable growth
 rates. All perturbations with $k_xH \lesssim 3.5$ grow dynamically
-($\gamma\gtrsim 0.1\Omega$, or $\lesssim$ 1.6 orbits).    
+($\gamma\gtrsim 0.1\Omega$, or $\lesssim$ 1.6 orbits).
 
 We also plot in Fig. \ref{compare_growth3_Q01d2} growth rates obtained 
 from the Cowling approximation, which isolates MRI; and that from a
 high-resistivity run, which isolates GI by allowing the field lines to
 slip through the fluid. We refer to these as  
 pure MRI and pure GI, respectively.  
-For $k_xH\lesssim 0.2$, growth rates are equal to
+For $k_xH\lesssim 0.7$, growth rates are equal to
 those on the pure MRI and pure GI branches. That is, MRI and GI
 operate independently until their growth rates become equal as a
 function of $k_x$.  
@@ -77,67 +80,28 @@ pure GI/MRI curves with increasing $k_x$, implying stronger interaction between
 magnetic and density perturbations. Comparing pure GI (dashed line)
 and the gravitationally-dominated portions of $\gamma(k_x)$ shows that 
 inclusion of magnetic field stabilizes high-$k_x$ pure GI. (Note also
-the slight decrease in the most unstable $k_x$.) %Since axisymmetric GI
-%is unaffected by shear, 
+the slight decrease in the most unstable $k_x$.) 
 This stabilization is due to magnetic pressure \citep{lizano10}, which
 is consistent with stabilizing the small wavelength GI only.    
 
-%3D geometry doesn't affect 
-%axisymmetric GI doesn't care about shear 
-%
-%two legs of GI are not symmetric 
-%MRI become self-gravitating
-%GI with increasing magnetization
-
 Comparing pure MRI (solid line) and the magnetically-dominated
 portions of $\gamma(k_x)$ show that self-gravity increases MRI growth
-rates at large $k_x$, but the effect is small. %can be used for code
-                                %test 
-Note that this 
-destabilization is through the linear response, rather than through
-the background stratification (which is stabilizing). 
-%For the $k_x$ in the GI
-%interval, MRI is weakly stabilized by self-gravity. 
+rates at large $k_x$. This effect is small but noticeable, which can
+be used as a code test for non-linear simulations. Note that this
+destabilization is through the linear response, rather 
+than through the background stratification (which is stabilizing).  
 
-%magnetic pressure, small scale more effective 
-%, reflected in the full range of $\tau$ displayed by the
-%modes. 
-%mode classification becomes difficult. 
-%the point is: dispersion relation cannot be estimated by computing
-%the MRI and GI separately 
+%smooth transitions, mode exchange
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/compare_growth3_Q0d12_B20.ps}  
   \caption{Growth rates of unstable modes in the massive isothermal
     disk with $Q=0.12$ and $\beta=20$, as a function of the horizontal
     wavenumber $k_x$. The colorbar measures the importance of
-    self-gravity. The solid line corresponds to MRI modes in the
+    self-gravity by $\tau$. The solid line corresponds to MRI modes in the
     Cowling approximation. The dashed line corresponds to pure GI
     modes, obtained by including a high resisitivity in the full
     problem. 
-%    {\bf REDO FIGURE}
     \label{compare_growth3_Q01d2}}
 \end{figure}
 
-%implications for simulations -> need to resolve small-scales 
-
-%Fig. \ref{compare_growth3_Q01d2} again shows smooth
-%transitions between MRI and GI. This means the MRI and GI do indeed
-%interact, but 
-
-%In particular, modes with $1.5 \lessim
-%k_xH\lesssim2$ is neither pure
-
-
-
-%demonstrates that mode classification
-%becomes ambigious when both GI and MRI are present. 
-
-
-
-%\subsection{Layered disks}
-%Can a disk with a dense, resistive midplane and a highly conducting
-%atmosphere  be subject to both MRI and GI but at different heights?  
-
-
-%GI in the midplne and MRI in the surface? 
