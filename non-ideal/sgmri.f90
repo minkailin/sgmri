@@ -1,9 +1,9 @@
 module global
-  logical :: refine, prin
+  logical :: refine, prin, use_old
   character*3 :: eos, method
-  character*4 :: var 
-  integer, parameter :: nvar=2
-  integer :: nz, nk, big_nz, ntrials , kcount 
+  character*4 :: var, vbc 
+  integer, parameter :: nvar=4
+  integer :: nz, nk, big_nz, ntrials , kcount, nuse_old 
   real*8, parameter :: omega=1.0, bigG = 1.0, mstar = 1.0, r0=1.0
   real*8, parameter :: pi = 2d0*acos(0d0) 
   real*8 :: bigQ, beta, shear, kmin, kmax, kx, dk, qmin, qmax, bmin, &
@@ -15,7 +15,7 @@ module global
        kaxis(:), csq(:), eta(:), deta(:), d2eta(:) 
   real*8, allocatable :: T(:,:), Tp(:,:), Tpp(:,:)  
   complex*16, parameter :: ii = (0d0, 1d0)      
-  complex*16 :: sig 
+  complex*16 :: sig, sig_old
   complex*16, allocatable :: vx(:), vy(:), bz(:)
   complex*16, allocatable :: den(:), pot(:), wvector(:), sig_trials(:)
 end module global
@@ -25,13 +25,13 @@ program sgmri
   implicit none 
   integer :: i, j, k  
   integer :: haf_lmax, lmax  
-  character*2 :: str_mode 
+  character*3 :: str_mode 
   real*8  :: zbar, T_l, dT_l, d2T_l, lmode, dummy
   real*8, external :: density, dlogrho, alfven
   namelist /params/ bigQ, beta, kx, var, shear, kmin, kmax, qmin,&
        & qmax, bmin, bmax, eos 
   namelist /resis/ Rm, amp, Rm_min, Rm_max
-  namelist /grid/ zmax, nz, nk  
+  namelist /grid/ zmax, nz, nk, vbc, nuse_old   
   namelist /eigen/ method, min_growth, max_growth, ntrials , refine, prin
   
   write(6,fmt='(A)') '--------------- welcome ---------------'
@@ -84,7 +84,7 @@ program sgmri
         var_max = kmax
      endif
      if(var.eq.'resi') then
-        write(6,fmt='(A)') ' varying horizontal wave number'
+        write(6,fmt='(A)') ' varying resistivity wave number'
         write(6,fmt='(A,f5.2)')    'self-gravity Q =', bigQ
         write(6,fmt='(A,f6.0)')    'plasma beta    =', beta
         write(6,fmt='(A,f4.1)') 'horizontal k   =', kx
@@ -94,7 +94,9 @@ program sgmri
      endif
   endif
   write(6,fmt='(A,A)')    'e.o.s.         = ', eos
+  write(6,fmt='(A,f4.0)')    'conduct. boost = ', amp
   write(6,fmt='(A,A)')    'method         = ', method
+  write(6,fmt='(A,A)')    'vert. b.c.     = ', vbc
   !setup parameters (dimensionless units)
   omegak  = sqrt(bigG*mstar/r0**3d0)/omega 
   kappa   = sqrt(2.0*(2.0 - shear))
@@ -179,8 +181,8 @@ program sgmri
      write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
      
      do j=1, nz 
-        write(99, fmt='(7(e22.15,x))') zaxis(j), dnorm(j), valf(j),&
-             & csq(j), eta(j), drho(j), deta(j)
+        write(99, fmt='(9(e22.15,x))') zaxis(j), dnorm(j), valf(j),&
+             & csq(j), eta(j), drho(j), deta(j), d2rho(j), d2eta(j)
      enddo
      
      
@@ -214,19 +216,26 @@ program sgmri
 
         write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
         do j=1, nz 
-           write(99, fmt='(7(e22.15,x))') zaxis(j), dnorm(j), valf(j)&
-                &, csq(j), eta(j), drho(j), deta(j)
+           write(99, fmt='(9(e22.15,x))') zaxis(j), dnorm(j), valf(j)&
+                &, csq(j), eta(j), drho(j), deta(j), d2rho(j), d2eta(j)
         enddo
 
         
      endif
     
-     write(str_mode, fmt='(I2)') i 
-     
+     write(str_mode, fmt='(I3)') i 
+
+     if(i.ge.nuse_old) then
+     use_old = .true.
+     else
+     use_old = .false.
+     endif
+
      !get largest growth mode 
 
      call maximize_growth_rate
-     
+     sig_old = sig
+ 
      !output
      write(20, fmt='(6(e22.15,x))') bigQ, beta, kx, dble(sig), dimag(sig), condition 
      
