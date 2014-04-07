@@ -2,7 +2,7 @@ module global
   logical :: refine, prin, use_old
   character*3 :: eos, method
   character*4 :: var, vbc 
-  integer, parameter :: nvar=4
+  integer, parameter :: nvar=3
   integer :: nz, nk, big_nz, ntrials , kcount, nuse_old 
   real*8, parameter :: omega=1.0, bigG = 1.0, mstar = 1.0, r0=1.0
   real*8, parameter :: pi = 2d0*acos(0d0) 

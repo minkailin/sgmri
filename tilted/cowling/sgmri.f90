@@ -1,13 +1,13 @@
 module global
-  logical :: refine, prin, use_old
+  logical :: refine, prin, use_old, beta_fix
   character*3 :: eos, method
   character*4 :: var, vbc 
-  integer, parameter :: nvar=4
-  integer :: nz, nk, big_nz, ntrials , kcount, nuse_old 
+  integer, parameter :: nvar=3
+  integer :: nz, nk, big_nz, ntrials , kcount, nuse_old, Nzmid
   real*8, parameter :: omega=1.0, bigG = 1.0, mstar = 1.0, r0=1.0
   real*8, parameter :: pi = 2d0*acos(0d0) 
-  real*8 :: bigQ, beta, shear, kmin, kmax, kx, dk, qmin, qmax, bmin, &
-       bmax, var_min, var_max 
+  real*8 :: bigQ, beta, tilt, shear, kmin, kmax, kx, dk, qmin, qmax, bmin, &
+       bmax, var_min, var_max, ep_min, ep_max, beta_tot
   real*8 :: zmax, dz    
   real*8 :: kappa, omegak, omegaz2, fQ, Rm, amp, zstar, Rm_max, Rm_min
   real*8 :: condition, min_growth, max_growth, sig_re, sig_im    
@@ -28,8 +28,8 @@ program sgmri
   character*3 :: str_mode 
   real*8  :: zbar, T_l, dT_l, d2T_l, lmode, dummy
   real*8, external :: density, dlogrho, alfven
-  namelist /params/ bigQ, beta, kx, var, shear, kmin, kmax, qmin,&
-       & qmax, bmin, bmax, eos 
+  namelist /params/ bigQ, beta, tilt, kx, var, shear, kmin, kmax, qmin,&
+       & qmax, bmin, bmax, ep_min, ep_max, eos, beta_fix  
   namelist /resis/ Rm, amp, Rm_min, Rm_max
   namelist /grid/ zmax, nz, nk, vbc, nuse_old   
   namelist /eigen/ method, min_growth, max_growth, ntrials , refine, prin
@@ -44,15 +44,28 @@ program sgmri
   read(7, nml=eigen) 
   close(7)
 
+  if(beta_fix .eqv. .true.) then  
+  beta_tot = beta  !input beta is actually the total beta
+  beta = (1d0 + tilt*tilt)*beta_tot  !beta in the code is vertical beta 
+  endif   
+
   if( (eos.eq.'pol').and.(zmax .ge. 1d0)) then
      print*, 'polytropic disk does not allow zmax>1'
      stop
+  endif
+
+  if(mod(nz,2).eq.0) then
+     print*, 'Nz needs to be odd but Nz=', nz
+     stop
+  else
+     Nzmid = (Nz+1)/2
   endif
 
   if(nk .eq. 1) then 
      write(6,fmt='(A)') ' fixed parameters'
      write(6,fmt='(A,f5.2)') 'self-gravity Q =', bigQ
      write(6,fmt='(A,f6.0)') 'plasma beta    =', beta
+     write(6,fmt='(A,f6.0)') 'By/Bz          =', tilt
      write(6,fmt='(A,f4.1)') 'horizontal k   =', kx
      write(6,fmt='(A,f6.2)') 'elsasser num   =', Rm
   else
@@ -60,8 +73,9 @@ program sgmri
         write(6,fmt='(A)') ' varying gravity'
         write(6,fmt='(A,f5.2,A,f5.2)') 'self-gravity Q =', qmin, ' to ' ,qmax 
         write(6,fmt='(A,f6.0)')    'plasma beta    =', beta
+        write(6,fmt='(A,f6.0)')    'By/Bz          =', tilt
         write(6,fmt='(A,f4.1)')    'horizontal k   =', kx
-        write(6,fmt='(A,f6.2)') 'elsasser num   =', Rm
+        write(6,fmt='(A,f6.2)')    'elsasser num   =', Rm
         var_min = qmin
         var_max = qmax 
      endif
@@ -69,6 +83,7 @@ program sgmri
         write(6,fmt='(A)') ' varying B field'
         write(6,fmt='(A,f5.2)')   'self-gravity Q =', bigQ
         write(6,fmt='(A,f6.0,A,f6.0)') 'plasma beta    =',bmin, ' to ' ,bmax 
+        write(6,fmt='(A,f6.0)')    'By/Bz          =', tilt
         write(6,fmt='(A,f4.1)')    'horizontal k   =', kx
         write(6,fmt='(A,f6.2)') 'elsasser num   =', Rm
         var_min = log10(bmin)
@@ -78,20 +93,35 @@ program sgmri
         write(6,fmt='(A)') ' varying horizontal wave number'
         write(6,fmt='(A,f5.2)')    'self-gravity Q =', bigQ
         write(6,fmt='(A,f6.0)')    'plasma beta    =', beta
+        write(6,fmt='(A,f6.0)')    'By/Bz          =', tilt
         write(6,fmt='(A,f4.1,A,f4.1)') 'horizontal k   =', kmin, ' to ' ,kmax 
         write(6,fmt='(A,f6.2)') 'elsasser num   =', Rm
         var_min = kmin
         var_max = kmax
      endif
      if(var.eq.'resi') then
-        write(6,fmt='(A)') ' varying resistivity wave number'
+        write(6,fmt='(A)') ' varying resistivity'
         write(6,fmt='(A,f5.2)')    'self-gravity Q =', bigQ
         write(6,fmt='(A,f6.0)')    'plasma beta    =', beta
+        write(6,fmt='(A,f6.0)')    'By/Bz          =', tilt
         write(6,fmt='(A,f4.1)') 'horizontal k   =', kx
         write(6,fmt='(A,f6.2,A,f6.2)') 'elsasser num   =', Rm_min, ' to ' , Rm_max
         var_min = log10(Rm_min)
         var_max = log10(Rm_max) 
      endif
+     if(var.eq.'tilt') then
+        write(6,fmt='(A)') ' varying By/Bz'
+        write(6,fmt='(A,f5.2)')    'self-gravity Q =', bigQ
+        write(6,fmt='(A,f6.0)')    'plasma beta    =', beta
+        write(6,fmt='(A,f6.0,A,f6.0)') 'By/Bz    =',ep_min, ' to ' , ep_max
+        write(6,fmt='(A,f4.1)') 'horizontal k   =', kx
+        write(6,fmt='(A,f6.2)') 'elsasser num   =', Rm
+!        var_min = log10(ep_min)
+!        var_max = log10(ep_max)
+        var_min = ep_min
+        var_max = ep_max 
+     endif
+
   endif
   write(6,fmt='(A,A)')    'e.o.s.         = ', eos
   write(6,fmt='(A,f4.0)')    'conduct. boost = ', amp
@@ -109,7 +139,7 @@ program sgmri
   allocate(kaxis(nk))
   allocate(dnorm(nz))!rho/rho0, rho0=rho(z=0)
   allocate(drho(nz))!dlogrho/dz
-  allocate(d2rho(nz))!d^2 (rho/rho0)/dz^2 / rho0
+  allocate(d2rho(nz))!d^2 (rho/rho0)/dz^2 / (rho/rho0)
   allocate(valf(nz))!1/beta*rho
   allocate(csq(nz))
   allocate(eta(nz))
@@ -128,24 +158,26 @@ program sgmri
 
   if(refine .eqv. .true.) allocate(sig_trials(nk))
 
-  !setup Z axis. these are extrema of T_lmax(Z/zmax) plus end point
-  haf_lmax = nz-1
-  lmax = 2*haf_lmax
-  zaxis(1)  = 0d0
-  zaxis(nz) = zmax
-  do j = haf_lmax+1, lmax-1
-     zaxis(j-haf_lmax+1) = -zmax*cos(dble(j)*pi/lmax)
-  enddo
+  !setup Z axis. these are extrema of T_lmax(Z/zmax) plus end point  
+  lmax = nz-1
 
+  zaxis(Nzmid) = 0d0 
+  do j=Nzmid+1, nz 
+     zaxis(j) = -zmax*cos(pi*(j-1d0)/lmax)
+  enddo
+  do j=1, Nzmid-1 
+     zaxis(j) = -zaxis(Nz - j + 1)
+  enddo
+  
   !setup the chebyshev matrices
   do j=1, nz !jth physical grid
      zbar = zaxis(j)/zmax
      do k=1, nz !kth basis
-        lmode = 2d0*(k-1d0)!lth chebyshev mode
+        lmode = k-1d0
         call chebyshev_poly(lmode, zbar, T_l, dT_l, d2T_l)
         T(j,k)  = T_l
         Tp(j,k) = dT_l/zmax     !division needed to get d/dz
-        Tpp(j,k)= d2T_l/zmax**2
+        Tpp(j,k)= d2T_l/zmax**2d0
      enddo
   enddo
 
@@ -164,7 +196,7 @@ program sgmri
   if(refine .eqv. .true.) then
      open(20, file='eigenvalues.dat')
      do i=1, nk 
-        read(20, fmt='(6(e22.15,x))') dummy, dummy, dummy, sig_re, sig_im, dummy
+        read(20, fmt='(7(e22.15,x))') dummy, dummy, dummy, dummy, sig_re, sig_im, dummy
         sig_trials(i) = dcmplx(sig_re, sig_im)
      enddo
      close(20) 
@@ -178,7 +210,7 @@ program sgmri
 
      call get_basic 
      
-     write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
+     write(100, fmt='(6(e22.15,x))') zmax, dble(nz), fQ, shear, Rm, tilt
      
      do j=1, nz 
         write(99, fmt='(9(e22.15,x))') zaxis(j), dnorm(j), valf(j),&
@@ -200,6 +232,10 @@ program sgmri
         endif
         if(var.eq.'beta') then
            beta = 10d0**kaxis(i)
+          if(beta_fix .eqv. .true.) then  
+           beta_tot = beta  !input beta is actually the total beta
+           beta = (1d0 + tilt*tilt)*beta_tot  !beta in the code is vertical beta           
+          endif
            write(6,fmt='(A,A,A,f7.1,A)') '---------------', var, '= ',beta,'---------------'
            call get_basic 
         endif
@@ -213,8 +249,14 @@ program sgmri
            write(6,fmt='(A,A,a,f5.2,A)') '---------------', var, '=', Rm,'----------------'
            call get_basic
         endif 
+        if(var.eq.'tilt') then
+           tilt = kaxis(i) 
+           if(beta_fix .eqv. .true.)  beta = (1d0 + tilt*tilt)*beta_tot !beta in the code is vertical beta
+           write(6,fmt='(A,A,a,f7.1,A)') '---------------', var, '=',tilt,'----------------'
+           call get_basic
+        endif
 
-        write(100, fmt='(5(e22.15,x))') zmax, dble(nz), fQ, shear, Rm
+        write(100, fmt='(6(e22.15,x))') zmax, dble(nz), fQ, shear, Rm, tilt
         do j=1, nz 
            write(99, fmt='(9(e22.15,x))') zaxis(j), dnorm(j), valf(j)&
                 &, csq(j), eta(j), drho(j), deta(j), d2rho(j), d2eta(j)
@@ -237,7 +279,7 @@ program sgmri
      sig_old = sig
  
      !output
-     write(20, fmt='(6(e22.15,x))') bigQ, beta, kx, dble(sig), dimag(sig), condition 
+     write(20, fmt='(7(e22.15,x))') bigQ, beta, tilt, kx, dble(sig), dimag(sig), condition 
      
      open(10, file='eigenfunctions_'//trim(adjustl(str_mode))//'.dat')      
      do j=1, big_nz 

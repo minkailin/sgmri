@@ -406,8 +406,8 @@ subroutine construct_matrix(big_matrix)
 
 !EQ3
      L31(i,:) = (sig*kx/fQ)*T(i,:)
-     L33(i,:) = Tpp(i,:) + dden*Tp(i,:) + ( (  sig**2d0/csq(i)   &  
-          + rho/(csq(i)*bigQ))/fQ**2d0 )*T(i,:) 
+     L33(i,:) = Tpp(i,:) + dden*Tp(i,:) + (  sig**2d0/csq(i)/fQ**2d0   &  
+           )*T(i,:) 
      L34(i,:) = dden*Tp(i,:) + kxsq*T(i,:) 
      
 !EQ4
@@ -508,20 +508,20 @@ subroutine construct_matrix(big_matrix)
    big_matrix(1:nz, 1:nz)         = L11
    big_matrix(1:nz, nz+1 : 2*nz)  = L12
    big_matrix(1:nz, 2*nz+1:3*nz)  = L13
-   big_matrix(1:nz, 3*nz+1:4*nz)  = L14 
+!   big_matrix(1:nz, 3*nz+1:4*nz)  = L14 
 
    big_matrix(nz+1:2*nz, 1:nz)         = L21
    big_matrix(nz+1:2*nz, nz+1 : 2*nz)  = L22
    big_matrix(nz+1:2*nz, 2*nz+1:3*nz)  = L23
-   big_matrix(nz+1:2*nz, 3*nz+1:4*nz)  = L24
+!   big_matrix(nz+1:2*nz, 3*nz+1:4*nz)  = L24
 
    big_matrix(2*nz+1:3*nz, 1:nz)         = L31
    big_matrix(2*nz+1:3*nz, nz+ 1 :2*nz)  = L32 !this is for free bc
    big_matrix(2*nz+1:3*nz, 2*nz+1:3*nz)  = L33
-   big_matrix(2*nz+1:3*nz, 3*nz+1:4*nz)  = L34
+!   big_matrix(2*nz+1:3*nz, 3*nz+1:4*nz)  = L34
 
-   big_matrix(3*nz+1:4*nz, 2*nz+1:3*nz)  = L43
-   big_matrix(3*nz+1:4*nz, 3*nz+1:4*nz)  = L44
+!   big_matrix(3*nz+1:4*nz, 2*nz+1:3*nz)  = L43
+!   big_matrix(3*nz+1:4*nz, 3*nz+1:4*nz)  = L44
   return
 end subroutine construct_matrix
 
@@ -703,7 +703,7 @@ subroutine maximize_growth_rate
   vx(:)  = wvector(1:nz)
   vy(:)  = wvector(nz+1:2*nz)
   den(:) = wvector(2*nz+1:3*nz)
-  pot(:) = wvector(3*nz+1:4*nz)
+  pot(:) = 0d0 !wvector(3*nz+1:4*nz)
   
   call svd_final_matrix 
   
