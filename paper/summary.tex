@@ -7,18 +7,94 @@ magneto-rotational instability (MRI) is affected by disk self-gravity
 (SG).   
 
 
-For a vertical field, the requirement for the MRI is that   
-its vertical wavelength $\lambda \lesssim H$. While $\lambda$ is independent of
-the strength of self-gravity $Q$, the disk thickness $H=H(Q)$ 
-decreases with increasing SG, which can reduce MRI growth rates. 
+For a vertical field, the requirement for the MRI {\bf to operate} is that   
+its vertical wavelength $\lambda \lesssim 2H$. 
+{\bf 
+%While $\lambda$ is independent of
+%the strength of self-gravity $Q$ {\bf for fixed $\beta$}, 
+The disk thickness $H=H(Q)$ decreases with increasing SG. This can
+reduce MRI growth rates when 
+$\beta$, and hence $\lambda$, is fixed.  
+}
 Thus, a sufficiently massive disk can potentially suppress the MRI. 
-The MRI is also restricted to larger radial
+The MRI is also restricted to larger radial 
 scales as $Q$ is lowered. This means that the MRI becomes more global
-in self-gravitating disks. Finally, the condition $\lambda < H$ 
-requires $f(Q)/\sqrt{\beta}$ to be sufficiently small, so weaker
-fields are required to permit the MRI with increasing self-gravity.   
-%since MRI is 3D, strong SG makes it 2D 
+in self-gravitating disks. 
+
+{\bf
+  The condition $\lambda < 2H$ 
+  %requires $f(Q)/\sqrt{\beta}$ to
+  %  be sufficiently small (see
+  %  Eq. \ref{lambda_ideal}---\ref{lambda_resis}), so larger values of
+  %  $\beta$ are required to  
+  %  permit the MRI with increasing self-gravity, since $f(Q)$ increases
+  %  with decreasing $Q$. 
+  may be written more precisely as 
+  \begin{align}\label{cond1}
+    \frac{n}{\mathrm{min}(\Lambda_0, 1)}\frac{f(Q)}{\sqrt{\beta}} \lesssim 1,
+  \end{align}
+  where $n\sim 3$ is a numerical factor and
+  $\mathrm{min}(\Lambda_0,1)$ accounts for the ideal and resistive
+  limits (see Eq. \ref{lambda_ideal}---\ref{lambda_resis}). Since $f$
+  increases with decreasing $Q$, Eq. \ref{cond1} implies
+  the MRI requires larger $\beta$ values with  
+  increasing self-gravity. 
+  For definiteness, consider the ideal polytropic disk. Then Eq. \ref{cond1} is
+  \begin{align}\label{cond2}
+    \beta^{-1/2} \lesssim
+    \frac{\sqrt{15}}{4\pi}\sqrt{Q}\arccos{\left(\frac{Q}{1+Q}\right)}. 
+  \end{align}
+  For a non-self-gravitating disk, $Q\to\infty$ and Eq. \ref{cond2} is
+  $\beta \gtrsim 16\pi^2/30\simeq 5$. For $Q\ll 1$, the condition is
+  $\beta \gtrsim 64/15Q$, giving $\beta\gtrsim 20$ for
+  $Q=0.2$. We confirmed this numerically, finding that the growth rate
+  $\gamma  \lesssim 0.1$ when $\beta \lesssim 3.3$ for $Q=20$ and
+  $\beta \lesssim 17$ for $Q=0.2$.  
+%  Inserting $Q\sim 0.2$ for an ideal disk marginally stable to
+%  self-gravity, we find $v_{A0}\lesssim 0.2\csmid$ for the MRI. 
+
+  We can also place an upper bound on the field strength
+  $B_z$. Writing $v_{A0} = B_z\sqrt{4\pi G Q/\mu_0\Omega^2}$, we find 
+  Eq. \ref{cond2} is independent of $Q$ for $Q\ll1$, and 
+  \begin{align}\label{cond3}
+    \frac{B_z}{\csmid\Omega}\sqrt{\frac{\pi G}{\mu_0}}\lesssim
+    \frac{\sqrt{15}}{16}
+  \end{align}
+  is needed for the MRI to operate in an ideal polytropic disk with strong
+  self-gravity. Although both the MRI wavelength and disk thickness
+  vanish as $Q\to 0$, the MRI can still operate provided the field is
+  sufficiently weak according to Eq. \ref{cond3}.  
+
+%Q->0, thickness -> 0 
+
  
+%This condition translates to an upper
+%  limit on the actual field strength $B_z$. 
+%
+%  For definiteness, consider
+%  the polytropic disk with $Q \ll 1$. The disk thickness is then 
+%  $H\sim \csmid\pi\sqrt{Q}/2\Omega$. This applies at marginal
+%  gravitatational stability for which $Q\sim 0.2$. Next, expressing
+%  $\rho_0$ in terms of $Q$, we have $\lambda\sim 4\pi B_z \sqrt{\pi
+%    GQ/\mu_0}/\Omega^2$. Then 
+%  \begin{align}
+%    \frac{B_z}{\csmid\Omega}\sqrt{\frac{\pi G}{\mu_0}}\lesssim
+%    \frac{1}{4}
+%  \end{align}
+%  is needed for the MRI when self-gravity is strong. 
+  % We can quanitfy this by comparing
+  %$\lambda$ to the Jeans length $\lambda_J \equiv 2
+  %c_s^2/G\Sigma\sim 2\csmid^2/G\rho_0 H \sim 8\pi f^2Q H$. Then $\lambda
+  %< H $ translates to
+  %\begin{align}    
+  %\frac{\lambda}{\lambda_J}\lesssim \frac{1}{8\pi f^2(Q) Q}.
+  %\end{align}
+  %Given a mid-plane density $\rho_0$, and hence $Q$, the left-hand-side
+  %is a measure of the field strength. 
+  
+}
+
+
 Interestingly, for layered resistivity we do not find layered
 magnetic perturbations when the disk is massive. This is 
 consistent with the MRI becoming vertically global with increasing self-gravity.    

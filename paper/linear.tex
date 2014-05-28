@@ -89,43 +89,58 @@ can also be reduced to the above form.
 
 
 \subsection{Domain and boundary conditions}\label{domain}
+{\bf 
+For a vertical field, considered in \S\ref{result1} and
+\S\ref{result2}, we take $\bm{U}$ to be an even function of
+$z$. Odd modes are permitted in \S\ref{result3}, where an azimuthal field may
+be included. In both
+setups the gravitational potential boundary condition, given by
+\cite{goldreich65a}, is
+%The potential boundary
+%condition is 
+%\begin{align}
+%  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0 \label{pot_bc1},
+%\end{align}
+%and is adapted from \cite{goldreich65a}. The general form of this
+%potential boundary condition is used for case 2 below.
+%and 
+%the potential boundary condition is 
+\begin{align}
+  \dphi^\prime(\pm \zmax) \pm k_x\dphi(\pm\zmax) =  - \left. \frac{\Omega^2
+    \rho \xi_z}{\rho_0Q}\right|_{\pm\zmax}, \label{pot_bc2}
+\end{align}
+where $\xi_z=\dvz/\imgi\sigma$ is the vertical Lagrangian
+displacement, and $z=\pm Z_s$ is the upper and lower disk surfaces,
+respectively. 
+}
+%In practice,  Eq. \ref{pot_bc1} and \ref{pot_bc2} are
+%very similar because $\rho(\pm\zmax)\ll\rho_0$. 
+%}
 
 \subsubsection{Case 1: vertical field}
-We impose $\bm{U}$ to be an even function of $z$, so that
-$d\bm{U}/dz=0$ at $z=0$. This permits higher numerical resolution by
-reducing the computational domain to $z\in~[0,Z_s]$.  
-At the upper disk boundary $z=Z_s$ we set 
+{\bf Here we impose} $d\bm{U}/dz=0$ at $z=0$. This permits higher
+numerical resolution by reducing the computational domain to
+$z\in~[0,Z_s]$. At the upper disk boundary $z=Z_s$ we set  
 \begin{align}
   \dbx(Z_s) = \dby(Z_s) = \dvz (Z_s) = 0, 
 \end{align}
-so the field remains vertical. The potential boundary
-condition is 
-\begin{align}
-  \dphi^\prime(\zmax) + k_x\dphi(\zmax) = 0 \label{pot_bc1},
-\end{align}
-and is adapted from \cite{goldreich65a}. The general form of this
-potential boundary condition is used for case 2 below. 
+so the field remains vertical. {\bf The derivation of the magnetic
+  field boundary conditions may be found in \cite{sano99}.} 
 
 \subsubsection{Case 2: tilted field} 
 In this more general setup the computational domain is
-$z\in[-Z_s, Z_s]$. At the disk surfaces we adopt the `halo' model of
+$z\in[-Z_s, Z_s]$ {\bf and no symmetry across the midplane is
+  enforced.} At the disk surfaces we adopt the `halo' model of
 \cite{gammie94}, so that
 \begin{align}
   \Delta(\pm Z_s) & = 0, \\
   \dby(\pm Z_s) & = 0,\\
   \dbz(\pm Z_s) \mp \imgi \dbx(\pm Z_s) &= 0,
 \end{align}
-and the potential boundary condition is 
-\begin{align}
-  \dphi^\prime(\pm \zmax) \pm k_x\dphi(\pm\zmax) =  - \left. \frac{\Omega^2
-    \rho \xi_z}{\rho_0Q}\right|_{\pm\zmax}, \label{pot_bc2}
-\end{align}
-where $\xi_z=\dvz/\imgi\sigma$ is the vertical Lagrangian
-displacement. In practice,  Eq. \ref{pot_bc1} and \ref{pot_bc2} are
-very similar because $\rho(\pm\zmax)\ll\rho_0$. 
-
-
-
+    {\bf and this case permits $\dd v_z(\pm Z_s)\neq0$.}
+%      In practice, the gravitational potential boundary condition is
+%      similar to case 1 because $\rho(\pm Z_s)\ll\rho_0$.}
+    
 \subsection{Numerical procedure}
 We use a pseudo-spectral method to solve the set of linearized
 equations. Let
