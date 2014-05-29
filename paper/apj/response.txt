@@ -1,0 +1,57 @@
+I thank the reviewer for comments and questions. I have performed
+additional calculations and extended the discussion section to address
+the issues raised below. Revisions to the manuscript are made in
+bold. 
+
+**********************************************************************
+
+1) For a fixed value of B_z, massive disks would have larger values of
+plasma beta, compared to the less massive disks. In actual disks
+around young stars or compact objects, how large is the required value
+of B_z in order for self-gravity to affect MRI modes?  
+**********************************************************************
+I have expanded Section 7 to include a quantitative discussion on the
+limiting field strength to permit the MRI. I show that a larger plasma
+beta is required in strongly self-gravitating disks. I also estimate
+the upper limit to the field strength, B_z, for Q<<1. 
+
+In addition, Fig. 2 in Section 4.1.1 has been updated to include a new
+calculation, \beta=25 and \Lambda_0=10. This case demonstrates the
+stabilizing effect of self-gravity in the ideal limit. 
+**********************************************************************
+
+2) The amplitude of the resistivity variation from the disk surface to
+the midplane (A=eta(0) / eta(infinity) ) is fixed to 100. If you take
+larger values of A, such as A=10^3 or 10^4, as seen in Figure 1 of
+Gressel et al. (2012), is there a qualitative change in the result?
+For example, in the Q=0.2 case in Figure 5, does the magnetic energy
+still penetrate into the resistive zone? In a massive disk, the value
+of A is expected to be large. Could you comment on the qualitative
+tendency for high A?  
+**********************************************************************
+Additional calculations with A=10^3 and A=10^4 are described in
+Section 4.1.2. Similar results were obtained for large A with small
+Lambda_0. When the midplane resistivity (or Lambda_0) is fixed and A
+is increased, the magnetic energy in the resistive zone lessens. For
+A=10^3 or A=10^4 and Lambda_0=0.1, both self-gravitating and
+non-self-gravitating disks show little magnetic energy in the
+resistive zones. However, lowering Lambda_0 with these larger values
+of A yields similar results to the case in Fig. 5. 
+
+
+**********************************************************************
+3) Section 3.1.1 Case 1: vertical field
+Please mention that the odd modes are considered in Section 6, and
+cite references for explaining how the boundary conditions, Equation
+(29), are derived, e.g., Sano and Miyama (1999). 
+**********************************************************************
+Section 3.1 has been re-structured. I describe where in the results
+sections are the different field setups considered. I also make the
+reference to Sano & Miyama (1999). 
+
+**********************************************************************
+4) Caption of Figure 11
+Q=0.14 (bottom) --> Q=0.12 (bottom) 
+**********************************************************************
+Corrected.
+**********************************************************************
