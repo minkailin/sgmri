@@ -89,7 +89,7 @@ can also be reduced to the above form.
 
 
 \subsection{Domain and boundary conditions}\label{domain}
-{\bf 
+ 
 For a vertical field, considered in \S\ref{result1} and
 \S\ref{result2}, we take $\bm{U}$ to be an even function of
 $z$. Odd modes are permitted in \S\ref{result3}, where an azimuthal field may
@@ -112,32 +112,32 @@ setups the gravitational potential boundary condition, given by
 where $\xi_z=\dvz/\imgi\sigma$ is the vertical Lagrangian
 displacement, and $z=\pm Z_s$ is the upper and lower disk surfaces,
 respectively. 
-}
+
 %In practice,  Eq. \ref{pot_bc1} and \ref{pot_bc2} are
 %very similar because $\rho(\pm\zmax)\ll\rho_0$. 
 %}
 
 \subsubsection{Case 1: vertical field}
-{\bf Here we impose} $d\bm{U}/dz=0$ at $z=0$. This permits higher
+ Here we impose $d\bm{U}/dz=0$ at $z=0$. This permits higher
 numerical resolution by reducing the computational domain to
 $z\in~[0,Z_s]$. At the upper disk boundary $z=Z_s$ we set  
 \begin{align}
   \dbx(Z_s) = \dby(Z_s) = \dvz (Z_s) = 0, 
 \end{align}
-so the field remains vertical. {\bf The derivation of the magnetic
-  field boundary conditions may be found in \cite{sano99}.} 
+so the field remains vertical. The derivation of the magnetic
+  field boundary conditions may be found in \cite{sano99}.
 
 \subsubsection{Case 2: tilted field} 
 In this more general setup the computational domain is
-$z\in[-Z_s, Z_s]$ {\bf and no symmetry across the midplane is
-  enforced.} At the disk surfaces we adopt the `halo' model of
+$z\in[-Z_s, Z_s]$ and no symmetry across the midplane is
+  enforced. At the disk surfaces we adopt the `halo' model of
 \cite{gammie94}, so that
 \begin{align}
   \Delta(\pm Z_s) & = 0, \\
   \dby(\pm Z_s) & = 0,\\
   \dbz(\pm Z_s) \mp \imgi \dbx(\pm Z_s) &= 0,
 \end{align}
-    {\bf and this case permits $\dd v_z(\pm Z_s)\neq0$.}
+     and this case permits $\dd v_z(\pm Z_s)\neq0$.
 %      In practice, the gravitational potential boundary condition is
 %      similar to case 1 because $\rho(\pm Z_s)\ll\rho_0$.}
     
